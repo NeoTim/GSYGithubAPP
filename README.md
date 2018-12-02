@@ -9,6 +9,13 @@
 
 在我的这个分支上，按照我自己的习惯对目录结构、代码风格等进行了大幅度修改，但并没有增加、修改功能。
 
+-----
+
+[![GitHub stars](https://img.shields.io/github/stars/CarGuo/GSYGithubAPP.svg)](https://github.com/damoqiongqiu/GSYGithubAPP/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/CarGuo/GSYGithubAPP.svg)](https://github.com/damoqiongqiu/GSYGithubAPP/network)
+[![GitHub issues](https://img.shields.io/github/issues/CarGuo/GSYGithubAPP.svg)](https://github.com/damoqiongqiu/GSYGithubAPP/issues)
+[![GitHub license](https://img.shields.io/github/license/CarGuo/GSYGithubAPP.svg)](https://github.com/damoqiongqiu/GSYGithubAPP/blob/master/LICENSE)
+
 ### 2.使用方法
 
 - 配置好react native开发环境，可参阅 [【搭建环境】](http://reactnative.cn/docs/0.51/getting-started.html) | [【React Native开发（一、入门）】](http://www.jianshu.com/p/97692b1c451d)
