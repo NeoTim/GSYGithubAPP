@@ -6,12 +6,11 @@
 
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import getRouter from './app/router';
 import { Provider } from 'react-redux';
-import store from './app/store/'
-import { getLanguageCurrent } from './app/utils/actionUtils'
+import { getLanguageCurrent, getRefreshHandler } from './app/utils/actionUtils'
 import { changeLocale } from './app/i18n'
-import { getRefreshHandler } from './app/utils/actionUtils'
+import getRouter from './app/router';
+import store from './app/store/'
 import * as Constant from './app/assets/style/constant'
 
 export default class App extends Component {
