@@ -47,6 +47,14 @@
 
 **特别注意：如果在启动项目时出现了node相关的错误，请使用 npm chache clean 清掉所有本地缓存，然后 重新执行 npm install。如果npm速度慢，尝试把registry设置成淘宝的源。**
 
+### 目录结构
+
+项目主要目录结构如下：
+
+<img src="./docs/app-structure.png"/>
+
+其它目录和文件你自己看文件名应该能猜到用途，不解释。
+
 ### 运行效果
 
 ![](./docs/1.gif)
