@@ -33,7 +33,7 @@ class PushDetailHeader extends Component {
     }
 
     render() {
-        let {actionUser, actionUserPic, pushTime, pushDes} = this.props;
+        let { actionUser, actionUserPic, pushTime, pushDes } = this.props;
         return (
             <View
                 style={[{
@@ -43,43 +43,43 @@ class PushDetailHeader extends Component {
                     paddingHorizontal: Constant.normalMarginEdge,
                     paddingTop: Constant.normalMarginEdge,
                     borderRadius: 4,
-                }, styles.shadowCard, {backgroundColor: Constant.primaryColor}]}
+                }, styles.shadowCard, { backgroundColor: Constant.primaryColor }]}
                 onPress={() => {
                     this.props.onPressItem && this.props.onPressItem();
                 }}>
                 <View style={[styles.flexDirectionRowNotFlex,]}>
                     <UserImage uri={actionUserPic}
-                               loginUser={actionUser}
-                               resizeMethod="scale"
-                               style={[{
-                                   height: Constant.bigIconSize, width: Constant.bigIconSize,
-                                   marginTop: 5,
-                                   borderRadius: Constant.bigIconSize / 2
-                               }]}/>
-                    <View style={{flex: 1, marginLeft: Constant.normalMarginEdge}}>
+                        loginUser={actionUser}
+                        resizeMethod="scale"
+                        style={[{
+                            height: Constant.bigIconSize, width: Constant.bigIconSize,
+                            marginTop: 5,
+                            borderRadius: Constant.bigIconSize / 2
+                        }]} />
+                    <View style={{ flex: 1, marginLeft: Constant.normalMarginEdge }}>
                         <View
-                            style={[styles.flexDirectionRowNotFlex, styles.centerH, {marginVertical: Constant.normalMarginEdge / 2}]}>
+                            style={[styles.flexDirectionRowNotFlex, styles.centerH, { marginVertical: Constant.normalMarginEdge / 2 }]}>
                             <Icon name={'edit'}
-                                  backgroundColor={Constant.transparentColor}
-                                  color={Constant.miWhite} size={13}
-                                  style={styles.centerH}>
+                                backgroundColor={Constant.transparentColor}
+                                color={Constant.miWhite} size={13}
+                                style={styles.centerH}>
                                 <Text style={[styles.miLightSmallText]}>
                                     {"  " + this.props.editCount + "  "}
                                 </Text>
                             </Icon>
                             <IconC name={'diff-added'}
-                                   backgroundColor={Constant.transparentColor}
-                                   color={Constant.miWhite} size={13}
-                                   style={styles.centerH}>
+                                backgroundColor={Constant.transparentColor}
+                                color={Constant.miWhite} size={13}
+                                style={styles.centerH}>
                                 <Text style={[styles.miLightSmallText]}>
                                     {" " + this.props.addCount + "  "}
                                 </Text>
                             </IconC>
                             <Icon name="minus-square-o"
-                                  iconStyle={{marginRight: 3}}
-                                  backgroundColor={Constant.transparentColor}
-                                  color={Constant.miWhite} size={13}
-                                  style={styles.centerH}>
+                                iconStyle={{ marginRight: 3 }}
+                                backgroundColor={Constant.transparentColor}
+                                color={Constant.miWhite} size={13}
+                                style={styles.centerH}>
                                 <Text style={[styles.miLightSmallText]}>
                                     {"   " + this.props.deleteCount}
                                 </Text>
@@ -97,7 +97,7 @@ class PushDetailHeader extends Component {
                                 marginBottom: Constant.normalMarginEdge
                             }]}>
                             <Text style={[styles.miLightSmallText,]}
-                                  selectable={true}>{pushDes}</Text>
+                                selectable={true}>{pushDes}</Text>
                         </View>
                     </View>
                 </View>

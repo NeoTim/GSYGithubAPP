@@ -9,7 +9,7 @@ import {
 import PropTypes from 'prop-types';
 import styles from "../../style/index"
 import * as Constant from "../../style/constant"
-import {Actions} from "react-native-router-flux";
+import { Actions } from "react-native-router-flux";
 
 /**
  * 标签控件
@@ -23,10 +23,10 @@ class TagGroup extends Component {
 
     render() {
         if (!this.props.tagList || this.props.tagList.length === 0) {
-            return <View/>
+            return <View />
         }
         return (
-            <View style={[styles.flexDirectionRow, {flexWrap: "wrap"}, this.props.groupStyle]}>
+            <View style={[styles.flexDirectionRow, { flexWrap: "wrap" }, this.props.groupStyle]}>
                 {
                     this.props.tagList.map((data) => {
                         return (
@@ -49,7 +49,7 @@ class TagGroup extends Component {
                                     marginRight: Constant.normalMarginEdge,
                                 }]}>
                                 <Text numberOfLines={1}
-                                      style={[styles.centered, styles.smallText]}>
+                                    style={[styles.centered, styles.smallText]}>
                                     {data}
                                 </Text>
                             </TouchableOpacity>

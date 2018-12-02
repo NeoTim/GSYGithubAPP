@@ -1,7 +1,7 @@
 /**
  * Created by guoshuyu on 2017/11/7.
  */
-import {applyMiddleware, createStore} from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';
 

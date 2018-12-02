@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 
 import * as Constant from '../../style/constant'
-import {Actions} from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux'
 import styles from '../../style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconC from 'react-native-vector-icons/Octicons'
@@ -80,35 +80,35 @@ class RepositoryItem extends Component {
             >
                 <View style={[styles.flexDirectionRowNotFlex]}>
                     <UserImage uri={ownerPic}
-                               loginUser={ownerName}
-                               resizeMethod="scale"
-                               style={[{
-                                   height: Constant.normalIconSize, width: Constant.normalIconSize,
-                                   marginRight: Constant.normalMarginEdge,
-                                   borderRadius: Constant.normalIconSize / 2,
-                                   marginTop: 2
-                               }]}/>
+                        loginUser={ownerName}
+                        resizeMethod="scale"
+                        style={[{
+                            height: Constant.normalIconSize, width: Constant.normalIconSize,
+                            marginRight: Constant.normalMarginEdge,
+                            borderRadius: Constant.normalIconSize / 2,
+                            marginTop: 2
+                        }]} />
                     <View style={[styles.flexDirectionRow]}>
                         <View>
-                            <Text style={[styles.normalText, {fontWeight: "bold"}]}>{repositoryName}</Text>
+                            <Text style={[styles.normalText, { fontWeight: "bold" }]}>{repositoryName}</Text>
                             <IconTextItem
                                 iconColor={Constant.subLightTextColor}
                                 text={ownerName} icon={'user'}
-                                textstyle={[styles.subLightSmallText]}/>
+                                textstyle={[styles.subLightSmallText]} />
                         </View>
                         <View style={[styles.flex, styles.alignItemsEnd, {
                             marginRight: Constant.normalMarginEdge / 2,
                             marginTop: -5,
                         }]}>
-                            <Text style={{color: Constant.subTextColor, fontSize: Constant.minTextSize}}
-                                  numberOfLines={1}>
+                            <Text style={{ color: Constant.subTextColor, fontSize: Constant.minTextSize }}
+                                numberOfLines={1}>
                                 {repositoryType}
                             </Text>
                         </View>
                     </View>
                 </View>
                 <HTMLView
-                    style={{marginTop: Constant.normalMarginEdge / 2,}}
+                    style={{ marginTop: Constant.normalMarginEdge / 2, }}
                     numberOfLines={Constant.normalNumberOfLine}
                     value={repositoryDes}
                     textComponentProps={{
@@ -118,7 +118,7 @@ class RepositoryItem extends Component {
                     selectable={true}
                     textComponent={() => {
                         return (
-                            <Text/>
+                            <Text />
                         )
                     }}
                 />
@@ -135,7 +135,7 @@ class RepositoryItem extends Component {
                     </View>
                     <View style={[styles.flex, styles.centered,]}>
                         <IconC.Button name="issue-opened" {...bottomIconStyle}
-                                      size={hideWatchIcon ? 1 : Constant.minIconSize}>
+                            size={hideWatchIcon ? 1 : Constant.minIconSize}>
                             <Text style={[styles.subSmallText]}>{repositoryWatch}</Text>
                         </IconC.Button>
                     </View>

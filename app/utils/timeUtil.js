@@ -46,7 +46,7 @@ function calcTimer(delta, ori) {
 }
 
 const calculator = {
-    [year]:(a, b, ori) => {
+    [year]: (a, b, ori) => {
         return moment(ori).format('YYYY-MM-DD')
     },
     [week]: (a, b, ori) => {

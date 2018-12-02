@@ -2,12 +2,12 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, StatusBar, TextInput, InteractionManager, Keyboard, TouchableOpacity, StyleSheet
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import styles from "../style"
 import * as Constant from "../style/constant"
 import I18n from '../style/i18n'
@@ -16,7 +16,7 @@ import reposActions from '../store/actions/repository'
 import PullListView from './widget/PullLoadMoreListView'
 import PushDetailHeader from './widget/PushDetailHeader'
 import * as Config from '../config'
-import {generateCode2HTml, parseDiffSource} from "../utils/htmlUtils";
+import { generateCode2HTml, parseDiffSource } from "../utils/htmlUtils";
 
 /**
  * 仓库提交推送详情
@@ -52,7 +52,7 @@ class PushDetailPage extends Component {
         return (
             <CodeFileItem
                 itemIcon={"code"}
-                titleStyle={[styles.subSmallText, {fontSize: Constant.minTextSize}]}
+                titleStyle={[styles.subSmallText, { fontSize: Constant.minTextSize }]}
                 itemTextTitle={rowData.filename}
                 itemText={nameSplit[nameSplit.length - 1]}
                 onClickFun={() => {
@@ -70,7 +70,7 @@ class PushDetailPage extends Component {
                         detail: generateCode2HTml(parseDiffSource(patch), Constant.webDraculaBackgroundColor, '', false),
                         html_url: rowData.blob_url
                     })
-                }}/>
+                }} />
         )
     }
 
@@ -79,7 +79,7 @@ class PushDetailPage extends Component {
      * 刷新
      * */
     _refresh() {
-        let {sha} = this.props;
+        let { sha } = this.props;
         reposActions.getReposCommitsInfo(this.props.userName, this.props.repositoryName, sha)
             .then((res) => {
                 if (res && res.result) {
@@ -88,7 +88,7 @@ class PushDetailPage extends Component {
                         dataSource: res.data.files
                     });
                 }
-                Actions.refresh({titleData: res.data});
+                Actions.refresh({ titleData: res.data });
                 return res.next();
             })
             .then((res) => {
@@ -115,7 +115,7 @@ class PushDetailPage extends Component {
     }
 
     _renderHeader() {
-        let {pushDetail} = this.state;
+        let { pushDetail } = this.state;
         let name = "";
         let pic = "";
         if (pushDetail) {
@@ -136,17 +136,17 @@ class PushDetailPage extends Component {
                 pushTime={pushDetail.commit.committer.date}
                 editCount={pushDetail.files.length + ""}
                 addCount={pushDetail.stats.additions + ""}
-                deleteCount={pushDetail.stats.deletions + ""}/> : <View/>;
+                deleteCount={pushDetail.stats.deletions + ""} /> : <View />;
 
     }
 
     render() {
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
-                <View style={{height: 2, opacity: 0.3}}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
+                <View style={{ height: 2, opacity: 0.3 }} />
                 <PullListView
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ref="pullList"
                     enableRefresh={false}
                     renderRow={(rowData, index) =>

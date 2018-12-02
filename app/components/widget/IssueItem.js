@@ -32,28 +32,28 @@ class IssueItem extends Component {
     }
 
     render() {
-        let {actionTime, actionUser, actionUserPic, issueComment, markdownBody, issueCommentHtml} = this.props;
+        let { actionTime, actionUser, actionUserPic, issueComment, markdownBody, issueCommentHtml } = this.props;
         let bottom = (this.props.issueTag) ? <View style={[styles.flexDirectionRowNotFlex, styles.centerH]}>
             <IconC name={this.props.state === 'open' ? "issue-opened" : "issue-closed"}
-                   backgroundColor={Constant.transparentColor}
-                   color={this.props.state === 'open' ? "green" : "red"} size={13}>
-                <Text style={[styles.subLightSmallText, {color: this.props.state === 'open' ? "green" : "red"}]}>
+                backgroundColor={Constant.transparentColor}
+                color={this.props.state === 'open' ? "green" : "red"} size={13}>
+                <Text style={[styles.subLightSmallText, { color: this.props.state === 'open' ? "green" : "red" }]}>
                     {this.props.state + " "}
                 </Text>
             </IconC>
-            <Text style={[styles.subLightSmallText, {flex: 1}]}
-                  numberOfLines={Constant.normalNumberOfLine}>
+            <Text style={[styles.subLightSmallText, { flex: 1 }]}
+                numberOfLines={Constant.normalNumberOfLine}>
                 {this.props.issueTag}
             </Text>
             <Icon.Button name="comment"
-                         iconStyle={{marginRight: 3}}
-                         backgroundColor={Constant.transparentColor}
-                         color={Constant.subLightTextColor} size={10}>
-                <Text style={[styles.subLightSmallText, {fontSize: Constant.minTextSize}]}>
+                iconStyle={{ marginRight: 3 }}
+                backgroundColor={Constant.transparentColor}
+                color={Constant.subLightTextColor} size={10}>
+                <Text style={[styles.subLightSmallText, { fontSize: Constant.minTextSize }]}>
                     {this.props.commentCount}
                 </Text>
             </Icon.Button>
-        </View> : <View/>;
+        </View> : <View />;
         let bottomMargin = (this.props.issueTag) ? 0 : Constant.normalMarginEdge;
 
         let body = (markdownBody) ? <HTMLView
@@ -68,10 +68,10 @@ class IssueItem extends Component {
                 numberOfLines: 9999,
             }}
             selectable={true}
-            stylesheet={{pre: styles.inCode, code: styles.pCode}}
+            stylesheet={{ pre: styles.inCode, code: styles.pCode }}
             textComponent={() => {
                 return (
-                    <Text/>
+                    <Text />
                 )
             }}
         /> : <Text selectable={true} style={[styles.subSmallText,]}>{issueComment}</Text>;
@@ -95,27 +95,27 @@ class IssueItem extends Component {
                 }}>
                 <View style={[styles.flexDirectionRowNotFlex,]}>
                     <UserImage uri={actionUserPic}
-                               loginUser={actionUser}
-                               resizeMethod="scale"
-                               style={[{
-                                   height: Constant.normalIconSize, width: Constant.normalIconSize,
-                                   marginTop: 5,
-                                   borderRadius: Constant.normalIconSize / 2
-                               }]}/>
+                        loginUser={actionUser}
+                        resizeMethod="scale"
+                        style={[{
+                            height: Constant.normalIconSize, width: Constant.normalIconSize,
+                            marginTop: 5,
+                            borderRadius: Constant.normalIconSize / 2
+                        }]} />
                     <View style={{
                         flex: 1,
                         marginLeft: Constant.normalMarginEdge,
                         marginBottom: bottomMargin
                     }}>
                         <View style={[styles.flexDirectionRowNotFlex, styles.centerH]}>
-                            <Text selectable={true} style={[styles.flex, styles.normalText, {fontWeight: "bold",}]}>
+                            <Text selectable={true} style={[styles.flex, styles.normalText, { fontWeight: "bold", }]}>
                                 {actionUser}
                             </Text>
-                            <TimeText style={[styles.subSmallText, {marginTop: -3}]}
-                                      time={actionTime}/>
+                            <TimeText style={[styles.subSmallText, { marginTop: -3 }]}
+                                time={actionTime} />
                         </View>
                         <View
-                            style={[styles.flexDirectionRowNotFlex, {marginTop: Constant.normalMarginEdge / 2}]}>
+                            style={[styles.flexDirectionRowNotFlex, { marginTop: Constant.normalMarginEdge / 2 }]}>
                             {body}
                         </View>
                         {bottom}

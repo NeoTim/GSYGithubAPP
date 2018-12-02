@@ -119,4 +119,4 @@ class GetPolicy {
   }
 }
 
-export default {urlsafeBase64Encode,generateAccessToken,PutPolicy2,GetPolicy}
+export default { urlsafeBase64Encode, generateAccessToken, PutPolicy2, GetPolicy }

@@ -105,7 +105,7 @@ function fileHandle(op, entries) {
 
   var uri = conf.RS_HOST + '/batch';
   var digest = util.generateAccessToken(uri, body);
-  return rpc.post(uri,digest, body);
+  return rpc.post(uri, digest, body);
 }
 
 function fileHandleForce(op, entries, force) {
@@ -117,7 +117,7 @@ function fileHandleForce(op, entries, force) {
   console.log(body);
   var uri = conf.RS_HOST + '/batch';
   var digest = util.generateAccessToken(uri, body);
-  return rpc.post(uri, digest,body);
+  return rpc.post(uri, digest, body);
 }
 
 function getEncodedEntryUri(bucket, key) {
@@ -131,7 +131,7 @@ class EntryPathPair {
   }
 
   toStr(op, force) {
-    if (typeof(force) == 'undefined') {
+    if (typeof (force) == 'undefined') {
 
       return 'op=/' + op + '/' + this.src.encode() + '/' + this.dest.encode() + '&';
 

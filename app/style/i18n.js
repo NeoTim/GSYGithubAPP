@@ -1,10 +1,10 @@
 /**
  * Created by guoshuyu on 2017/11/7.
  */
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 import I18n from 'react-native-i18n'
 
-const {RNI18n} = NativeModules;
+const { RNI18n } = NativeModules;
 
 I18n.fallbacks = true;
 

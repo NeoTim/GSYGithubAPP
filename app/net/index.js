@@ -3,12 +3,12 @@
  */
 
 
-import {NetInfo, Platform, AsyncStorage} from 'react-native';
+import { NetInfo, Platform, AsyncStorage } from 'react-native';
 import I18n from '../style/i18n'
 import * as Constant from '../style/constant'
 import * as Code from './netwrokCode'
 import handlerError from './netwrokCode'
-import {NativeModules, DeviceEventEmitter} from 'react-native';
+import { NativeModules, DeviceEventEmitter } from 'react-native';
 
 
 export const CONTENT_TYPE_JSON = "application/json";
@@ -197,9 +197,9 @@ class HttpManager {
         const req = {
             method: method,
             headers: new Headers({
-                    'Content-Type': CONTENT_TYPE_FORM,
-                    ...(headers || {})
-                }
+                'Content-Type': CONTENT_TYPE_FORM,
+                ...(headers || {})
+            }
             ),
             body
         };
@@ -220,7 +220,7 @@ class HttpManager {
             promise.then(
                 (res) => {
                     clearTimeout(timeoutId);
-                    if(text) {
+                    if (text) {
                         resolve(res.text());
                     } else {
                         resolve(res);

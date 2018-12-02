@@ -1,9 +1,9 @@
 import BasePersonPage from "./widget/BasePersonPage";
 import userAction from "../store/actions/user";
-import {Actions} from "react-native-router-flux";
+import { Actions } from "react-native-router-flux";
 import store from "../store";
 
-const {dispatch, getState} = store;
+const { dispatch, getState } = store;
 
 /**
  * 用户信息页面
@@ -59,9 +59,9 @@ class PersonPage extends BasePersonPage {
                     userInfo: res.data
                 });
                 if (res.data.type === "Organization") {
-                    Actions.refresh({titleData: res.data, showType: "Organization"});
+                    Actions.refresh({ titleData: res.data, showType: "Organization" });
                 } else {
-                    Actions.refresh({titleData: res.data, showType: "user"});
+                    Actions.refresh({ titleData: res.data, showType: "user" });
                 }
             }
             return res.next();
@@ -71,9 +71,9 @@ class PersonPage extends BasePersonPage {
                     userInfo: res.data
                 });
                 if (res.data.type === "Organization") {
-                    Actions.refresh({titleData: res.data, showType: "Organization"});
+                    Actions.refresh({ titleData: res.data, showType: "Organization" });
                 } else {
-                    Actions.refresh({titleData: res.data, showType: "user"});
+                    Actions.refresh({ titleData: res.data, showType: "user" });
                 }
             }
         });
@@ -86,7 +86,7 @@ class PersonPage extends BasePersonPage {
     }
 
     doFollowLogic() {
-        Actions.LoadingModal({backExit: false});
+        Actions.LoadingModal({ backExit: false });
         userAction.doFollow(this.props.currentUser, !this.state.hadFollowed).then(() => {
             this._refreshInfo();
             setTimeout(() => {

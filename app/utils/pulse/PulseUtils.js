@@ -1,4 +1,4 @@
-import {hostWeb} from '../../net/address'
+import { hostWeb } from '../../net/address'
 import * as Code from '../../net/netwrokCode'
 import I18n from '../../style/i18n'
 
@@ -39,17 +39,17 @@ export default function (owner, repositoryName) {
             })
             .catch((error) => {
                 clearTimeout(timeoutId);
-                reject({result: false, data: error});
+                reject({ result: false, data: error });
                 console.log(error);
             }).then((responseData) => {
-            let data = htmlToRepo(responseData);
-            try {
-                resolve({result: true, data: data});
-            } catch (e) {
-                console.log(e);
-                reject({result: false, data: e});
-            }
-        }).done();
+                let data = htmlToRepo(responseData);
+                try {
+                    resolve({ result: true, data: data });
+                } catch (e) {
+                    console.log(e);
+                    reject({ result: false, data: e });
+                }
+            }).done();
     });
 }
 

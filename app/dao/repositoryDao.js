@@ -2,7 +2,7 @@ import Api from '../net'
 import Address from '../net/address'
 import GitHubTrending from '../utils/trending/GitHubTrending'
 import realm from './db'
-import {generateHtml} from "../utils/htmlUtils";
+import { generateHtml } from "../utils/htmlUtils";
 import * as Config from '../config'
 import getPulse from "../utils/pulse/PulseUtils";
 
@@ -236,7 +236,7 @@ const getRepositoryDetailDao = (userName, reposName) => {
     let fullName = userName + "/" + reposName;
     let nextStep = async () => {
         let url = Address.getReposDetail(userName, reposName);
-        let res = await Api.netFetch(url, 'GET', null, false, {Accept: 'application/vnd.github.mercy-preview+json'});
+        let res = await Api.netFetch(url, 'GET', null, false, { Accept: 'application/vnd.github.mercy-preview+json' });
         if (res && res.result && res.data) {
             let issueRes = await getRepositoryIssueStatusDao(userName, reposName);
             let netData = res.data;
@@ -289,7 +289,7 @@ const getRepositoryDetailReadmeHtmlDao = (userName, reposName, branch) => {
     let curBranch = (branch) ? branch : "master";
     let nextStep = async () => {
         let url = Address.readmeFile(userName + '/' + reposName, branch);
-        let res = await Api.netFetch(url, 'GET', null, false, {Accept: 'application/vnd.github.html'}, true);
+        let res = await Api.netFetch(url, 'GET', null, false, { Accept: 'application/vnd.github.html' }, true);
         if (res && res.result && res.data.length > 0) {
             let curData = generateHtml(res.data);
             realm.write(() => {
@@ -371,7 +371,7 @@ const getRepositoryLocalReadDao = (page = 1) => {
  */
 const createForkDao = async (userName, reposName) => {
     let url = Address.createFork(userName, reposName);
-    let res =  await Api.netFetch(url, 'POST');
+    let res = await Api.netFetch(url, 'POST');
     return {
         data: res.data,
         result: res.result
@@ -579,7 +579,7 @@ const getRepositoryStatusDao = async (userName, reposName) => {
     let ress = await Api.netFetch(urls);
     let resw = await Api.netFetch(urlw);
     return {
-        data: {star: ress.result, watch: resw.result},
+        data: { star: ress.result, watch: resw.result },
         result: true
     };
 };
@@ -614,7 +614,7 @@ const doRepositoryWatchDao = async (userName, reposName, watch) => {
  */
 const getRepositoryReleaseDao = async (userName, reposName, page, needHtml = true) => {
     let url = Address.getReposRelease(userName, reposName) + Address.getPageParams("?", page);
-    let res = await Api.netFetch(url, 'GET', null, false, {Accept: (needHtml ? 'application/vnd.github.html,application/vnd.github.VERSION.raw' : "")});
+    let res = await Api.netFetch(url, 'GET', null, false, { Accept: (needHtml ? 'application/vnd.github.html,application/vnd.github.VERSION.raw' : "") });
     return {
         data: res.data,
         result: res.result
@@ -626,7 +626,7 @@ const getRepositoryReleaseDao = async (userName, reposName, page, needHtml = tru
  */
 const getRepositoryTagDao = async (userName, reposName, page) => {
     let url = Address.getReposTag(userName, reposName) + Address.getPageParams("?", page);
-    let res = await Api.netFetch(url, 'GET', null, false, {Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw'});
+    let res = await Api.netFetch(url, 'GET', null, false, { Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw' });
     return {
         data: res.data,
         result: res.result
@@ -729,7 +729,7 @@ const getReposCommitsInfoDao = (userName, reposName, sha) => {
  */
 const getReposFileDirDao = async (userName, reposName, path = '', branch, text) => {
     let url = Address.reposDataDir(userName, reposName, path, branch);
-    let res = await Api.netFetch(url, 'GET', null, false, {Accept: 'application/vnd.github.html'}, text);
+    let res = await Api.netFetch(url, 'GET', null, false, { Accept: 'application/vnd.github.html' }, text);
     return {
         data: res.data,
         result: res.result
@@ -766,7 +766,7 @@ const searchTopicRepositoryDao = async (searchTopic, page = 0) => {
  */
 const getRepositoryIssueStatusDao = async (userName, repository) => {
     let url = Address.getReposIssue(userName, repository) + "&per_page=1";
-    let res = await Api.netFetch(url, 'GET', null, false, {Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw'});
+    let res = await Api.netFetch(url, 'GET', null, false, { Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw' });
     if (res && res.result && res.headers && res.headers.map) {
         try {
             let link = res.headers.map['link'];

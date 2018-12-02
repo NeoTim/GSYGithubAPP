@@ -2,8 +2,8 @@
  * Created by guoshuyu on 2017/11/16.
  */
 
-import {EVENT} from '../type';
-import {createReducer} from '../'
+import { EVENT } from '../type';
+import { createReducer } from '../'
 
 const initialState = {
     //当前用户事件列表

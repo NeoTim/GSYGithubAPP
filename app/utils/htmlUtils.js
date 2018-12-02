@@ -1,10 +1,10 @@
 import marked from 'marked'
-import {highlightAuto, configure} from 'highlight.js'
+import { highlightAuto, configure } from 'highlight.js'
 import * as Constant from '../style/constant'
-import {Platform} from 'react-native'
-import {Actions} from 'react-native-router-flux'
+import { Platform } from 'react-native'
+import { Actions } from 'react-native-router-flux'
 import URL from 'url-parse';
-import {graphicHost} from "../net/address";
+import { graphicHost } from "../net/address";
 
 /**
  * markdown to html parser
@@ -364,7 +364,7 @@ export function launchUrl(url) {
             if (url.indexOf('https://github.com/') === 0) {
                 url = url.replace(new RegExp("/blob/", "gm"), "/raw/");
             }
-            Actions.PhotoPage({uri: url});
+            Actions.PhotoPage({ uri: url });
         }
     });
 
@@ -377,7 +377,7 @@ export function launchUrl(url) {
         if (pathnames.length === 2) {
             //解析人
             let userName = pathnames[1];
-            Actions.PersonPage({currentUser: userName});
+            Actions.PersonPage({ currentUser: userName });
         } else if (pathnames.length >= 3) {
             let userName = pathnames[1];
             let repoName = pathnames[2];
@@ -391,11 +391,11 @@ export function launchUrl(url) {
                 });
             } else {
                 //TODO 其他
-                Actions.WebPage({uri: url});
+                Actions.WebPage({ uri: url });
             }
         }
     } else {
-        Actions.WebPage({uri: url});
+        Actions.WebPage({ uri: url });
     }
 }
 

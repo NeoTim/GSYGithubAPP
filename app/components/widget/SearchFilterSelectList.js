@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View,
     Text,
     ListView,
-    StyleSheet,
     TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
@@ -12,9 +11,9 @@ import styles from '../../style'
 import I18n from '../../style/i18n'
 
 class SearchFilterSelectList extends Component {
-    state: { dataSource: any };
+    state;
 
-    constructor(props: any) {
+    constructor(props) {
         super(props);
 
         this.ds = new ListView.DataSource({
@@ -57,7 +56,7 @@ class SearchFilterSelectList extends Component {
                 }}
             >
                 <Text style={[(data.select)
-                    ? styles.normalText : styles.subSmallText, {textAlign: 'center'}]}>{I18n(data.name)}</Text>
+                    ? styles.normalText : styles.subSmallText, { textAlign: 'center' }]}>{I18n(data.name)}</Text>
             </TouchableOpacity>
         );
     }

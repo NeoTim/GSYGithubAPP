@@ -1,7 +1,7 @@
-import {Actions} from 'react-native-router-flux'
-import {StyleSheet} from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import { StyleSheet } from 'react-native'
 import * as Constant from '../style/constant'
-import {launchUrl} from "./htmlUtils";
+import { launchUrl } from "./htmlUtils";
 
 export const getActionAndDes = (event) => {
     let actionStr;
@@ -133,7 +133,7 @@ export const getActionAndDes = (event) => {
 
 export const ActionUtils = (event, currentRepository) => {
     if (!event.repo) {
-        Actions.PersonPage({currentUser: event.actor.login})
+        Actions.PersonPage({ currentUser: event.actor.login })
         return;
     }
     let owner = event.repo.name.split("/")[0];
@@ -141,7 +141,7 @@ export const ActionUtils = (event, currentRepository) => {
     let fullName = owner + '/' + repositoryName;
     switch (event.type) {
         case 'ForkEvent':
-            let forkName =  event.actor.login + "/" + repositoryName;
+            let forkName = event.actor.login + "/" + repositoryName;
             if (forkName === currentRepository) {
                 return
             }
@@ -162,7 +162,7 @@ export const ActionUtils = (event, currentRepository) => {
             } else if (event.payload.commits.length === 1) {
                 goToPush(repositoryName, owner, event.payload.commits[0].sha)
             } else {
-                Actions.OptionModal({dataList: getOptionItem(repositoryName, owner, event.payload.commits)});
+                Actions.OptionModal({ dataList: getOptionItem(repositoryName, owner, event.payload.commits) });
             }
             break;
         case 'ReleaseEvent':
@@ -178,7 +178,7 @@ export const ActionUtils = (event, currentRepository) => {
                 repositoryName: repositoryName,
                 userName: owner,
                 needRightBtn: true,
-                iconType:1,
+                iconType: 1,
                 rightBtn: 'home',
                 rightBtnPress: () => {
                     Actions.RepositoryDetail({

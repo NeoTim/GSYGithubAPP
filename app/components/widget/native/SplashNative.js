@@ -1,4 +1,4 @@
-import {NativeModules, Platform} from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 
 const splash = (Platform.OS === "android") ? NativeModules.SplashScreen : {};
 

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, TouchableOpacity, StyleSheet
 } from 'react-native';
@@ -7,7 +7,7 @@ import styles from "../../style/index"
 import * as Constant from "../../style/constant"
 import IconC from 'react-native-vector-icons/Ionicons'
 import UserImage from "./UserImage";
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import I18n from '../../style/i18n'
 
 /**
@@ -32,24 +32,24 @@ class OrgItemBar extends Component {
 
     renderItem(data) {
         return (
-            <TouchableOpacity style={[{height: itemSize, width: itemSize}, styles.centerH]}
-                              onPress={() => {
-                                  data.itemClick && data.itemClick(data);
-                              }}
-                              key={data.login}>
+            <TouchableOpacity style={[{ height: itemSize, width: itemSize }, styles.centerH]}
+                onPress={() => {
+                    data.itemClick && data.itemClick(data);
+                }}
+                key={data.login}>
                 <UserImage uri={data.avatar_url}
-                           loginUser={data.login}
-                           resizeMethod="scale"
-                           style={[{
-                               height: Constant.smallIconSize, width: Constant.smallIconSize,
-                               borderRadius: Constant.smallIconSize / 2
-                           }]}/>
+                    loginUser={data.login}
+                    resizeMethod="scale"
+                    style={[{
+                        height: Constant.smallIconSize, width: Constant.smallIconSize,
+                        borderRadius: Constant.smallIconSize / 2
+                    }]} />
             </TouchableOpacity>
         )
     }
 
     render() {
-        let {dataList} = this.props;
+        let { dataList } = this.props;
         let items = [];
         if (dataList.length > 0) {
             let title =
@@ -86,16 +86,16 @@ class OrgItemBar extends Component {
                     })
                 }}>
                 <IconC name={"ios-more"}
-                       backgroundColor={Constant.transparentColor}
-                       color={Constant.primaryColor}
-                       size={16}/>
+                    backgroundColor={Constant.transparentColor}
+                    color={Constant.primaryColor}
+                    size={16} />
             </TouchableOpacity>;
         if (dataList.length > 5) {
             items = items.slice(0, 4);
             items.push(more)
         }
         return (
-            <View style={[{height: itemSize, marginTop: Constant.normalMarginEdge / 2}, this.props.rootStyles]}>
+            <View style={[{ height: itemSize, marginTop: Constant.normalMarginEdge / 2 }, this.props.rootStyles]}>
                 <View style={{
                     flexDirection: 'row',
                     alignItems: 'center',

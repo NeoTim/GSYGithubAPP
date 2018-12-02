@@ -2,7 +2,7 @@ import Rpc from "./rpc"
 import Auth from "./auth"
 import Conf from './conf.js';
 import moment from 'moment';
-import {ACCESS_KEY, SECRET_KEY, QN_HOST, SCOPE} from "../../config/ignoreConfig"
+import { ACCESS_KEY, SECRET_KEY, QN_HOST, SCOPE } from "../../config/ignoreConfig"
 
 Conf.ACCESS_KEY = ACCESS_KEY;
 Conf.SECRET_KEY = SECRET_KEY;
@@ -12,7 +12,7 @@ Conf.SECRET_KEY = SECRET_KEY;
  */
 export const uploadQiNiu = async (base64) => {
     let putPolicy = new Auth.PutPolicy2(
-        {scope: SCOPE}
+        { scope: SCOPE }
     );
     let uptoken = putPolicy.token();
     let formInput = {

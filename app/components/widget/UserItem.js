@@ -7,7 +7,7 @@ import {
 import PropTypes from 'prop-types';
 import styles from '../../style'
 import * as Constant from '../../style/constant'
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import UserImage from './UserImage'
 
 /**
@@ -26,13 +26,13 @@ class UserItem extends Component {
     }
 
     render() {
-        let {location, actionUser, actionUserPic} = this.props;
+        let { location, actionUser, actionUserPic } = this.props;
         let bottomDes = (this.props.des) ?
             <Text style={[styles.subSmallText,
-                {marginTop: Constant.normalMarginEdge,}]}
-                  numberOfLines={Constant.normalNumberOfLine}>
+            { marginTop: Constant.normalMarginEdge, }]}
+                numberOfLines={Constant.normalNumberOfLine}>
                 {this.props.des}
-            </Text> : <View/>;
+            </Text> : <View />;
         return (
             <TouchableOpacity
                 style={[{
@@ -43,17 +43,17 @@ class UserItem extends Component {
                     borderRadius: 4,
                 }, styles.shadowCard]}
                 onPress={() => {
-                    Actions.PersonPage({currentUser: actionUser})
+                    Actions.PersonPage({ currentUser: actionUser })
                 }}>
                 <View style={[styles.flexDirectionRowNotFlex,]}>
                     <UserImage uri={actionUserPic}
-                               loginUser={actionUser}
-                               resizeMethod="scale"
-                               style={[{
-                                   height: Constant.smallIconSize, width: Constant.smallIconSize,
-                                   marginTop: 5,
-                                   borderRadius: Constant.smallIconSize / 2
-                               }]}/>
+                        loginUser={actionUser}
+                        resizeMethod="scale"
+                        style={[{
+                            height: Constant.smallIconSize, width: Constant.smallIconSize,
+                            marginTop: 5,
+                            borderRadius: Constant.smallIconSize / 2
+                        }]} />
                     <View style={[styles.flex, styles.centerH, styles.flexDirectionRowNotFlex]}>
                         <Text style={[styles.flex, styles.smallText, {
                             fontWeight: "bold",
@@ -62,7 +62,7 @@ class UserItem extends Component {
                             {actionUser}
                         </Text>
                         <Text style={[styles.subSmallText,
-                            {marginTop: -20}]}>
+                        { marginTop: -20 }]}>
                             {location}
                         </Text>
                     </View>

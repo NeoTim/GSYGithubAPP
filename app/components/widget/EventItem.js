@@ -29,22 +29,22 @@ class EventItem extends Component {
     }
 
     render() {
-        let {actionTime, actionUser, actionUserPic, actionMode, actionTarget} = this.props;
+        let { actionTime, actionUser, actionUserPic, actionMode, actionTarget } = this.props;
         let bottomDes = (this.props.des) ?
             <Text style={[styles.subSmallText,
-                {marginTop: Constant.normalMarginEdge,}]}
-                  numberOfLines={Constant.normalNumberOfLine}>
+            { marginTop: Constant.normalMarginEdge, }]}
+                numberOfLines={Constant.normalNumberOfLine}>
                 {this.props.des}
-            </Text> : <View/>;
+            </Text> : <View />;
         let pic = (actionUserPic) ? <UserImage uri={actionUserPic}
-                                               loginUser={actionUser}
-                                               resizeMethod="scale"
-                                               style={[{
-                                                   height: Constant.smallIconSize, width: Constant.smallIconSize,
-                                                   marginTop: 5,
-                                                   marginRight: Constant.normalMarginEdge / 2,
-                                                   borderRadius: Constant.smallIconSize / 2
-                                               }]}/> : <View/>;
+            loginUser={actionUser}
+            resizeMethod="scale"
+            style={[{
+                height: Constant.smallIconSize, width: Constant.smallIconSize,
+                marginTop: 5,
+                marginRight: Constant.normalMarginEdge / 2,
+                borderRadius: Constant.smallIconSize / 2
+            }]} /> : <View />;
         return (
             <TouchableOpacity
                 style={[{
@@ -68,12 +68,12 @@ class EventItem extends Component {
                             {actionUser}
                         </Text>
                         <TimeText style={[styles.subSmallText,
-                            {marginTop: -20}]}
-                                  time={actionTime}/>
+                        { marginTop: -20 }]}
+                            time={actionTime} />
                     </View>
                 </View>
-                <View style={[styles.flexDirectionRowNotFlex, {marginTop: Constant.normalMarginEdge}]}>
-                    <Text style={[styles.smallText, {fontWeight: "bold"}]}>{actionTarget}</Text>
+                <View style={[styles.flexDirectionRowNotFlex, { marginTop: Constant.normalMarginEdge }]}>
+                    <Text style={[styles.smallText, { fontWeight: "bold" }]}>{actionTarget}</Text>
                 </View>
                 {bottomDes}
             </TouchableOpacity>

@@ -7,7 +7,7 @@ import * as Config from '../config'
 let host = "https://api.github.com/";
 export const hostWeb = "https://github.com/";
 export const downloadUrl = 'https://www.pgyer.com/GSYGithubApp';
-export const graphicHost= 'https://ghchart.rshah.org/';
+export const graphicHost = 'https://ghchart.rshah.org/';
 
 export default AddressLocal = {
     /**
@@ -132,7 +132,7 @@ export default AddressLocal = {
     /**
      * 仓Contributors get
      */
-    getReposContributors: (reposOwner, reposName)=>{
+    getReposContributors: (reposOwner, reposName) => {
         return `${host}repos/${reposOwner}/${reposName}/contributors`
     },
     /**
@@ -322,13 +322,13 @@ export default AddressLocal = {
     /**
      * 组织成员
      */
-    getMember:(orgs)=>{
+    getMember: (orgs) => {
         return `${host}orgs/${orgs}/members`;
     },
     /**
      * 获取用户组织
      */
-    getUserOrgs:(userName)=>{
+    getUserOrgs: (userName) => {
         return `${host}users/${userName}/orgs`;
     },
     /**

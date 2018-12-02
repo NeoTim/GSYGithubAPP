@@ -49,4 +49,4 @@ class Exif {
   }
 }
 
-export default {ImageView,ImageInfo,Exif}
+export default { ImageView, ImageInfo, Exif }

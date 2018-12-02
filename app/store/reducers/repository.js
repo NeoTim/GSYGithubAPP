@@ -1,5 +1,5 @@
-import {REPOSITORY} from '../type';
-import {createReducer} from '../'
+import { REPOSITORY } from '../type';
+import { createReducer } from '../'
 
 const initialState = {
     //当前趋势列表

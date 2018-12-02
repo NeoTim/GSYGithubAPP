@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text
 } from 'react-native';
@@ -19,15 +19,15 @@ class IconTextItem extends Component {
         let smallIconTextStyle = [styles.flexDirectionRowNotFlex, styles.centerH];
         let halfEdge = (this.props.icon) ? Constant.normalMarginEdge / 2 : 0;
         let iconView = (this.props.icon) ?
-            <Icon name={this.props.icon} size={this.props.iconSize} color={this.props.iconColor}/>
-            : <View/>;
+            <Icon name={this.props.icon} size={this.props.iconSize} color={this.props.iconColor} />
+            : <View />;
         return (
             <View
                 style={[...smallIconTextStyle, ...this.props.viewstyle]}>
                 {iconView}
-                <Text style={[{marginLeft: halfEdge},
-                    ...this.props.textstyle,]}
-                      selectable={true}>
+                <Text style={[{ marginLeft: halfEdge },
+                ...this.props.textstyle,]}
+                    selectable={true}>
                     {this.props.text}
                 </Text>
             </View>

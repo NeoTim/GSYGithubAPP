@@ -2,12 +2,12 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
-import {InteractionManager} from 'react-native';
+import React, { Component } from 'react';
+import { InteractionManager } from 'react-native';
 import loginActions from '../store/actions/login'
 import userActions from '../store/actions/user'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import BasePersonPage from "./widget/BasePersonPage";
 
 /**
@@ -32,8 +32,8 @@ class MyPage extends BasePersonPage {
     _refresh() {
         super._refresh();
         this.refreshUnRead();
-        userActions.getUserInfo().then((res)=>{
-            if(__DEV__) {
+        userActions.getUserInfo().then((res) => {
+            if (__DEV__) {
                 console.log("***MyPage***", res)
             }
         })
@@ -58,7 +58,7 @@ class MyPage extends BasePersonPage {
     }
 
     getUserInfo() {
-        let {userState} = this.props;
+        let { userState } = this.props;
         return (userState.userInfo) ? userState.userInfo : {};
     }
 

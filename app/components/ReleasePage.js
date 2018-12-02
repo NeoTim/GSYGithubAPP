@@ -2,15 +2,15 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component, PureComponent} from 'react';
+import React, { Component, PureComponent } from 'react';
 import {
     View, InteractionManager, StatusBar, Dimensions, StyleSheet
 } from 'react-native';
-import {Actions, Tabs} from 'react-native-router-flux';
+import { Actions, Tabs } from 'react-native-router-flux';
 import styles from "../style"
 import * as Constant from "../style/constant"
 import I18n from '../style/i18n'
-import {TabView, TabBar, SceneMap} from 'react-native-tab-view';
+import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import ListPage from "./ListPage";
 
 /**
@@ -25,8 +25,8 @@ class ReleasePage extends Component {
         this.state = {
             index: 0,
             routes: [
-                {key: '1', title: I18n('reposRelease')},
-                {key: '2', title: I18n('reposTag')},
+                { key: '1', title: I18n('reposRelease') },
+                { key: '2', title: I18n('reposTag') },
             ],
         }
     }
@@ -45,16 +45,16 @@ class ReleasePage extends Component {
 
     }
 
-    _handleIndexChange = index => this.setState({index});
+    _handleIndexChange = index => this.setState({ index });
 
     _renderHeader = props =>
         <TabBar {...props}
-                style={{backgroundColor: Constant.primaryColor}}
-                labelStyle={{color: Constant.white}}
-                indicatorStyle={{backgroundColor: Constant.miWhite}}
+            style={{ backgroundColor: Constant.primaryColor }}
+            labelStyle={{ color: Constant.white }}
+            indicatorStyle={{ backgroundColor: Constant.miWhite }}
         />;
 
-    _renderScene = ({route}) => {
+    _renderScene = ({ route }) => {
         switch (route.key) {
             case '1':
                 return (
@@ -83,7 +83,7 @@ class ReleasePage extends Component {
     render() {
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <TabView
                     style={{
                         flex: 1,

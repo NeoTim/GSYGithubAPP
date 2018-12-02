@@ -51,8 +51,8 @@ class TabIcon extends Component {
 
         return (
             <View style={styles.centered}>
-                <Icon name={iconPath} size={Constant.tabIconSize} color={color}/>
-                <Text style={[{color: color}, {fontSize: Constant.smallTextSize}]}>{this.props.title}</Text>
+                <Icon name={iconPath} size={Constant.tabIconSize} color={color} />
+                <Text style={[{ color: color }, { fontSize: Constant.smallTextSize }]}>{this.props.title}</Text>
             </View>
         );
     }

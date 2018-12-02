@@ -70,7 +70,7 @@ function uploadFile(uri, token, formInput, onprogress) {
             else
                 formInput.name = "";
         }
-        formdata.append("file", {uri: uri, type: formInput.type, name: formInput.name});
+        formdata.append("file", { uri: uri, type: formInput.type, name: formInput.name });
         xhr.upload.onprogress = (event) => {
             onprogress && onprogress(event, xhr);
         };
@@ -103,4 +103,4 @@ function post(uri, adminToken, content) {
     return fetch(uri, payload);
 }
 
-export default {uploadFile, post, uploadBase64}
+export default { uploadFile, post, uploadBase64 }

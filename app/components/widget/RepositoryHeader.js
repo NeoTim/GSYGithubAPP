@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 import * as Constant from '../../style/constant'
-import {Actions} from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux'
 import styles from '../../style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconC from 'react-native-vector-icons/Octicons'
@@ -128,7 +128,7 @@ class RepositoryHeader extends Component {
                     borderRadius: 4,
                 }]}
                 blurRadius={Platform.OS === 'ios' ? 14 : 5}
-                source={{uri: (ownerPic) ? ownerPic : ""}}
+                source={{ uri: (ownerPic) ? ownerPic : "" }}
                 resizeMethod="scale">
                 <View style={{
                     backgroundColor: Constant.primaryColor, opacity: 0.5,
@@ -140,21 +140,21 @@ class RepositoryHeader extends Component {
                     }]}>
                         <TouchableOpacity
                             onPress={() => {
-                                Actions.PersonPage({currentUser: ownerName})
+                                Actions.PersonPage({ currentUser: ownerName })
                             }}>
-                            <Text style={[styles.normalTextMitWhite, styles.shadowText, {fontWeight: "bold"}, {
+                            <Text style={[styles.normalTextMitWhite, styles.shadowText, { fontWeight: "bold" }, {
                                 backgroundColor: Constant.transparentColor,
                             }]}>{ownerName}</Text>
                         </TouchableOpacity>
-                        <Text style={[styles.normalTextMitWhite, styles.shadowText, {fontWeight: "bold"}, {
+                        <Text style={[styles.normalTextMitWhite, styles.shadowText, { fontWeight: "bold" }, {
                             backgroundColor: Constant.transparentColor,
                         }]}>{" / "}</Text>
                         <Text selectable={true}
-                              style={[styles.normalTextMitWhite, styles.shadowText, {fontWeight: "bold"}, {
-                                  backgroundColor: Constant.transparentColor,
-                              }]}>{repositoryName}</Text>
+                            style={[styles.normalTextMitWhite, styles.shadowText, { fontWeight: "bold" }, {
+                                backgroundColor: Constant.transparentColor,
+                            }]}>{repositoryName}</Text>
                     </View>
-                    <View style={[styles.flexDirectionRowNotFlex, {marginTop: Constant.normalMarginEdge / 2}, {
+                    <View style={[styles.flexDirectionRowNotFlex, { marginTop: Constant.normalMarginEdge / 2 }, {
                         backgroundColor: Constant.transparentColor,
                     }]}>
                         <Text style={[styles.shadowText, {
@@ -163,7 +163,7 @@ class RepositoryHeader extends Component {
                             marginRight: Constant.normalMarginEdge,
                             backgroundColor: Constant.transparentColor,
                         }]}
-                              numberOfLines={1}>
+                            numberOfLines={1}>
                             {repositoryType}
                         </Text>
                         <Text style={[styles.shadowText, {
@@ -171,14 +171,14 @@ class RepositoryHeader extends Component {
                             marginRight: Constant.normalMarginEdge,
                             backgroundColor: Constant.transparentColor,
                         }]}
-                              numberOfLines={1}>
+                            numberOfLines={1}>
                             {repositorySize}
                         </Text>
                         <Text style={[styles.shadowText, {
                             color: Constant.miWhite, fontSize: Constant.minTextSize,
                             backgroundColor: Constant.transparentColor,
                         }]}
-                              numberOfLines={1}>
+                            numberOfLines={1}>
                             {license}
                         </Text>
                     </View>
@@ -196,7 +196,7 @@ class RepositoryHeader extends Component {
                         selectable={true}
                         textComponent={() => {
                             return (
-                                <Text/>
+                                <Text />
                             )
                         }}
                     />
@@ -234,24 +234,24 @@ class RepositoryHeader extends Component {
                         backgroundColor: Constant.transparentColor,
                     }]}>
                         <TouchableOpacity
-                            style={[styles.flex, styles.centered, {paddingVertical: Constant.normalMarginEdge}]}>
+                            style={[styles.flex, styles.centered, { paddingVertical: Constant.normalMarginEdge }]}>
                             <Icon name="star-o" {...bottomIconStyle}
-                                  onPress={() => {
-                                      Actions.ListPage({
-                                          dataType: 'repo_star', showType: 'user',
-                                          currentUser: this.props.ownerName,
-                                          currentRepository: this.props.repositoryName,
-                                          title: this.props.ownerName + "/" + this.props.repositoryName
-                                      })
-                                  }}>
+                                onPress={() => {
+                                    Actions.ListPage({
+                                        dataType: 'repo_star', showType: 'user',
+                                        currentUser: this.props.ownerName,
+                                        currentRepository: this.props.repositoryName,
+                                        title: this.props.ownerName + "/" + this.props.repositoryName
+                                    })
+                                }}>
                                 <Text
                                     style={[styles.miLightSmallText, styles.shadowText,]}>{" " + repositoryStar}</Text>
                             </Icon>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={[styles.flex, styles.centered,
-                                {borderColor: Constant.lineColor, borderLeftWidth: StyleSheet.hairlineWidth}
-                                , {paddingVertical: Constant.normalMarginEdge}]}
+                            { borderColor: Constant.lineColor, borderLeftWidth: StyleSheet.hairlineWidth }
+                                , { paddingVertical: Constant.normalMarginEdge }]}
                             onPress={() => {
                                 Actions.ListPage({
                                     dataType: 'repo_fork', showType: 'repository',
@@ -268,9 +268,9 @@ class RepositoryHeader extends Component {
 
                         <TouchableOpacity
                             style={[styles.flex, styles.centered,
-                                {borderColor: Constant.lineColor, borderLeftWidth: StyleSheet.hairlineWidth},
-                                {borderColor: Constant.lineColor, borderRightWidth: StyleSheet.hairlineWidth}
-                                , {paddingVertical: Constant.normalMarginEdge}]}
+                            { borderColor: Constant.lineColor, borderLeftWidth: StyleSheet.hairlineWidth },
+                            { borderColor: Constant.lineColor, borderRightWidth: StyleSheet.hairlineWidth }
+                                , { paddingVertical: Constant.normalMarginEdge }]}
                             onPress={() => {
                                 Actions.ListPage({
                                     dataType: 'repo_watcher', showType: 'user',
@@ -285,9 +285,9 @@ class RepositoryHeader extends Component {
                             </IconC>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            style={[styles.flex, styles.centered, {paddingVertical: Constant.normalMarginEdge}]}
+                            style={[styles.flex, styles.centered, { paddingVertical: Constant.normalMarginEdge }]}
                             onPress={() => {
-                                Actions.OptionModal({dataList: this.getOptionItem()});
+                                Actions.OptionModal({ dataList: this.getOptionItem() });
                             }}>
                             <IconC name="issue-opened" {...bottomIconStyle}>
                                 <Text

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, TouchableOpacity
 } from 'react-native';
@@ -20,7 +20,7 @@ class CommonNameValueItem extends Component {
         let bottomTopTextStyle = [styles.subSmallText, {
             marginTop: halfEdge
         },];
-        let bottomBottomTextStyle = [styles.subLightSmallText, {marginVertical: halfEdge}];
+        let bottomBottomTextStyle = [styles.subLightSmallText, { marginVertical: halfEdge }];
         return (
             <TouchableOpacity style={[...this.props.itemStyle]} onPress={() => {
                 this.props.onItemPress && this.props.onItemPress();

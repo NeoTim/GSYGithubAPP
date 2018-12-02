@@ -2,17 +2,17 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, StatusBar, ScrollView
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import styles from "../style"
 import I18n from '../style/i18n'
 import CommonRowItem from "./common/CommonRowItem";
 import * as Constant from "../style/constant";
-import {bindActionCreators} from "redux";
-import {connect} from "react-redux";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 import loginActions from '../store/actions/login'
 import userActions from '../store/actions/user'
 import issueActions from "../store/actions/issue";
@@ -50,7 +50,7 @@ class PersonInfoPage extends Component {
     }
 
     postChanged(params) {
-        Actions.LoadingModal({backExit: false});
+        Actions.LoadingModal({ backExit: false });
         userActions.updateUser(params).then(() => {
             setTimeout((res) => {
                 Actions.pop();
@@ -59,12 +59,12 @@ class PersonInfoPage extends Component {
     }
 
     render() {
-        let {userState} = this.props;
+        let { userState } = this.props;
         let userInfo = (userState.userInfo) ? userState.userInfo : {};
-        let {name, email, blog, company, location, hireable, bio} = userInfo;
+        let { name, email, blog, company, location, hireable, bio } = userInfo;
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <ScrollView style={styles.flex}>
                     <CommonRowItem
                         showIconNext={true}
@@ -88,9 +88,9 @@ class PersonInfoPage extends Component {
                         itemText={name ? name : "---"}
                         onClickFun={() => {
                             this.showEditModal(I18n('infoName'), name ? name : "", (text) => {
-                                this.postChanged({name: text});
+                                this.postChanged({ name: text });
                             })
-                        }}/>
+                        }} />
                     <CommonRowItem
                         showIconNext={true}
                         topLine={false}
@@ -113,9 +113,9 @@ class PersonInfoPage extends Component {
                         itemText={email ? email : "---"}
                         onClickFun={() => {
                             this.showEditModal(I18n('infoEmail'), email ? email : "", (text) => {
-                                this.postChanged({email: text});
+                                this.postChanged({ email: text });
                             })
-                        }}/>
+                        }} />
                     <CommonRowItem
                         showIconNext={true}
                         topLine={false}
@@ -138,9 +138,9 @@ class PersonInfoPage extends Component {
                         itemText={blog ? blog : "---"}
                         onClickFun={() => {
                             this.showEditModal(I18n('infoBlog'), blog ? blog : "", (text) => {
-                                this.postChanged({blog: text});
+                                this.postChanged({ blog: text });
                             })
-                        }}/>
+                        }} />
                     <CommonRowItem
                         showIconNext={true}
                         topLine={false}
@@ -163,9 +163,9 @@ class PersonInfoPage extends Component {
                         itemText={company ? company : "---"}
                         onClickFun={() => {
                             this.showEditModal(I18n('infoCompany'), company ? company : "", (text) => {
-                                this.postChanged({company: text});
+                                this.postChanged({ company: text });
                             })
-                        }}/>
+                        }} />
                     <CommonRowItem
                         showIconNext={true}
                         topLine={false}
@@ -188,9 +188,9 @@ class PersonInfoPage extends Component {
                         itemText={location ? location : "---"}
                         onClickFun={() => {
                             this.showEditModal(I18n('infoLocation'), location ? location : "", (text) => {
-                                this.postChanged({location: text});
+                                this.postChanged({ location: text });
                             })
-                        }}/>
+                        }} />
                     <CommonRowItem
                         showIconNext={true}
                         topLine={false}
@@ -213,9 +213,9 @@ class PersonInfoPage extends Component {
                         itemText={bio ? bio : "---"}
                         onClickFun={() => {
                             this.showEditModal(I18n('infoBio'), bio ? bio : "", (text) => {
-                                this.postChanged({bio: text});
+                                this.postChanged({ bio: text });
                             })
-                        }}/>
+                        }} />
                 </ScrollView>
             </View>
         )

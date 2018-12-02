@@ -2,7 +2,7 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, StatusBar, Image, InteractionManager
 } from 'react-native';
@@ -14,7 +14,7 @@ import repositoryActions from '../../store/actions/repository'
 import UserHeadItem from './UserHeadItem'
 import PullListView from './PullLoadMoreListView'
 import EventItem from './EventItem'
-import {getActionAndDes, ActionUtils} from '../../utils/eventUtils'
+import { getActionAndDes, ActionUtils } from '../../utils/eventUtils'
 import * as Config from '../../config'
 import I18n from '../../style/i18n'
 import resolveTime from '../../utils/timeUtil'
@@ -77,7 +77,7 @@ class BasePersonPage extends Component {
                 location={rowData.location}
                 actionUser={rowData.login}
                 actionUserPic={rowData.avatar_url}
-                des={rowData.bio}/>);
+                des={rowData.bio} />);
         } else if (this.showType === 0) {
             let res = getActionAndDes(rowData);
             return (
@@ -89,10 +89,10 @@ class BasePersonPage extends Component {
                     onPressItem={() => {
                         ActionUtils(rowData)
                     }}
-                    actionTarget={res.actionStr}/>
+                    actionTarget={res.actionStr} />
             )
         } else {
-            return <View/>
+            return <View />
         }
     }
 
@@ -209,12 +209,12 @@ class BasePersonPage extends Component {
                 }
                 return res.next()
             }).then((res) => {
-            if (res.result) {
-                this.setState({
-                    orgsList: res.data,
-                })
-            }
-        })
+                if (res.result) {
+                    this.setState({
+                        orgsList: res.data,
+                    })
+                }
+            })
     }
 
     _getMoreInfo() {
@@ -294,9 +294,9 @@ class BasePersonPage extends Component {
         let userInfo = this.getUserInfo();
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <PullListView
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ref="pullList"
                     renderHeader={this._renderHeader(userInfo)}
                     render

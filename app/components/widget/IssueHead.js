@@ -33,12 +33,12 @@ class IssueItem extends Component {
     }
 
     render() {
-        let {actionTime, actionUser, actionUserPic, issueComment, issueDes, issueDesHtml, closed_by} = this.props;
+        let { actionTime, actionUser, actionUserPic, issueComment, issueDes, issueDesHtml, closed_by } = this.props;
         let stateText = (closed_by) ?
             <View>
                 <Text selectable={true}
-                      style={[styles.subSmallText, {marginVertical: 5,}]}>{"Closed by " + closed_by.login}</Text>
-            </View> : <View/>;
+                    style={[styles.subSmallText, { marginVertical: 5, }]}>{"Closed by " + closed_by.login}</Text>
+            </View> : <View />;
         if (issueDesHtml && issueDesHtml.indexOf("<br>") >= 0) {
             issueDesHtml = issueDesHtml.replace(/<br>/g, '\n');
         }
@@ -51,49 +51,49 @@ class IssueItem extends Component {
                     paddingHorizontal: Constant.normalMarginEdge,
                     paddingTop: Constant.normalMarginEdge,
                     borderRadius: 3,
-                }, styles.shadowCard, {backgroundColor: Constant.primaryColor}]}
+                }, styles.shadowCard, { backgroundColor: Constant.primaryColor }]}
                 onPress={() => {
                     this.props.onPressItem && this.props.onPressItem();
                 }}>
                 <View style={[styles.flexDirectionRowNotFlex,]}>
                     <UserImage uri={actionUserPic}
-                               loginUser={actionUser}
-                               resizeMethod="scale"
-                               style={[{
-                                   height: Constant.bigIconSize, width: Constant.bigIconSize,
-                                   marginTop: 5,
-                                   borderRadius: Constant.bigIconSize / 2
-                               }]}/>
-                    <View style={{flex: 1, marginLeft: Constant.normalMarginEdge}}>
+                        loginUser={actionUser}
+                        resizeMethod="scale"
+                        style={[{
+                            height: Constant.bigIconSize, width: Constant.bigIconSize,
+                            marginTop: 5,
+                            borderRadius: Constant.bigIconSize / 2
+                        }]} />
+                    <View style={{ flex: 1, marginLeft: Constant.normalMarginEdge }}>
                         <View style={[styles.flexDirectionRowNotFlex, styles.centerH]}>
-                            <Text style={[styles.flex, styles.normalTextWhite, {fontWeight: "bold",}]}
-                                  selectable={true}>
+                            <Text style={[styles.flex, styles.normalTextWhite, { fontWeight: "bold", }]}
+                                selectable={true}>
                                 {actionUser}
                             </Text>
-                            <TimeText style={[styles.miLightSmallText, {marginTop: -3}]}
-                                      time={actionTime}/>
+                            <TimeText style={[styles.miLightSmallText, { marginTop: -3 }]}
+                                time={actionTime} />
                         </View>
                         <View
-                            style={[styles.flexDirectionRowNotFlex, styles.centerH, {marginVertical: Constant.normalMarginEdge / 2}]}>
-                            <Text style={[styles.miLightSmallText, {marginRight: Constant.normalMarginEdge / 2}]}
-                                  numberOfLines={Constant.normalNumberOfLine}>
+                            style={[styles.flexDirectionRowNotFlex, styles.centerH, { marginVertical: Constant.normalMarginEdge / 2 }]}>
+                            <Text style={[styles.miLightSmallText, { marginRight: Constant.normalMarginEdge / 2 }]}
+                                numberOfLines={Constant.normalNumberOfLine}>
                                 {this.props.issueTag}
                             </Text>
                             <IconC name={this.props.state === 'open' ? "issue-opened" : "issue-closed"}
-                                   backgroundColor={Constant.transparentColor}
-                                   color={this.props.state === 'open' ? "green" : "red"} size={13}
-                                   style={styles.centerH}>
+                                backgroundColor={Constant.transparentColor}
+                                color={this.props.state === 'open' ? "green" : "red"} size={13}
+                                style={styles.centerH}>
                                 <Text
-                                    style={[styles.miLightSmallText, {color: this.props.state === 'open' ? "green" : "red"}]}>
+                                    style={[styles.miLightSmallText, { color: this.props.state === 'open' ? "green" : "red" }]}>
                                     {" " + this.props.state + "  "}
                                 </Text>
                             </IconC>
                             <Icon name="comment"
-                                  iconStyle={{marginRight: 3}}
-                                  backgroundColor={Constant.transparentColor}
-                                  color={Constant.miWhite} size={11}
-                                  style={styles.centerH}>
-                                <Text style={[styles.miLightSmallText, {fontSize: Constant.minTextSize}]}>
+                                iconStyle={{ marginRight: 3 }}
+                                backgroundColor={Constant.transparentColor}
+                                color={Constant.miWhite} size={11}
+                                style={styles.centerH}>
+                                <Text style={[styles.miLightSmallText, { fontSize: Constant.minTextSize }]}>
                                     {"   " + this.props.commentCount}
                                 </Text>
                             </Icon>
@@ -107,7 +107,7 @@ class IssueItem extends Component {
                         </View>
                     </View>
                 </View>
-                <View style={[styles.centerV, {marginBottom: issueDes ? Constant.normalMarginEdge : 0}]}>
+                <View style={[styles.centerV, { marginBottom: issueDes ? Constant.normalMarginEdge : 0 }]}>
                     <HTMLView
                         style={[{
                             marginTop: Constant.normalMarginEdge / 2,
@@ -116,14 +116,14 @@ class IssueItem extends Component {
                         selectable={true}
                         numberOfLines={9999}
                         value={issueDesHtml ? issueDesHtml : ""}
-                        stylesheet={{pre: styles.inCode, code: styles.pCode}}
+                        stylesheet={{ pre: styles.inCode, code: styles.pCode }}
                         textComponentProps={{
                             style: styles.miLightSmallText,
                             numberOfLines: 9999,
                         }}
                         textComponent={() => {
                             return (
-                                <Text/>
+                                <Text />
                             )
                         }}
                     />

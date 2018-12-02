@@ -90,7 +90,7 @@ const lockIssue = async (userName, repository, number, locked) => {
 /**
  * 创建issue
  */
-const createIssue = async (userName, repository,  issue) => {
+const createIssue = async (userName, repository, issue) => {
     let res = await IssueDao.createIssueDao(userName, repository, issue);
     if (res && res.result) {
         return {

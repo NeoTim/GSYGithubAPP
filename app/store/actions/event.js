@@ -2,7 +2,7 @@
  * Created by guoshuyu on 2017/11/16.
  */
 
-import {EVENT} from '../type'
+import { EVENT } from '../type'
 import EventDao from '../../dao/eventDao'
 
 /**

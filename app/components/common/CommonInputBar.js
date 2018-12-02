@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, TouchableOpacity, ScrollView
 } from 'react-native';
@@ -28,40 +28,40 @@ class CommonInputBar extends Component {
     renderItem(data) {
         let iconColor = data.iconColor ? data.iconColor : Constant.primaryColor;
 
-        let icon = <View/>;
+        let icon = <View />;
         switch (data.iconType) {
             case 1:
                 icon = <IconC name={(data.icon) ? data.icon : "bell"}
-                              backgroundColor={Constant.transparentColor}
-                              color={(data.icon) ? iconColor : Constant.transparentColor}
-                              size={data.iconSize}/>;
+                    backgroundColor={Constant.transparentColor}
+                    color={(data.icon) ? iconColor : Constant.transparentColor}
+                    size={data.iconSize} />;
                 break;
             case 2:
                 icon = <IconC2 name={(data.icon) ? data.icon : "bell"}
-                               backgroundColor={Constant.transparentColor}
-                               color={(data.icon) ? iconColor : Constant.transparentColor}
-                               size={data.iconSize}/>;
+                    backgroundColor={Constant.transparentColor}
+                    color={(data.icon) ? iconColor : Constant.transparentColor}
+                    size={data.iconSize} />;
                 break;
         }
         return (
-            <TouchableOpacity style={[{height: 40, width: 40}, styles.centerH, data.itemStyle]}
-                              onPress={() => {
-                                  data.itemClick && data.itemClick(data);
-                              }}
-                              key={data.icon}>
+            <TouchableOpacity style={[{ height: 40, width: 40 }, styles.centerH, data.itemStyle]}
+                onPress={() => {
+                    data.itemClick && data.itemClick(data);
+                }}
+                key={data.icon}>
                 {icon}
             </TouchableOpacity>
         )
     }
 
     render() {
-        let {dataList, rootStyles} = this.props;
+        let { dataList, rootStyles } = this.props;
         let items = [];
         dataList.forEach((data) => {
             items.push(this.renderItem(data))
         });
         return (
-            <View style={[{height: 40}, this.props.rootStyles]}>
+            <View style={[{ height: 40 }, this.props.rootStyles]}>
                 <ScrollView
                     horizontal={true}>
                     {items}

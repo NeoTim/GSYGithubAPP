@@ -2,15 +2,15 @@
  * Created by guoshuyu on 2017/11/7.
  */
 
-import {AsyncStorage} from 'react-native'
+import { AsyncStorage } from 'react-native'
 import Api from '../../net'
 import Address from '../../net/address'
-import {LOGIN} from '../type'
+import { LOGIN } from '../type'
 import userAction from './user'
 import * as Constant from '../../style/constant'
-import {Buffer} from 'buffer'
-import {clear} from '../reducers'
-import {CLIENT_ID, CLIENT_SECRET} from '../../config/ignoreConfig'
+import { Buffer } from 'buffer'
+import { clear } from '../reducers'
+import { CLIENT_ID, CLIENT_SECRET } from '../../config/ignoreConfig'
 
 const toLogin = () => async (dispatch, getState) => {
 

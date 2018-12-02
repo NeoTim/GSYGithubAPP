@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {
     View, Text, FlatList, ActivityIndicator, TouchableOpacity, Image
 } from 'react-native';
-import styles, {screenHeight} from "../../style"
+import styles, { screenHeight } from "../../style"
 import * as Constant from "../../style/constant"
 import I18n from '../../style/i18n'
 import * as Config from '../../config'
@@ -47,9 +47,9 @@ class PullLoadMoreListView extends Component {
                 <ActivityIndicator
                     color={Constant.primaryColor}
                     animating={true}
-                    style={{height: 50}}
-                    size="large"/>
-                <Text style={{fontSize: 15, color: 'black'}}>
+                    style={{ height: 50 }}
+                    size="large" />
+                <Text style={{ fontSize: 15, color: 'black' }}>
                     {I18n('loadMoreing')}
                 </Text>
             </View> : <View style={{
@@ -57,7 +57,7 @@ class PullLoadMoreListView extends Component {
                 justifyContent: 'center',
                 alignItems: 'center'
             }}>
-                <Text style={{fontSize: 15, color: 'black', margin: Constant.normalMarginEdge}}>
+                <Text style={{ fontSize: 15, color: 'black', margin: Constant.normalMarginEdge }}>
                     {this.props.dataSource.length > 0 ? I18n('loadMoreEnd') : " "}
                 </Text>
             </View>;
@@ -106,19 +106,19 @@ class PullLoadMoreListView extends Component {
                 flex: 1,
                 height: this.state.listHeight
             }]}>
-                <TouchableOpacity style={[styles.centered, {flex: 1}]}
-                                  onPress={() => {
-                                      this._refresh();
-                                      this.showRefreshState();
-                                  }}>
+                <TouchableOpacity style={[styles.centered, { flex: 1 }]}
+                    onPress={() => {
+                        this._refresh();
+                        this.showRefreshState();
+                    }}>
                     <Image source={require("../../img/logo.png")}
-                           resizeMode={"contain"}
-                           style={{width: 80, height: 80}}/>
+                        resizeMode={"contain"}
+                        style={{ width: 80, height: 80 }} />
                     <Text style={[styles.normalText]}>
                         {I18n("listEmpty")}
                     </Text>
                 </TouchableOpacity>
-            </View> : <View/>;
+            </View> : <View />;
     }
 
     render() {
@@ -132,17 +132,17 @@ class PullLoadMoreListView extends Component {
 
         return (
             <FlatList
-                style={{flex: 1}}
+                style={{ flex: 1 }}
                 ref="list"
                 ListEmptyComponent={this._renderEmpty()}
                 removeClippedSubviews={true}
                 {...refreshProps}
-                onLayout={e => this.setState({listHeight: e.nativeEvent.layout.height})}
+                onLayout={e => this.setState({ listHeight: e.nativeEvent.layout.height })}
                 renderItem={
-                    ({item, index}) => this.props.renderRow(item, index)
+                    ({ item, index }) => this.props.renderRow(item, index)
                 }
                 ListHeaderComponent={this.props.renderHeader}
-                ItemSeparatorComponent={({highlighted}) => <View/>}
+                ItemSeparatorComponent={({ highlighted }) => <View />}
                 enableEmptySections
                 initialListSize={this.props.pageSize}
                 pageSize={this.props.pageSize}
@@ -167,7 +167,7 @@ class PullLoadMoreListView extends Component {
             return;
         }
         if (this.refs.list)
-            this.refs.list.scrollToIndex({index: 0, animate: false});
+            this.refs.list.scrollToIndex({ index: 0, animate: false });
     }
 
     refreshComplete(showLoadMore = false, scrollToTop = false) {

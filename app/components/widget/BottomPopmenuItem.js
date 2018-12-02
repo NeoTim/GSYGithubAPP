@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, TouchableHighlight, StyleSheet
 } from 'react-native';
-import styles, {screenWidth} from "../../style"
+import styles, { screenWidth } from "../../style"
 import * as Constant from "../../style/constant"
 import ModalDropdown from 'react-native-modal-dropdown';
 import PropTypes from 'prop-types';
@@ -34,10 +34,10 @@ class BottomPopmenuItem extends Component {
                 paddingHorizontal: 5
             }]}>
                 <Icon name="tag"
-                      borderRadius={0}
-                      style={{borderRadius: 0, padding: 0, marginRight: 3, marginTop: 2}}
-                      backgroundColor={Constant.white}
-                      color={Constant.primaryColor} size={13}/>
+                    borderRadius={0}
+                    style={{ borderRadius: 0, padding: 0, marginRight: 3, marginTop: 2 }}
+                    backgroundColor={Constant.white}
+                    color={Constant.primaryColor} size={13} />
                 <ModalDropdown
                     options={this.props.options}
                     onSelect={(rowID, rowData) => {
@@ -79,12 +79,12 @@ class BottomPopmenuItem extends Component {
                         flex: 1,
                         paddingHorizontal: Constant.normalMarginEdge,
                         height: this.props.itemHeight,
-                    }, {backgroundColor: Constant.white}, styles.centerH]}>
+                    }, { backgroundColor: Constant.white }, styles.centerH]}>
                     <Text style={[styles.middleText, {
                         marginHorizontal: 4,
                         textAlign: 'center',
                         textAlignVertical: 'center',
-                    }, highlighted && {color: Constant.selectedColor}, styles.centered]}>
+                    }, highlighted && { color: Constant.selectedColor }, styles.centered]}>
                         {rowData.name}
                     </Text>
                 </View>
@@ -95,8 +95,8 @@ class BottomPopmenuItem extends Component {
     renderSeparator(sectionID, rowID, adjacentRowHighlighted) {
         let key = `spr_${rowID}`;
         return (
-            <View style={{height: StyleSheet.hairlineWidth, backgroundColor: Constant.lineColor,}}
-                  key={key}/>
+            <View style={{ height: StyleSheet.hairlineWidth, backgroundColor: Constant.lineColor, }}
+                key={key} />
         );
     }
 }

@@ -36,22 +36,22 @@ class CodeFileItem extends Component {
 
     render() {
         return (
-            <View/>
+            <View />
         )
     }
 
     render() {
-        let {onClickFun, itemText, titleStyle, itemIcon, itemTextTitle, needTitle} = this.props;
+        let { onClickFun, itemText, titleStyle, itemIcon, itemTextTitle, needTitle } = this.props;
         let leftIcon = (itemIcon) ?
-            <Icon name={itemIcon} size={14} color={Constant.subTextColor}/>
-            : <View/>;
+            <Icon name={itemIcon} size={14} color={Constant.subTextColor} />
+            : <View />;
         let title = (needTitle) ?
             <View style={[styles.flexDirectionRow, styles.centerH, {
                 marginTop: Constant.normalMarginEdge,
                 marginHorizontal: Constant.normalMarginEdge,
             }]}>
-                <Text style={[{flex: 1}, ...titleStyle]}>{itemTextTitle}</Text>
-            </View> : <View/>;
+                <Text style={[{ flex: 1 }, ...titleStyle]}>{itemTextTitle}</Text>
+            </View> : <View />;
         return (
             <TouchableOpacity
                 onPress={() => {
@@ -68,7 +68,7 @@ class CodeFileItem extends Component {
                         borderRadius: 3,
                     }]}>
                     {leftIcon}
-                    <Text style={[{flex: 1, marginLeft: Constant.normalMarginEdge}]}>{itemText}</Text>
+                    <Text style={[{ flex: 1, marginLeft: Constant.normalMarginEdge }]}>{itemText}</Text>
                 </View>
             </TouchableOpacity>
         );

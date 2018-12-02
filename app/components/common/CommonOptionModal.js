@@ -1,7 +1,7 @@
 /**
  * Created by guoshuyu on 2017/11/12.
  */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     View,
@@ -9,10 +9,10 @@ import {
     ScrollView
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles, {screenWidth, screenHeight} from "../../style/index"
+import styles, { screenWidth, screenHeight } from "../../style/index"
 import * as Constant from "../../style/constant"
 import Modal from 'react-native-modalbox';
-import {Actions} from "react-native-router-flux";
+import { Actions } from "react-native-router-flux";
 
 const width = screenWidth - 100;
 const itemHeight = 50;
@@ -44,7 +44,7 @@ class CommonOptionModal extends Component {
     _renderItem(data) {
         return (
             <TouchableOpacity
-                style={[styles.centered, {width: width, height: itemHeight}, styles.centerH, data.itemStyle]}
+                style={[styles.centered, { width: width, height: itemHeight }, styles.centerH, data.itemStyle]}
                 onPress={() => {
                     Actions.pop();
                     data.itemClick && data.itemClick(data);
@@ -56,7 +56,7 @@ class CommonOptionModal extends Component {
     }
 
     render() {
-        let {dataList} = this.props;
+        let { dataList } = this.props;
         let items = [];
         dataList.forEach((data) => {
             items.push(this._renderItem(data))
@@ -65,15 +65,15 @@ class CommonOptionModal extends Component {
         let currentHeight = (sumHeight >= screenHeight) ? screenHeight : sumHeight;
         return (
             <Modal ref={"modal"}
-                   style={[{height: screenHeight, width: screenWidth, backgroundColor: "#F0000000"}]}
-                   position={"center"}
-                   onClosed={this.onClose}
-                   backdrop={true}
-                   backButtonClose={false}
-                   swipeToClose={true}
-                   backdropOpacity={0.8}>
-                <View style={[styles.centered, {height: screenHeight, width: screenWidth}]}>
-                    <View style={[styles.centered, {height: currentHeight, width: screenWidth}]}>
+                style={[{ height: screenHeight, width: screenWidth, backgroundColor: "#F0000000" }]}
+                position={"center"}
+                onClosed={this.onClose}
+                backdrop={true}
+                backButtonClose={false}
+                swipeToClose={true}
+                backdropOpacity={0.8}>
+                <View style={[styles.centered, { height: screenHeight, width: screenWidth }]}>
+                    <View style={[styles.centered, { height: currentHeight, width: screenWidth }]}>
                         <ScrollView style={[{
                             backgroundColor: Constant.white,
                             borderRadius: 4,

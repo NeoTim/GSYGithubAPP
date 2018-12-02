@@ -1,7 +1,7 @@
 /**
  * Created by guoshuyu on 2017/11/12.
  */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     View,
@@ -14,18 +14,18 @@ import {
     Linking,
     Easing
 } from 'react-native';
-import styles, {screenHeight, screenWidth} from "../style"
+import styles, { screenHeight, screenWidth } from "../style"
 import * as Constant from "../style/constant"
 import PropTypes from 'prop-types';
 import I18n from '../style/i18n'
 import loginActions from '../store/actions/login'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import Modal from 'react-native-modalbox';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconC from 'react-native-vector-icons/Entypo'
-import {Fumi} from 'react-native-textinput-effects';
+import { Fumi } from 'react-native-textinput-effects';
 import Toast from './common/ToastProxy'
 import LottieView from 'lottie-react-native';
 
@@ -86,7 +86,7 @@ class LoginPage extends Component {
             toValue: 1,
             duration: 2000,
             easing: Easing.linear
-        }).start(({finished}) => {
+        }).start(({ finished }) => {
             /*if (!finished) {
                 return;
             }
@@ -136,7 +136,7 @@ class LoginPage extends Component {
     }
 
     toLogin() {
-        let {login} = this.props;
+        let { login } = this.props;
         if (!this.params.userName || this.params.userName.length === 0) {
             Toast(I18n('LoginNameTip'));
             return
@@ -149,7 +149,7 @@ class LoginPage extends Component {
             saveUserName: this.params.userName,
             savePassword: this.params.password
         });
-        Actions.LoadingModal({backExit: false});
+        Actions.LoadingModal({ backExit: false });
         Keyboard.dismiss();
         login.doLogin(this.params.userName, this.params.password, (res) => {
             this.exitLoading();
@@ -163,7 +163,7 @@ class LoginPage extends Component {
 
     render() {
         let textInputProps = {
-            style: {width: 250, height: 70, backgroundColor: Constant.miWhite},
+            style: { width: 250, height: 70, backgroundColor: Constant.miWhite },
             activeColor: Constant.primaryColor,
             passiveColor: '#dadada',
             iconClass: Icon,
@@ -173,21 +173,21 @@ class LoginPage extends Component {
         };
         return (
             <Animated.View
-                style={[styles.centered, styles.absoluteFull, {backgroundColor: Constant.primaryColor}, {opacity: this.state.opacity}]}>
+                style={[styles.centered, styles.absoluteFull, { backgroundColor: Constant.primaryColor }, { opacity: this.state.opacity }]}>
                 <StatusBar hidden={false} backgroundColor={Constant.primaryColor} translucent
-                           barStyle={'light-content'}/>
-                <View style={[styles.absoluteFull, {zIndex: -999, justifyContent: 'flex-end'}]}>
-                    <View style={{width: screenWidth, height: screenHeight / 2}}>
+                    barStyle={'light-content'} />
+                <View style={[styles.absoluteFull, { zIndex: -999, justifyContent: 'flex-end' }]}>
+                    <View style={{ width: screenWidth, height: screenHeight / 2 }}>
                         <LottieView
                             ref="lottieView"
-                            style={{width: screenWidth, height: screenHeight / 2}}
+                            style={{ width: screenWidth, height: screenHeight / 2 }}
                             source={require('../style/lottie/animation-login.json')}
                             progress={this.state.progress}
                         />
                     </View>
                 </View>
                 <View
-                    style={[{backgroundColor: Constant.miWhite}, {
+                    style={[{ backgroundColor: Constant.miWhite }, {
                         height: 360,
                         width: screenWidth - 80,
                         margin: 50,
@@ -195,12 +195,12 @@ class LoginPage extends Component {
                     }]}
                     onClosed={this.onClose}
                     onOpened={this.onOpen}>
-                    <View style={[styles.centered, {marginTop: Constant.normalMarginEdge}]}>
+                    <View style={[styles.centered, { marginTop: Constant.normalMarginEdge }]}>
                         <Image source={require("../img/logo.png")}
-                               resizeMode={"contain"}
-                               style={{width: 80, height: 80}}/>
+                            resizeMode={"contain"}
+                            style={{ width: 80, height: 80 }} />
                     </View>
-                    <View style={[styles.centered, {marginTop: Constant.normalMarginEdge}]}>
+                    <View style={[styles.centered, { marginTop: Constant.normalMarginEdge }]}>
                         <Fumi
                             ref={"userNameInput"}
                             {...textInputProps}
@@ -210,7 +210,7 @@ class LoginPage extends Component {
                             onChangeText={this.userInputChange}
                         />
                     </View>
-                    <View style={[styles.centered, {marginTop: Constant.normalMarginEdge}]}>
+                    <View style={[styles.centered, { marginTop: Constant.normalMarginEdge }]}>
                         <Fumi
                             ref={"passwordInput"}
                             {...textInputProps}
@@ -232,27 +232,27 @@ class LoginPage extends Component {
                                 marginTop: Constant.normalMarginEdge,
                                 padding: Constant.normalMarginEdge
                             }]}
-                                              onPress={() => {
-                                                  this.setState({
-                                                      saveUserName: this.params.userName,
-                                                      savePassword: this.params.password,
-                                                      secureIcon: (this.state.secureTextEntry) ? "eye" : "eye-with-line",
-                                                      secureTextEntry: !this.state.secureTextEntry,
-                                                  });
-                                              }}>
+                                onPress={() => {
+                                    this.setState({
+                                        saveUserName: this.params.userName,
+                                        savePassword: this.params.password,
+                                        secureIcon: (this.state.secureTextEntry) ? "eye" : "eye-with-line",
+                                        secureTextEntry: !this.state.secureTextEntry,
+                                    });
+                                }}>
                                 <IconC name={this.state.secureIcon}
-                                       backgroundColor={Constant.transparentColor}
-                                       color={Constant.primaryColor} size={13}
-                                       style={styles.centered}/>
+                                    backgroundColor={Constant.transparentColor}
+                                    color={Constant.primaryColor} size={13}
+                                    style={styles.centered} />
                             </TouchableOpacity>
                         </View>
                     </View>
                     <View>
                     </View>
-                    <TouchableOpacity style={[styles.centered, {marginTop: Constant.normalMarginEdge}]}
-                                      onPress={() => {
-                                          this.toLogin();
-                                      }}>
+                    <TouchableOpacity style={[styles.centered, { marginTop: Constant.normalMarginEdge }]}
+                        onPress={() => {
+                            this.toLogin();
+                        }}>
                         <View
                             style={[styles.centered, {
                                 backgroundColor: Constant.primaryColor,
@@ -265,10 +265,10 @@ class LoginPage extends Component {
                             <Text style={[styles.normalTextWhite]}>{I18n('Login')}</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.centered, {marginTop: Constant.normalMarginEdge}]}
-                                      onPress={() => {
-                                          Linking.openURL("https://github.com/join")
-                                      }}>
+                    <TouchableOpacity style={[styles.centered, { marginTop: Constant.normalMarginEdge }]}
+                        onPress={() => {
+                            Linking.openURL("https://github.com/join")
+                        }}>
                         <Text
                             style={[styles.subSmallText,]}>{" " + I18n('register') + " "}</Text>
                     </TouchableOpacity>
@@ -278,7 +278,7 @@ class LoginPage extends Component {
     }
 }
 
-export default connect(state => ({state}), dispatch => ({
-        login: bindActionCreators(loginActions, dispatch)
-    })
+export default connect(state => ({ state }), dispatch => ({
+    login: bindActionCreators(loginActions, dispatch)
+})
 )(LoginPage)

@@ -1,14 +1,13 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Platform,
     Dimensions,
     WebView,
-    ActivityIndicator,
     Linking
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {Actions} from 'react-native-router-flux'
-import {launchUrl} from '../../utils/htmlUtils'
+import { Actions } from 'react-native-router-flux'
+import { launchUrl } from '../../utils/htmlUtils'
 import CusWebView from './native/CustomWebView'
 
 let WebCurrent = (Platform.OS === 'ios') ? WebView : CusWebView;
@@ -37,8 +36,7 @@ const injectedScript = function () {
  * web控件
  */
 export default class WebComponent extends Component {
-
-    constructor(props: Object) {
+    constructor(props) {
         super(props);
         this.state = {
             loading: true,
@@ -64,12 +62,12 @@ export default class WebComponent extends Component {
                     this.webview = ref;
                 }}
                 onShouldStartLoadWithRequest={(event) => {
-                    if (event.url.indexOf('gsygithub://') === 0 ) {
+                    if (event.url.indexOf('gsygithub://') === 0) {
                         this.props.gsygithubLink && this.props.gsygithubLink(event.url);
                     } else if (event.url && event.url.indexOf("https://github.com/") === 0) {
                         launchUrl(event.url)
                     } else if (event.url && (event.url.indexOf('http') === 0 || event.url.indexOf('www') === 0)) {
-                        Actions.WebPage({uri: event.url});
+                        Actions.WebPage({ uri: event.url });
                     } else if (event.url !== 'about:blank') {
                         Linking.openURL(event.url)
                     }
@@ -91,7 +89,7 @@ export default class WebComponent extends Component {
                     })
                 }}
                 {...this.props}
-                style={[{width: _w}, {flex: 1},]}
+                style={[{ width: _w }, { flex: 1 },]}
             />
         )
     }

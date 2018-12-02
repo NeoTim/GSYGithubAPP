@@ -2,11 +2,11 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Platform, StatusBar, ScrollView, Linking
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import styles from "../style"
 import I18n from '../style/i18n'
 import CommonRowItem from "./common/CommonRowItem";
@@ -15,7 +15,7 @@ import VersionNumber from 'react-native-version-number';
 import issueActions from "../store/actions/issue";
 import repositoryActions from "../store/actions/repository";
 import Toast from './common/ToastProxy'
-import {downloadUrl, hostWeb} from '../net/address'
+import { downloadUrl, hostWeb } from '../net/address'
 
 
 /**
@@ -37,19 +37,19 @@ class AboutPage extends Component {
     }
 
     _createIssue(text) {
-        let {repositoryName, userName} = this.props;
-        Actions.LoadingModal({backExit: false});
+        let { repositoryName, userName } = this.props;
+        Actions.LoadingModal({ backExit: false });
         issueActions.createIssue("CarGuo", "GSYGithubApp",
-            {title: "APP " + I18n("feedback"), body: text}).then((res) => {
-            setTimeout(() => {
-                if (res && res.result) {
-                    Actions.pop();
-                    Toast("Thanks For Feedback");
-                } else {
-                    this.showFeedback(text);
-                }
-            }, 500);
-        })
+            { title: "APP " + I18n("feedback"), body: text }).then((res) => {
+                setTimeout(() => {
+                    if (res && res.result) {
+                        Actions.pop();
+                        Toast("Thanks For Feedback");
+                    } else {
+                        this.showFeedback(text);
+                    }
+                }, 500);
+            })
     }
 
     showFeedback(text) {
@@ -67,7 +67,7 @@ class AboutPage extends Component {
     render() {
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <ScrollView style={styles.flex}>
                     <CommonRowItem
                         showIconNext={true}
@@ -86,7 +86,7 @@ class AboutPage extends Component {
                         itemText={I18n('version') + ": " + VersionNumber.appVersion}
                         onClickFun={() => {
                             getNewsVersion(true, false)
-                        }}/>
+                        }} />
                     <CommonRowItem
                         showIconNext={true}
                         topLine={false}
@@ -103,8 +103,8 @@ class AboutPage extends Component {
                         }, styles.shadowCard]}
                         itemText={I18n('author')}
                         onClickFun={() => {
-                            Actions.PersonPage({currentUser: "CarGuo"})
-                        }}/>
+                            Actions.PersonPage({ currentUser: "CarGuo" })
+                        }} />
                     <CommonRowItem
                         showIconNext={true}
                         topLine={false}
@@ -125,7 +125,7 @@ class AboutPage extends Component {
                                 repositoryName: "GSYGithubApp", ownerName: "CarGuo"
                                 , title: "CarGuo/GSYGithubApp"
                             });
-                        }}/>
+                        }} />
                     <CommonRowItem
                         showIconNext={true}
                         topLine={false}
@@ -143,7 +143,7 @@ class AboutPage extends Component {
                         itemText={I18n('feedback')}
                         onClickFun={() => {
                             this.showFeedback("")
-                        }}/>
+                        }} />
                 </ScrollView>
             </View>
         )

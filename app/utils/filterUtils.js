@@ -1,7 +1,7 @@
 import I18n from '../style/i18n'
-import {StyleSheet} from 'react-native'
-import {Actions} from 'react-native-router-flux'
-import styles, {navBarHeight, screenWidth} from "../style"
+import { StyleSheet } from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import styles, { navBarHeight, screenWidth } from "../style"
 import * as Constant from '../style/constant'
 import {
     Platform, StatusBar
@@ -9,7 +9,7 @@ import {
 
 export const filterItemHeight = 40;
 
-export const pickerViewStyle = [{flex: 1}, styles.centerV];
+export const pickerViewStyle = [{ flex: 1 }, styles.centerV];
 
 export const pickerTextStyle = [{
     textAlign: 'center',
@@ -118,46 +118,46 @@ export const TrendType = [
 ];
 
 export const SortType = [
-    {name: 'desc', value: 'desc', select: true},
-    {name: 'asc', value: 'asc', select: false},
+    { name: 'desc', value: 'desc', select: true },
+    { name: 'asc', value: 'asc', select: false },
 ];
 
 export const SearchFilterType = [
-    {name: "best_match", value: 'best%20match', select: true},
-    {name: "stars", value: 'stars', select: false},
-    {name: "forks", value: 'forks', select: false},
-    {name: "updated", value: 'updated', select: false},
+    { name: "best_match", value: 'best%20match', select: true },
+    { name: "stars", value: 'stars', select: false },
+    { name: "forks", value: 'forks', select: false },
+    { name: "updated", value: 'updated', select: false },
 ];
 
 export const SearchLanguageType = [
-    {name: "trendAll", value: null, select: true},
-    {name: "Java", value: 'Java', select: false},
-    {name: "Objective_C", value: 'Objective-C', select: false},
-    {name: "Swift", value: 'Swift', select: false},
-    {name: "JavaScript", value: 'JavaScript', select: false},
-    {name: "PHP", value: 'PHP', select: false},
-    {name: "C__", value: 'C__', select: false},
-    {name: "C", value: 'C', select: false},
-    {name: "HTML", value: 'HTML', select: false},
-    {name: "CSS", value: 'CSS', select: false},
+    { name: "trendAll", value: null, select: true },
+    { name: "Java", value: 'Java', select: false },
+    { name: "Objective_C", value: 'Objective-C', select: false },
+    { name: "Swift", value: 'Swift', select: false },
+    { name: "JavaScript", value: 'JavaScript', select: false },
+    { name: "PHP", value: 'PHP', select: false },
+    { name: "C__", value: 'C__', select: false },
+    { name: "C", value: 'C', select: false },
+    { name: "HTML", value: 'HTML', select: false },
+    { name: "CSS", value: 'CSS', select: false },
 ];
 
 export const IssueState = [
-    {name: "issue_open", value: 'open', select: true},
-    {name: "issue_closed", value: 'closed', select: false},
+    { name: "issue_open", value: 'open', select: true },
+    { name: "issue_closed", value: 'closed', select: false },
 ];
 
 export const IssueFilterType = [
-    {name: "issue_all", value: 'all', select: true},
-    {name: "issue_created", value: 'created', select: false},
-    {name: "issue_assigned", value: 'assigned', select: false},
-    {name: "issue_mentioned", value: 'mentioned', select: false},
+    { name: "issue_all", value: 'all', select: true },
+    { name: "issue_created", value: 'created', select: false },
+    { name: "issue_assigned", value: 'assigned', select: false },
+    { name: "issue_mentioned", value: 'mentioned', select: false },
 ];
 
 export const IssueSortType = [
-    {name: "issue_created", value: 'created', select: true},
-    {name: "issue_updated", value: 'updated', select: false},
-    {name: "issue_comments", value: 'comments', select: false},
+    { name: "issue_created", value: 'created', select: true },
+    { name: "issue_updated", value: 'updated', select: false },
+    { name: "issue_comments", value: 'comments', select: false },
 ];
 
 export const RepositoryFilter = () => {
@@ -165,7 +165,7 @@ export const RepositoryFilter = () => {
         itemName: I18n("filterPushed"),
         itemValue: 'pushed',
         itemClick: () => {
-            Actions.refresh({filterSelect: 'pushed'});
+            Actions.refresh({ filterSelect: 'pushed' });
         }, itemStyle: {
             borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: Constant.lineColor,
         }
@@ -173,13 +173,13 @@ export const RepositoryFilter = () => {
         itemName: I18n("filterCreated"),
         itemValue: 'created',
         itemClick: () => {
-            Actions.refresh({filterSelect: 'created'});
+            Actions.refresh({ filterSelect: 'created' });
         }, itemStyle: {}
     }, {
         itemName: I18n("filterUpdated"),
         itemValue: 'updated',
         itemClick: () => {
-            Actions.refresh({filterSelect: 'updated'});
+            Actions.refresh({ filterSelect: 'updated' });
         }, itemStyle: {
             borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: Constant.lineColor,
         }
@@ -187,7 +187,7 @@ export const RepositoryFilter = () => {
         itemName: I18n("filterFullName"),
         itemValue: 'full_name',
         itemClick: () => {
-            Actions.refresh({filterSelect: 'full_name'});
+            Actions.refresh({ filterSelect: 'full_name' });
         }, itemStyle: {
             borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: Constant.lineColor,
         }

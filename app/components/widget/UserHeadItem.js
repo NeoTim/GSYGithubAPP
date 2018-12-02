@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, WebView, ActivityIndicator
 } from 'react-native';
-import styles, {screenWidth} from "../../style"
+import styles, { screenWidth } from "../../style"
 import PropTypes from 'prop-types';
 import * as Constant from '../../style/constant'
 import IconTextItem from './IconTextItem'
 import IconTextAutoLinkItem from './IconTextAutoLinkItem'
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconF from 'react-native-vector-icons/FontAwesome'
-import {Actions} from "react-native-router-flux";
+import { Actions } from "react-native-router-flux";
 import I18n from '../../style/i18n'
 import NameValueItem from '../common/CommonNameValueItem'
 import OrgItemBar from '../widget/OrgItemBar'
-import {RepositoryFilter} from '../../utils/filterUtils'
-import {graphicHost} from "../../net/address";
+import { RepositoryFilter } from '../../utils/filterUtils'
+import { graphicHost } from "../../net/address";
 import userActions from "../../store/actions/user";
 
 const hintNum = '---';
@@ -44,12 +44,12 @@ class UserHeadItem extends Component {
             userDisPlayName,
         } = this.props;
         if (!dataList || dataList.length === 0) {
-            return (<View/>)
+            return (<View />)
         }
         return (
             <OrgItemBar
                 ownerName={userDisPlayName}
-                dataList={dataList}/>
+                dataList={dataList} />
         )
     }
 
@@ -65,12 +65,12 @@ class UserHeadItem extends Component {
             <ActivityIndicator
                 color={Constant.primaryColor}
                 animating={true}
-                style={{height: 50}}
-                size="large"/>
-            <Text style={{fontSize: 15, color: 'black'}}>
+                style={{ height: 50 }}
+                size="large" />
+            <Text style={{ fontSize: 15, color: 'black' }}>
                 {I18n('loading')}
             </Text>
-        </View> : <View/>;
+        </View> : <View />;
 
         let errorChart = (this.state.chartError === true) ? <View style={[{
             flexDirection: 'row',
@@ -78,23 +78,23 @@ class UserHeadItem extends Component {
             alignItems: 'center'
         }, styles.absoluteFull]}>
             <TouchableOpacity style={[styles.centered]}
-                              onPress={() => {
-                                  this.setState({
-                                      chartError: false,
-                                      chartLoading: true
-                                  });
-                                  if (this.refs.activity) {
-                                      this.refs.activity.reload();
-                                  }
-                              }}>
+                onPress={() => {
+                    this.setState({
+                        chartError: false,
+                        chartLoading: true
+                    });
+                    if (this.refs.activity) {
+                        this.refs.activity.reload();
+                    }
+                }}>
                 <Image source={require("../../img/logo.png")}
-                       resizeMode={"contain"}
-                       style={{width: 30, height: 30}}/>
+                    resizeMode={"contain"}
+                    style={{ width: 30, height: 30 }} />
                 <Text style={[styles.smallText]}>
                     {I18n("reloadClick")}
                 </Text>
             </TouchableOpacity>
-        </View> : <View/>;
+        </View> : <View />;
 
         let item = !isOrganizations ? <View
             style={[styles.shadowCard, styles.centered, {
@@ -116,7 +116,7 @@ class UserHeadItem extends Component {
                 <WebView
                     ref={"activity"}
                     //source={{html: generateImageHtml(userDisPlayName, Constant.primaryColor.replace("#", ""))}}
-                    source={{uri: graphicHost + "/" + Constant.primaryColor.replace("#", "") + "/" + userDisPlayName}}
+                    source={{ uri: graphicHost + "/" + Constant.primaryColor.replace("#", "") + "/" + userDisPlayName }}
                     javaScriptEnabled={true}
                     dataDetectorTypes={'none'}
                     domStorageEnabled={true}
@@ -132,7 +132,7 @@ class UserHeadItem extends Component {
                         });
                     }}
                     renderError={() => {
-                        return (<View/>)
+                        return (<View />)
                     }}
                     scrollEnabled={false}
                     automaticallyAdjustContentInsets={true}
@@ -145,7 +145,7 @@ class UserHeadItem extends Component {
             </ScrollView>
             {loadingChart}
             {errorChart}
-        </View> : <View/>;
+        </View> : <View />;
         return (item);
     }
 
@@ -158,9 +158,9 @@ class UserHeadItem extends Component {
             follower, followed, repos, star, beStared,
             beStaredList
         } = this.props;
-        return ( <View style={[styles.flexDirectionRowNotFlex,
-            {borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: Constant.primaryLightColor},
-            {borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: Constant.primaryLightColor},
+        return (<View style={[styles.flexDirectionRowNotFlex,
+        { borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: Constant.primaryLightColor },
+        { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: Constant.primaryLightColor },
         ]}>
             <NameValueItem
                 itemStyle={[styles.flex, styles.centered,]}
@@ -176,20 +176,20 @@ class UserHeadItem extends Component {
                         rightBtn: 'filter',
                         filterSelect: RepositoryFilter()[0].itemValue,
                         rightBtnPress: () => {
-                            Actions.OptionModal({dataList: RepositoryFilter()});
+                            Actions.OptionModal({ dataList: RepositoryFilter() });
                         }
                     })
-                }}/>
+                }} />
             <NameValueItem
                 itemStyle={[styles.flex, styles.centered,
-                    {
-                        borderLeftWidth: StyleSheet.hairlineWidth,
-                        borderLeftColor: Constant.primaryLightColor
-                    },
-                    {
-                        borderRightWidth: StyleSheet.hairlineWidth,
-                        borderRightColor: Constant.primaryLightColor
-                    },
+                {
+                    borderLeftWidth: StyleSheet.hairlineWidth,
+                    borderLeftColor: Constant.primaryLightColor
+                },
+                {
+                    borderRightWidth: StyleSheet.hairlineWidth,
+                    borderRightColor: Constant.primaryLightColor
+                },
                 ]}
                 itemName={I18n("FollowersText")}
                 itemValue={follower ? follower : hintNum}
@@ -198,7 +198,7 @@ class UserHeadItem extends Component {
                         dataType: 'follower', showType: 'user',
                         currentUser: userDisPlayName, title: userDisPlayName + " - " + I18n('FollowersText')
                     })
-                }}/>
+                }} />
             <NameValueItem
                 itemStyle={[styles.flex, styles.centered,]}
                 itemName={I18n("FollowedText")}
@@ -208,13 +208,13 @@ class UserHeadItem extends Component {
                         dataType: 'followed', showType: 'user',
                         currentUser: userDisPlayName, title: userDisPlayName + " - " + I18n('FollowedText')
                     })
-                }}/>
+                }} />
             <NameValueItem
                 itemStyle={[styles.flex, styles.centered,
-                    {
-                        borderLeftWidth: StyleSheet.hairlineWidth,
-                        borderLeftColor: Constant.primaryLightColor
-                    },]}
+                {
+                    borderLeftWidth: StyleSheet.hairlineWidth,
+                    borderLeftColor: Constant.primaryLightColor
+                },]}
                 itemName={I18n("staredText")}
                 itemValue={star ? star : hintNum}
                 onItemPress={() => {
@@ -227,16 +227,16 @@ class UserHeadItem extends Component {
                         rightBtn: 'filter',
                         filterSelect: RepositoryFilter()[1].itemValue,
                         rightBtnPress: () => {
-                            Actions.OptionModal({dataList: RepositoryFilter()});
+                            Actions.OptionModal({ dataList: RepositoryFilter() });
                         }
                     })
-                }}/>
+                }} />
             <NameValueItem
                 itemStyle={[styles.flex, styles.centered,
-                    {
-                        borderLeftWidth: StyleSheet.hairlineWidth,
-                        borderLeftColor: Constant.primaryLightColor
-                    },]}
+                {
+                    borderLeftWidth: StyleSheet.hairlineWidth,
+                    borderLeftColor: Constant.primaryLightColor
+                },]}
                 itemName={I18n("beStaredText")}
                 itemValue={beStared ? beStared : hintNum}
                 onItemPress={() => {
@@ -250,7 +250,7 @@ class UserHeadItem extends Component {
                         currentUser: userDisPlayName,
                         title: userDisPlayName + I18n('beStared100Title'),
                     })
-                }}/>
+                }} />
         </View>)
     }
 
@@ -276,7 +276,7 @@ class UserHeadItem extends Component {
             }}>
             <Text
                 style={styles.smallTextWhite}>{hadFollowed ? I18n("unFollowed") : I18n("doFollowed")}</Text>
-        </TouchableOpacity> : <View/>;
+        </TouchableOpacity> : <View />;
 
 
         let Organizations = this.getActivity(isOrganizations, userDisPlayName);
@@ -319,22 +319,22 @@ class UserHeadItem extends Component {
                                     if (settingNeed) {
                                         Actions.SettingPage();
                                     } else {
-                                        Actions.PhotoPage({uri: userPic});
+                                        Actions.PhotoPage({ uri: userPic });
                                     }
                                 }}>
-                                <Image source={{uri: userPic}}
-                                       resizeMethod="scale"
-                                       style={[styles.centerH, {
-                                           height: Constant.largeIconSize, width: Constant.largeIconSize,
-                                           borderRadius: Constant.largeIconSize / 2,
-                                           marginTop: 5
-                                       }]}/>
+                                <Image source={{ uri: userPic }}
+                                    resizeMethod="scale"
+                                    style={[styles.centerH, {
+                                        height: Constant.largeIconSize, width: Constant.largeIconSize,
+                                        borderRadius: Constant.largeIconSize / 2,
+                                        marginTop: 5
+                                    }]} />
                             </TouchableOpacity>
                         </View>
-                        <View style={{marginLeft: Constant.normalMarginEdge}}>
+                        <View style={{ marginLeft: Constant.normalMarginEdge }}>
                             <View style={[styles.centerH, styles.flexDirectionRowNotFlex]}>
-                                <Text selectable={true} style={[styles.largeTextWhite, {fontWeight: "bold",},
-                                    {marginRight: setting ? Constant.normalMarginEdge / 2 : 150}]}>
+                                <Text selectable={true} style={[styles.largeTextWhite, { fontWeight: "bold", },
+                                { marginRight: setting ? Constant.normalMarginEdge / 2 : 150 }]}>
                                     {(userDisPlayName) ? userDisPlayName : hintNum}
                                 </Text>
                                 <TouchableOpacity
@@ -349,7 +349,7 @@ class UserHeadItem extends Component {
                                             rightBtn: 'read',
                                             iconType: 3,
                                             rightBtnPress: () => {
-                                                Actions.LoadingModal({backExit: false});
+                                                Actions.LoadingModal({ backExit: false });
                                                 userActions.setAllNotificationAsRead().then((res) => {
                                                     Actions.pop();
                                                     setTimeout(() => {
@@ -362,29 +362,29 @@ class UserHeadItem extends Component {
                                         });
                                     }}>
                                     <IconF name={'bell'} size={setting ? 15 : 1}
-                                           color={unRead ? Constant.actionBlue : Constant.miWhite}/>
+                                        color={unRead ? Constant.actionBlue : Constant.miWhite} />
                                 </TouchableOpacity>
                             </View>
                             <Text selectable={true}
-                                  style={[styles.subLightSmallText]}>{(userName) ? userName : hintNum}</Text>
+                                style={[styles.subLightSmallText]}>{(userName) ? userName : hintNum}</Text>
                             <IconTextItem
                                 text={(groupName) ? groupName : this.hint} icon={'group'}
-                                viewstyle={[{marginTop: halfEdge}]}
-                                textstyle={[{marginLeft: halfEdge}, styles.smallTextWhite,]}/>
+                                viewstyle={[{ marginTop: halfEdge }]}
+                                textstyle={[{ marginLeft: halfEdge }, styles.smallTextWhite,]} />
                             <IconTextItem
                                 text={(location) ? location : this.hint} icon={'map-marker'}
-                                viewstyle={[{marginTop: halfEdge, marginLeft: 3, marginRight: 3}]}
-                                textstyle={[{marginLeft: halfEdge}, styles.smallTextWhite,]}/>
+                                viewstyle={[{ marginTop: halfEdge, marginLeft: 3, marginRight: 3 }]}
+                                textstyle={[{ marginLeft: halfEdge }, styles.smallTextWhite,]} />
                         </View>
                     </View>
                     <IconTextAutoLinkItem text={(link) ? link : this.hint} icon={'link'}
-                                          textstyle={[{marginLeft: Constant.normalMarginEdge},
-                                              {fontSize: Constant.smallTextSize},]}
-                                          viewstyle={[{marginTop: halfEdge}]}/>
+                        textstyle={[{ marginLeft: Constant.normalMarginEdge },
+                        { fontSize: Constant.smallTextSize },]}
+                        viewstyle={[{ marginTop: halfEdge }]} />
                     {this.getOrgItemBar(orgsList)}
                     <IconTextItem text={(des) ? des : this.hint}
-                                  textstyle={[{marginVertical: Constant.normalMarginEdge},
-                                      styles.subLightSmallText,]}/>
+                        textstyle={[{ marginVertical: Constant.normalMarginEdge },
+                        styles.subLightSmallText,]} />
                     {this.getBottomItem()}
                 </View>
                 <View style={styles.flex}>

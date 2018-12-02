@@ -2,12 +2,12 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component, PureComponent} from 'react';
+import React, { Component, PureComponent } from 'react';
 import {
     View, Text, StatusBar, InteractionManager, StyleSheet, Keyboard
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {Actions, Tabs} from 'react-native-router-flux';
+import { Actions, Tabs } from 'react-native-router-flux';
 import styles from "../style"
 import * as Constant from "../style/constant"
 import I18n from '../style/i18n'
@@ -20,7 +20,7 @@ import CommonBottomBar from './common/CommonBottomBar'
 import EventItem from './widget/EventItem'
 import resolveTime from '../utils/timeUtil'
 import * as Config from '../config'
-import {getActionAndDes, ActionUtils} from '../utils/eventUtils'
+import { getActionAndDes, ActionUtils } from '../utils/eventUtils'
 
 /**
  * 仓库动态页面
@@ -71,7 +71,7 @@ class RepositoryDetailActivityPage extends Component {
                     onPressItem={() => {
                         ActionUtils(rowData, fullName)
                     }}
-                    actionTarget={res.actionStr}/>
+                    actionTarget={res.actionStr} />
 
             )
         } else if (this.state.select === 1) {
@@ -87,7 +87,7 @@ class RepositoryDetailActivityPage extends Component {
                             sha: rowData.sha,
                         });
                     }}
-                    actionTarget={rowData.commit.message}/>
+                    actionTarget={rowData.commit.message} />
 
             )
         } else if (this.state.select === 2) {
@@ -99,7 +99,7 @@ class RepositoryDetailActivityPage extends Component {
                     opened={this.state.pulseData.openIssue}
                     statusText={statusText}
                     infoText={this.state.pulseData.des}
-                    closed={this.state.pulseData.closedIssue}/>
+                    closed={this.state.pulseData.closedIssue} />
             )
         }
     }
@@ -232,7 +232,7 @@ class RepositoryDetailActivityPage extends Component {
     }
 
     _getBottomItem() {
-        let {select} = this.state;
+        let { select } = this.state;
         return [{
             itemName: I18n("reposActivity"),
             itemTextColor: select === 0 ? Constant.white : Constant.subTextColor,
@@ -280,35 +280,35 @@ class RepositoryDetailActivityPage extends Component {
             topics, license, all_issues_count, closed_issues_count
         } = this.props.dataDetail;
         return <View>
-                <RepositoryHeader
-                    ownerName={this.props.ownerName}
-                    ownerPic={owner ? owner.avatar_url : ""}
-                    repositoryName={this.props.repositoryName}
-                    repositoryStar={watchers_count + ""}
-                    repositoryFork={forks_count + ""}
-                    repositoryWatch={subscribers_count + ""}
-                    repositoryIssue={open_issues_count + ""}
-                    repositoryIssueClose={closed_issues_count ? (closed_issues_count + "") : null}
-                    repositoryIssueAll={all_issues_count ? (all_issues_count + "") : null}
-                    repositorySize={(size / 1024).toFixed(2) + "M"}
-                    repositoryType={language}
-                    repositoryDes={description}
-                    repositoryIsFork={fork}
-                    topics={topics}
-                    license={license ? license.name : ""}
-                    repositoryParentName={parent ? parent.full_name : null}
-                    created_at={resolveTime(created_at)}
-                    push_at={resolveTime(pushed_at)}
-                />
-                <CommonBottomBar
-                    rootStyles={{
-                        marginHorizontal: Constant.normalMarginEdge,
-                        backgroundColor: Constant.primaryColor,
-                        marginTop: Constant.normalMarginEdge,
-                        borderRadius: 4,
-                    }}
-                    dataList={this._getBottomItem()}/>
-            </View>;
+            <RepositoryHeader
+                ownerName={this.props.ownerName}
+                ownerPic={owner ? owner.avatar_url : ""}
+                repositoryName={this.props.repositoryName}
+                repositoryStar={watchers_count + ""}
+                repositoryFork={forks_count + ""}
+                repositoryWatch={subscribers_count + ""}
+                repositoryIssue={open_issues_count + ""}
+                repositoryIssueClose={closed_issues_count ? (closed_issues_count + "") : null}
+                repositoryIssueAll={all_issues_count ? (all_issues_count + "") : null}
+                repositorySize={(size / 1024).toFixed(2) + "M"}
+                repositoryType={language}
+                repositoryDes={description}
+                repositoryIsFork={fork}
+                topics={topics}
+                license={license ? license.name : ""}
+                repositoryParentName={parent ? parent.full_name : null}
+                created_at={resolveTime(created_at)}
+                push_at={resolveTime(pushed_at)}
+            />
+            <CommonBottomBar
+                rootStyles={{
+                    marginHorizontal: Constant.normalMarginEdge,
+                    backgroundColor: Constant.primaryColor,
+                    marginTop: Constant.normalMarginEdge,
+                    borderRadius: 4,
+                }}
+                dataList={this._getBottomItem()} />
+        </View>;
     }
 
     render() {
@@ -323,9 +323,9 @@ class RepositoryDetailActivityPage extends Component {
 
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <PullListView
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ref="pullList"
                     renderRow={(rowData, index) =>
                         this._renderRow(rowData)

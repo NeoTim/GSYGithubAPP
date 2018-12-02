@@ -2,17 +2,17 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, StyleSheet, StatusBar, TextInput, TouchableOpacity, Keyboard
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import styles from "../style"
 import * as Constant from "../style/constant"
 import I18n from '../style/i18n'
 import repositoryActions from '../store/actions/repository'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import EventItem from './widget/EventItem'
 import CommonBottomBar from './common/CommonBottomBar'
 import UserItem from './widget/UserItem'
@@ -127,7 +127,7 @@ class SearchPage extends Component {
                     location={rowData.location}
                     actionUser={rowData.login}
                     actionUserPic={rowData.avatar_url}
-                    des={rowData.bio}/>
+                    des={rowData.bio} />
             );
         }
     }
@@ -204,7 +204,7 @@ class SearchPage extends Component {
     render() {
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <View style={[styles.flexDirectionRowNotFlex, styles.shadowCard, {
                     backgroundColor: '#FFF',
                     borderBottomRightRadius: 4,
@@ -231,14 +231,14 @@ class SearchPage extends Component {
                             marginHorizontal: Constant.normalMarginEdge / 2,
                             borderRadius: 3,
                             backgroundColor: Constant.subLightTextColor,
-                        }, styles.flex]}/>
+                        }, styles.flex]} />
 
                     <TouchableOpacity
-                        style={[styles.centered, {marginTop: 2, marginHorizontal: Constant.normalMarginEdge}]}
+                        style={[styles.centered, { marginTop: 2, marginHorizontal: Constant.normalMarginEdge }]}
                         onPress={() => {
                             this._refresh()
                         }}>
-                        <Icon name={'md-search'} size={28} color={Constant.subLightTextColor}/>
+                        <Icon name={'md-search'} size={28} color={Constant.subLightTextColor} />
                     </TouchableOpacity>
                 </View>
                 <CommonBottomBar
@@ -248,10 +248,10 @@ class SearchPage extends Component {
                         marginTop: Constant.normalMarginEdge,
                         borderRadius: 4,
                     }}
-                    dataList={this._getBottomItem()}/>
-                <View style={{height: 2, opacity: 0.3}}/>
+                    dataList={this._getBottomItem()} />
+                <View style={{ height: 2, opacity: 0.3 }} />
                 <PullListView
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ref="pullList"
                     enableRefresh={false}
                     renderRow={(rowData, index) =>

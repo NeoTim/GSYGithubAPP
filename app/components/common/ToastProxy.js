@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Toast from 'react-native-root-toast'
 
 /**

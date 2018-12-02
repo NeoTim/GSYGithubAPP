@@ -1,7 +1,7 @@
 /**
  * Created by guoshuyu on 2017/11/12.
  */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     View,
@@ -12,13 +12,13 @@ import {
     TouchableHighlight
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles, {screenWidth, screenHeight} from "../../style/index"
+import styles, { screenWidth, screenHeight } from "../../style/index"
 import * as Constant from "../../style/constant"
 import I18n from '../../style/i18n'
-import {uploadQiNiu} from '../../net/qiniu'
+import { uploadQiNiu } from '../../net/qiniu'
 import Modal from 'react-native-modalbox';
 import Spinner from 'react-native-spinkit';
-import {Actions} from "react-native-router-flux";
+import { Actions } from "react-native-router-flux";
 import CommonInputBar from "./CommonInputBar";
 import ImagePicker from 'react-native-image-crop-picker';
 
@@ -64,10 +64,10 @@ class CommonTextInputModal extends Component {
 
     _onOpened() {
         if (this.refs.titleInput) {
-            this.refs.titleInput.setNativeProps({text: this.title});
+            this.refs.titleInput.setNativeProps({ text: this.title });
         }
         if (this.refs.contentInput) {
-            this.refs.contentInput.setNativeProps({text: this.text});
+            this.refs.contentInput.setNativeProps({ text: this.text });
         }
     };
 
@@ -88,7 +88,7 @@ class CommonTextInputModal extends Component {
             itemClick: () => {
                 let curText = this.text + "\n# ";
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -99,7 +99,7 @@ class CommonTextInputModal extends Component {
                 let curText = this.text + "\n## ";
                 this._searchTextChange(curText);
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -110,7 +110,7 @@ class CommonTextInputModal extends Component {
                 let curText = this.text + "\n### ";
                 this._searchTextChange(curText);
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -121,7 +121,7 @@ class CommonTextInputModal extends Component {
                 let curText = this.text + "****";
                 this._searchTextChange(curText);
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -132,7 +132,7 @@ class CommonTextInputModal extends Component {
                 let curText = this.text + "__";
                 this._searchTextChange(curText);
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -143,7 +143,7 @@ class CommonTextInputModal extends Component {
                 let curText = this.text + "``";
                 this._searchTextChange(curText);
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -154,7 +154,7 @@ class CommonTextInputModal extends Component {
                 let curText = this.text + " \n``` \n\n``` \n";
                 this._searchTextChange(curText);
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -165,7 +165,7 @@ class CommonTextInputModal extends Component {
                 let curText = this.text + "[](url)";
                 this._searchTextChange(curText);
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -176,7 +176,7 @@ class CommonTextInputModal extends Component {
                 let curText = this.text + "\n- ";
                 this._searchTextChange(curText);
                 if (this.refs.contentInput) {
-                    this.refs.contentInput.setNativeProps({text: curText});
+                    this.refs.contentInput.setNativeProps({ text: curText });
                 }
             }
         }, {
@@ -184,7 +184,7 @@ class CommonTextInputModal extends Component {
             iconType: 2,
             iconSize: iconSize,
             itemClick: () => {
-                let {userList} = this.props;
+                let { userList } = this.props;
                 if (userList && userList.length > 0) {
                     this.setState({
                         showList: true
@@ -193,7 +193,7 @@ class CommonTextInputModal extends Component {
                     let curText = this.text + " @";
                     this._searchTextChange(curText);
                     if (this.refs.contentInput) {
-                        this.refs.contentInput.setNativeProps({text: curText});
+                        this.refs.contentInput.setNativeProps({ text: curText });
                     }
                 }
             }
@@ -209,7 +209,7 @@ class CommonTextInputModal extends Component {
 
 
     _getOptionItem() {
-        let {userList} = this.props;
+        let { userList } = this.props;
         let optionList = [];
         userList.forEach((item) => {
             let optionItem = {
@@ -221,7 +221,7 @@ class CommonTextInputModal extends Component {
                     let curText = this.text + " @" + item + " ";
                     this._searchTextChange(curText);
                     if (this.refs.contentInput) {
-                        this.refs.contentInput.setNativeProps({text: curText});
+                        this.refs.contentInput.setNativeProps({ text: curText });
                     }
                 }, itemStyle: {
                     borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: Constant.lineColor,
@@ -234,18 +234,18 @@ class CommonTextInputModal extends Component {
 
 
     getUserList() {
-        let {showList} = this.state;
+        let { showList } = this.state;
         if (!showList) {
-            return (<View/>)
+            return (<View />)
         }
         let _renderListItem = (data) => {
             let width = screenWidth - 170;
             return (
-                <TouchableOpacity style={[styles.centered, {width: width, height: 50}, styles.centerH, data.itemStyle]}
-                                  onPress={() => {
-                                      data.itemClick && data.itemClick(data);
-                                  }}
-                                  key={data.itemName}>
+                <TouchableOpacity style={[styles.centered, { width: width, height: 50 }, styles.centerH, data.itemStyle]}
+                    onPress={() => {
+                        data.itemClick && data.itemClick(data);
+                    }}
+                    key={data.itemName}>
                     <Text style={[styles.normalText]}>{data.itemName}</Text>
                 </TouchableOpacity>
             )
@@ -263,8 +263,8 @@ class CommonTextInputModal extends Component {
                         showList: false
                     });
                 }}>
-                <View style={[styles.centered, {padding: 40, backgroundColor: "#000000", opacity: 0.8}]}>
-                    <View style={[styles.centered, {backgroundColor: Constant.white, borderRadius: 4}]}>
+                <View style={[styles.centered, { padding: 40, backgroundColor: "#000000", opacity: 0.8 }]}>
+                    <View style={[styles.centered, { backgroundColor: Constant.white, borderRadius: 4 }]}>
                         <ScrollView>
                             {items}
                         </ScrollView>
@@ -275,19 +275,19 @@ class CommonTextInputModal extends Component {
     }
 
     getLoading() {
-        let {showLoading} = this.state;
+        let { showLoading } = this.state;
         if (!showLoading) {
-            return (<View/>)
+            return (<View />)
         }
         return (
             <TouchableOpacity
-                style={[styles.absoluteFull, styles.centered, {backgroundColor: "#000000", opacity: 0.8}]}>
+                style={[styles.absoluteFull, styles.centered, { backgroundColor: "#000000", opacity: 0.8 }]}>
                 <View style={[styles.centered]}>
                     <View>
                         <Spinner style={[styles.centered]}
-                                 isVisible={true}
-                                 size={50} type="9CubeGrid"
-                                 color="#FFFFFF"/>
+                            isVisible={true}
+                            size={50} type="9CubeGrid"
+                            color="#FFFFFF" />
                         <Text style={styles.normalTextWhite}>{I18n('loading')}</Text>
                     </View>
                 </View>
@@ -312,7 +312,7 @@ class CommonTextInputModal extends Component {
                         let curText = this.text + ` ![](${res.data}) `;
                         this._searchTextChange(curText);
                         if (this.refs.contentInput) {
-                            this.refs.contentInput.setNativeProps({text: curText});
+                            this.refs.contentInput.setNativeProps({ text: curText });
                         }
                     }
                     this.setState({
@@ -325,7 +325,7 @@ class CommonTextInputModal extends Component {
 
     render() {
         let width = screenWidth - 100;
-        let {bottomBar} = this.props;
+        let { bottomBar } = this.props;
         let editTitle = this.props.needEditTitle ? <View style={[{
             borderBottomWidth: 1,
             borderColor: Constant.subLightTextColor,
@@ -347,23 +347,23 @@ class CommonTextInputModal extends Component {
                     height: 30,
                     width: width,
                     textAlignVertical: 'top'
-                }]}/></View> : <View/>;
+                }]} /></View> : <View />;
         return (
             <Modal ref={"loginModal"}
-                   onOpened={this._onOpened}
-                   onClosed={this.onClose}
-                   style={[{height: screenHeight, width: screenWidth, backgroundColor: "#F0000000"}]}
-                   position={"center"}
-                   backdrop={this.props.backExit}
-                   backButtonClose={false}
-                   swipeToClose={this.props.backExit}
-                   backdropOpacity={0.8}>
-                <View style={[styles.centered, {flex: 1,}]}>
-                    <View style={[{borderRadius: 3, backgroundColor: Constant.white}, styles.centered]}>
-                        <View style={[styles.flexDirectionRowNotFlex, {marginTop: 10, paddingBottom: 10},
-                            {backgroundColor: Constant.white, width: width}, styles.centered]}>
+                onOpened={this._onOpened}
+                onClosed={this.onClose}
+                style={[{ height: screenHeight, width: screenWidth, backgroundColor: "#F0000000" }]}
+                position={"center"}
+                backdrop={this.props.backExit}
+                backButtonClose={false}
+                swipeToClose={this.props.backExit}
+                backdropOpacity={0.8}>
+                <View style={[styles.centered, { flex: 1, }]}>
+                    <View style={[{ borderRadius: 3, backgroundColor: Constant.white }, styles.centered]}>
+                        <View style={[styles.flexDirectionRowNotFlex, { marginTop: 10, paddingBottom: 10 },
+                        { backgroundColor: Constant.white, width: width }, styles.centered]}>
                             <Text
-                                style={[styles.normalText, {fontWeight: 'bold'}]}>{this.props.titleText}</Text>
+                                style={[styles.normalText, { fontWeight: 'bold' }]}>{this.props.titleText}</Text>
                         </View>
                         {editTitle}
                         <View style={[{
@@ -393,10 +393,10 @@ class CommonTextInputModal extends Component {
                                     borderRadius: 3,
                                     width: width,
                                     textAlignVertical: 'top'
-                                }]}/>
+                                }]} />
                             <CommonInputBar
-                                rootStyles={{width: (bottomBar ? width : 0)}}
-                                dataList={this.getDataList()}/>
+                                rootStyles={{ width: (bottomBar ? width : 0) }}
+                                dataList={this.getDataList()} />
                         </View>
                         <View
                             style={[styles.flexDirectionRowNotFlex, {
@@ -404,11 +404,11 @@ class CommonTextInputModal extends Component {
                                 width: width
                             }]}>
                             <TouchableOpacity
-                                style={[styles.flex, styles.centerH, {borderBottomLeftRadius: 3,}]}
+                                style={[styles.flex, styles.centerH, { borderBottomLeftRadius: 3, }]}
                                 onPress={() => {
                                     Actions.pop();
                                 }}>
-                                <Text style={[styles.subNormalText, {fontWeight: 'bold'}]}>{I18n("cancel")}</Text>
+                                <Text style={[styles.subNormalText, { fontWeight: 'bold' }]}>{I18n("cancel")}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={[styles.flex, styles.centerH, {
@@ -422,7 +422,7 @@ class CommonTextInputModal extends Component {
                                         this.props.textConfirm && this.props.textConfirm(this.text, this.title);
                                     }
                                 }}>
-                                <Text style={[styles.normalText, {fontWeight: 'bold'}]}>{I18n("ok")}</Text>
+                                <Text style={[styles.normalText, { fontWeight: 'bold' }]}>{I18n("ok")}</Text>
                             </TouchableOpacity>
                         </View>
                         {this.getUserList()}

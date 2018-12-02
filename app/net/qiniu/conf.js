@@ -11,5 +11,5 @@ let API_HOST = 'http://api.qiniu.com';
 let RPC_TIMEOUT = 3600000; // default rpc timeout: one hour
 
 export default {
-  ACCESS_KEY,SECRET_KEY,UP_HOST,RS_HOST,RSF_HOST,API_HOST,RPC_TIMEOUT
+  ACCESS_KEY, SECRET_KEY, UP_HOST, RS_HOST, RSF_HOST, API_HOST, RPC_TIMEOUT
 }

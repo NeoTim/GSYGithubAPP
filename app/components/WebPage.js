@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View,
     BackHandler,
@@ -10,8 +10,8 @@ import {
 import I18n from '../style/i18n'
 import Icon from 'react-native-vector-icons/Ionicons'
 import * as Constant from '../style/constant'
-import {screenWidth} from '../style'
-import {Actions} from "react-native-router-flux";
+import { screenWidth } from '../style'
+import { Actions } from "react-native-router-flux";
 import styles from "../style"
 
 /**
@@ -19,7 +19,7 @@ import styles from "../style"
  */
 export default class WebPage extends Component {
 
-    constructor(props: Object) {
+    constructor(props) {
         super(props);
         this.canGoBack = false;
         this.state = {
@@ -125,7 +125,7 @@ export default class WebPage extends Component {
                             marginLeft: Constant.normalMarginEdge - 3
                         }]}
                         onPress={this.goBack}>
-                        <Icon name={'md-arrow-round-back'} size={18} color={Constant.miWhite}/>
+                        <Icon name={'md-arrow-round-back'} size={18} color={Constant.miWhite} />
                     </TouchableOpacity>
                     <TextInput
                         ref='textInput'
@@ -141,14 +141,14 @@ export default class WebPage extends Component {
                             marginHorizontal: Constant.normalMarginEdge / 2,
                             borderRadius: 3,
                             backgroundColor: Constant.subLightTextColor,
-                        }, styles.flex]}/>
+                        }, styles.flex]} />
                     <TouchableOpacity
                         style={[styles.centered, {
                             marginRight: Constant.normalMarginEdge,
                             paddingLeft: 20
                         }]}
                         onPress={this.pressGoButton}>
-                        <Icon name={'md-search'} size={19} color={Constant.miWhite}/>
+                        <Icon name={'md-search'} size={19} color={Constant.miWhite} />
                     </TouchableOpacity>
                 </View>
                 <WebView
@@ -156,7 +156,7 @@ export default class WebPage extends Component {
                         this.webview = ref;
                     }}
                     {...this.props}
-                    source={{uri: this.state.uri}}
+                    source={{ uri: this.state.uri }}
                     onNavigationStateChange={this.onNavigationStateChange}
                     javaScriptEnabled={true}
                     domStorageEnabled={true}
@@ -166,7 +166,7 @@ export default class WebPage extends Component {
                     allowUniversalAccessFromFileURLs={true}
                     mediaPlaybackRequiresUserAction={true}
                     startInLoadingState={true}
-                    style={[{width: screenWidth}, {flex: 1},]}
+                    style={[{ width: screenWidth }, { flex: 1 },]}
                 />
             </View>
         )

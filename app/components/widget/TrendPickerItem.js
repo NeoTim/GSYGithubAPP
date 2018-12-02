@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, TouchableHighlight, StyleSheet
 } from 'react-native';
-import styles, {screenWidth} from "../../style"
+import styles, { screenWidth } from "../../style"
 import * as Constant from "../../style/constant"
 import I18n from '../../style/i18n'
 import ModalDropdown from 'react-native-modal-dropdown';
@@ -17,7 +17,7 @@ class TrendPickerItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            icon:'md-arrow-dropdown'
+            icon: 'md-arrow-dropdown'
         }
     }
 
@@ -43,14 +43,14 @@ class TrendPickerItem extends Component {
                     }}
                     defaultIndex={this.props.defaultIndex}
                     defaultValue={this.props.defaultValue}
-                    onDropdownWillShow={()=>{
+                    onDropdownWillShow={() => {
                         this.setState({
-                            icon:'md-arrow-dropup'
+                            icon: 'md-arrow-dropup'
                         })
                     }}
-                    onDropdownWillHide={()=>{
+                    onDropdownWillHide={() => {
                         this.setState({
-                            icon:'md-arrow-dropdown'
+                            icon: 'md-arrow-dropdown'
                         })
                     }}
                     renderRow={this.renderRow.bind(this)}
@@ -64,7 +64,7 @@ class TrendPickerItem extends Component {
                     top: 0,
                     bottom: 0,
                 }, styles.centerV]}>
-                    <Icon name={this.state.icon} size={20} color={Constant.mainTextColor}/>
+                    <Icon name={this.state.icon} size={20} color={Constant.mainTextColor} />
                 </View>
             </View>
         );
@@ -80,11 +80,11 @@ class TrendPickerItem extends Component {
                         flex: 1,
                         paddingHorizontal: Constant.normalMarginEdge,
                         height: this.props.itemHeight,
-                    }, {backgroundColor: Constant.white}, styles.centerH]}>
+                    }, { backgroundColor: Constant.white }, styles.centerH]}>
                     <Text style={[styles.middleText, {
                         marginHorizontal: 4,
                         textAlignVertical: 'center',
-                    }, highlighted && {color: Constant.selectedColor}, styles.centered]}>
+                    }, highlighted && { color: Constant.selectedColor }, styles.centered]}>
                         {I18n(rowData.name)}
                     </Text>
                 </View>
@@ -96,8 +96,8 @@ class TrendPickerItem extends Component {
         if (rowID === this.props.options.length - 1) return;
         let key = `spr_${rowID}`;
         return (
-            <View style={{height: StyleSheet.hairlineWidth, backgroundColor: Constant.lineColor,}}
-                  key={key}/>
+            <View style={{ height: StyleSheet.hairlineWidth, backgroundColor: Constant.lineColor, }}
+                key={key} />
         );
     }
 }

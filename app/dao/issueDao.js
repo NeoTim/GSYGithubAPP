@@ -6,7 +6,7 @@
 import Api from '../net'
 import Address from '../net/address'
 import realm from "./db";
-import {changeServiceResult} from '../utils/htmlUtils'
+import { changeServiceResult } from '../utils/htmlUtils'
 
 /**
  * 获取仓库issue
@@ -23,7 +23,7 @@ const getRepositoryIssueDao = (page = 0, userName, repository, state, sort, dire
     let stateName = state ? state : "all";
     let nextStep = async () => {
         let url = Address.getReposIssue(userName, repository, state, sort, direction) + Address.getPageParams("&", page);
-        let res = await Api.netFetch(url, 'GET', null, false, {Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw'});
+        let res = await Api.netFetch(url, 'GET', null, false, { Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw' });
         if (res && res.result && res.data.length > 0 && page <= 1) {
             realm.write(() => {
                 let allEvent = realm.objects('RepositoryIssue').filtered(`fullName="${fullName}" AND state="${stateName}"`);
@@ -72,7 +72,7 @@ const getIssueCommentDao = async (page = 0, userName, repository, number, localN
     let fullName = userName + "/" + repository;
     let nextStep = async () => {
         let url = Address.getIssueComment(userName, repository, number) + Address.getPageParams("?", page);
-        let res = await Api.netFetch(url, 'GET', null, false, {Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw'});
+        let res = await Api.netFetch(url, 'GET', null, false, { Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw' });
         if (res && res.result && res.data.length > 0 && page <= 1) {
             realm.write(() => {
                 let allEvent = realm.objects('IssueComment').filtered(`fullName="${fullName}" AND number ="${number}"`);
@@ -122,7 +122,7 @@ const getIssueInfoDao = async (userName, repository, number) => {
     let fullName = userName + "/" + repository;
     let nextStep = async () => {
         let url = Address.getIssueInfo(userName, repository, number);
-        let res = await Api.netFetch(url, 'GET', null, false, {Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw'});
+        let res = await Api.netFetch(url, 'GET', null, false, { Accept: 'application/vnd.github.html,application/vnd.github.VERSION.raw' });
         if (res && res.result && res.data) {
             realm.write(() => {
                 let data = realm.objects('IssueDetail').filtered(`fullName="${fullName}" AND number ="${number}"`);
@@ -161,7 +161,7 @@ const getIssueInfoDao = async (userName, repository, number) => {
 const addIssueCommentDao = async (userName, repository, number, comment) => {
     let fullName = userName + "/" + repository;
     let url = Address.addIssueComment(userName, repository, number);
-    let res = await Api.netFetch(url, 'POST', {body: comment}, true, {Accept: 'application/vnd.github.VERSION.full+json'});
+    let res = await Api.netFetch(url, 'POST', { body: comment }, true, { Accept: 'application/vnd.github.VERSION.full+json' });
     if (res && res.result) {
         realm.write(() => {
             let id = res.data.id;
@@ -186,7 +186,7 @@ const addIssueCommentDao = async (userName, repository, number, comment) => {
 const editIssueDao = async (userName, repository, number, issue) => {
     let fullName = userName + "/" + repository;
     let url = Address.editIssue(userName, repository, number);
-    let res = await Api.netFetch(url, 'PATCH', issue, true, {Accept: 'application/vnd.github.VERSION.full+json'});
+    let res = await Api.netFetch(url, 'PATCH', issue, true, { Accept: 'application/vnd.github.VERSION.full+json' });
     if (res && res.result) {
         realm.write(() => {
             let items = realm.objects('IssueDetail').filtered(`fullName="${fullName}" AND number ="${number}"`);
@@ -207,7 +207,7 @@ const editIssueDao = async (userName, repository, number, issue) => {
 const lockIssueDao = async (userName, repository, number, locked) => {
     let fullName = userName + "/" + repository;
     let url = Address.lockIssue(userName, repository, number);
-    let res = await Api.netFetch(url, locked ? "DELETE" : 'PUT', {}, true, {Accept: 'application/vnd.github.VERSION.full+json'});
+    let res = await Api.netFetch(url, locked ? "DELETE" : 'PUT', {}, true, { Accept: 'application/vnd.github.VERSION.full+json' });
     let objectData = null;
     if (res && res.result) {
         realm.write(() => {
@@ -234,7 +234,7 @@ const lockIssueDao = async (userName, repository, number, locked) => {
 const createIssueDao = async (userName, repository, issue) => {
     let fullName = userName + "/" + repository;
     let url = Address.createIssue(userName, repository);
-    let res = await Api.netFetch(url, 'POST', issue, true, {Accept: 'application/vnd.github.VERSION.full+json'});
+    let res = await Api.netFetch(url, 'POST', issue, true, { Accept: 'application/vnd.github.VERSION.full+json' });
     if (res && res.result) {
         realm.write(() => {
             realm.create('IssueDetail', {
@@ -257,7 +257,7 @@ const createIssueDao = async (userName, repository, issue) => {
 const editCommentDao = async (userName, repository, number, commentId, comment) => {
     let fullName = userName + "/" + repository;
     let url = Address.editComment(userName, repository, commentId);
-    let res = await Api.netFetch(url, 'PATCH', comment, true, {Accept: 'application/vnd.github.VERSION.full+json'});
+    let res = await Api.netFetch(url, 'PATCH', comment, true, { Accept: 'application/vnd.github.VERSION.full+json' });
     if (res && res.result) {
         realm.write(() => {
             let items = realm.objects('IssueComment').filtered(`fullName="${fullName}" AND number ="${number}" AND commentId="${commentId}"`);
@@ -278,7 +278,7 @@ const editCommentDao = async (userName, repository, number, commentId, comment) 
 const deleteCommentDao = async (userName, repository, number, commentId) => {
     let fullName = userName + "/" + repository;
     let url = Address.editComment(userName, repository, commentId);
-    let res = await Api.netFetch(url, 'DELETE', null, true, {Accept: 'application/vnd.github.VERSION.full+json'});
+    let res = await Api.netFetch(url, 'DELETE', null, true, { Accept: 'application/vnd.github.VERSION.full+json' });
     if (res && res.result) {
         realm.write(() => {
             let items = realm.objects('IssueComment').filtered(`fullName="${fullName}" AND number ="${number}" AND commentId="${commentId}"`);

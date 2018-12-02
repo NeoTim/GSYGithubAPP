@@ -235,7 +235,7 @@ class CusWebView extends React.Component {
     };
 
     static defaultProps = {
-        javaScriptEnabled : true,
+        javaScriptEnabled: true,
         thirdPartyCookiesEnabled: true,
         scalesPageToFit: true,
         saveFormDataDisabled: false
@@ -249,7 +249,7 @@ class CusWebView extends React.Component {
 
     componentWillMount() {
         if (this.props.startInLoadingState) {
-            this.setState({viewState: WebViewState.LOADING});
+            this.setState({ viewState: WebViewState.LOADING });
         }
     }
 
@@ -414,7 +414,7 @@ class CusWebView extends React.Component {
 
     onLoadingError = (event) => {
         event.persist(); // persist this event because we need to store it
-        var {onError, onLoadEnd} = this.props;
+        var { onError, onLoadEnd } = this.props;
         onError && onError(event);
         onLoadEnd && onLoadEnd(event);
         console.warn('Encountered an error loading page', event.nativeEvent);
@@ -426,7 +426,7 @@ class CusWebView extends React.Component {
     };
 
     onLoadingFinish = (event) => {
-        var {onLoad, onLoadEnd} = this.props;
+        var { onLoad, onLoadEnd } = this.props;
         onLoad && onLoad(event);
         onLoadEnd && onLoadEnd(event);
         this.setState({
@@ -435,8 +435,8 @@ class CusWebView extends React.Component {
         this.updateNavigationState(event);
     };
 
-    onMessage = (event: Event) => {
-        var {onMessage} = this.props;
+    onMessage = (event) => {
+        var { onMessage } = this.props;
         onMessage && onMessage(event);
     }
 }

@@ -1,7 +1,7 @@
 /**
  * Created by guoshuyu on 2017/11/7.
  */
-import React, {StyleSheet, Dimensions, PixelRatio, Platform, StatusBar} from "react-native";
+import React, { StyleSheet, Dimensions, PixelRatio, Platform, StatusBar } from "react-native";
 import * as constant from "./constant"
 
 export const screenWidth = Dimensions.get("window").width;
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     },
     shadowText: {
         textShadowColor: constant.cardShadowColor,
-        textShadowOffset: {width: 0, height: 0.4},
+        textShadowOffset: { width: 0, height: 0.4 },
         textShadowRadius: 0.4
     },
     inCode: {

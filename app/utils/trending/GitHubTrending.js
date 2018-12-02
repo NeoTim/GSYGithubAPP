@@ -28,15 +28,15 @@ class GitHubTrending {
                 })
                 .catch((error) => {
                     clearTimeout(timeoutId);
-                    reject({result: false, data: error});
+                    reject({ result: false, data: error });
                     console.log(error);
                 }).then((responseData) => {
-                try {
-                    resolve({result: true, data: TrendingUtil.htmlToRepo(responseData)});
-                } catch (e) {
-                    reject({result: false, data: e});
-                }
-            }).done();
+                    try {
+                        resolve({ result: true, data: TrendingUtil.htmlToRepo(responseData) });
+                    } catch (e) {
+                        reject({ result: false, data: e });
+                    }
+                }).done();
         });
     }
 

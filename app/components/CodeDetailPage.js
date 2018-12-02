@@ -2,7 +2,7 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, StatusBar, InteractionManager, BackHandler
 } from 'react-native';
@@ -11,8 +11,8 @@ import styles from "../style"
 import I18n from '../style/i18n'
 import reposActions from '../store/actions/repository'
 import WebComponent from './widget/CustomWebComponent'
-import {generateCode2HTml, formName, generateHtml, launchUrl} from '../utils/htmlUtils'
-import {Actions} from 'react-native-router-flux';
+import { generateCode2HTml, formName, generateHtml, launchUrl } from '../utils/htmlUtils'
+import { Actions } from 'react-native-router-flux';
 import * as Constant from '../style/constant'
 
 /**
@@ -71,9 +71,9 @@ class CodeDetailPage extends Component {
                         }, 500);
 
                     }
-                )
+                    )
             }
-            Actions.refresh({titleData: {html_url: this.props.html_url}})
+            Actions.refresh({ titleData: { html_url: this.props.html_url } })
         });
         this.handle = BackHandler.addEventListener('CodeDetailPage-hardwareBackPress', this._BackHandler)
     }
@@ -91,10 +91,10 @@ class CodeDetailPage extends Component {
     }
 
     render() {
-        let {detail} = this.state;
+        let { detail } = this.state;
         return (
             <View style={[styles.mainBox]}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <WebComponent
                     gsygithubLink={(url) => {
                         if (url) {
@@ -106,7 +106,7 @@ class CodeDetailPage extends Component {
                             launchUrl(fixedUrl);
                         }
                     }}
-                    source={{html: detail}}/>
+                    source={{ html: detail }} />
             </View>
         )
     }

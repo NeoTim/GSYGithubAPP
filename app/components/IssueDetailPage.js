@@ -2,12 +2,12 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Text, StatusBar, TextInput, InteractionManager, Keyboard, TouchableOpacity, StyleSheet, Clipboard
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import styles from "../style"
 import * as Constant from "../style/constant"
 import I18n from '../style/i18n'
@@ -17,7 +17,7 @@ import IssueItem from './widget/IssueItem'
 import IssueHead from './widget/IssueHead'
 import CommonBottomBar from './common/CommonBottomBar'
 import * as Config from '../config'
-import {isCommentOwner} from '../utils/issueUtils'
+import { isCommentOwner } from '../utils/issueUtils'
 import Toast from "./common/ToastProxy";
 
 /**
@@ -69,19 +69,19 @@ class IssueDetailPage extends Component {
                 issueComment={rowData.body}
                 onLongPressItem={() => {
                     if (isCommentOwner(this.props.userName, rowData.user.login)) {
-                        Actions.OptionModal({dataList: this._getOptionItem(rowData, rowID, true)});
+                        Actions.OptionModal({ dataList: this._getOptionItem(rowData, rowID, true) });
                     } else {
-                        Actions.OptionModal({dataList: this._getOptionItem(rowData, rowID, false)});
+                        Actions.OptionModal({ dataList: this._getOptionItem(rowData, rowID, false) });
                     }
                 }}
-                issueCommentHtml={rowData.body_html}/>
+                issueCommentHtml={rowData.body_html} />
         )
     }
 
     sendIssueComment(text) {
-        let {repositoryName, userName} = this.props;
-        let {issue} = this.state;
-        Actions.LoadingModal({backExit: false});
+        let { repositoryName, userName } = this.props;
+        let { issue } = this.state;
+        Actions.LoadingModal({ backExit: false });
         issueActions.addIssueComment(userName, repositoryName, issue.number, text).then((res) => {
             setTimeout(() => {
                 Actions.pop();
@@ -110,66 +110,66 @@ class IssueDetailPage extends Component {
         if (!title || title.length === 0) {
             return
         }
-        let {repositoryName, userName} = this.props;
-        let {issue} = this.state;
-        Actions.LoadingModal({backExit: false});
+        let { repositoryName, userName } = this.props;
+        let { issue } = this.state;
+        Actions.LoadingModal({ backExit: false });
         issueActions.editIssue(userName, repositoryName, issue.number,
-            {title: title, body: text}).then((res) => {
-            setTimeout(() => {
-                Actions.pop();
-                if (res && res.result) {
-                    this.setState({
-                        issue: res.data
-                    })
-                } else {
-                    Actions.TextInputModal({
-                        textConfirm: this.editIssue,
-                        titleText: I18n('editIssue'),
-                        needEditTitle: true,
-                        text: text,
-                        titleValue: title,
-                        bottomBar: true,
-                        userList: [...this.actionUser.values()]
-                    })
-                }
-            }, 500);
-        })
+            { title: title, body: text }).then((res) => {
+                setTimeout(() => {
+                    Actions.pop();
+                    if (res && res.result) {
+                        this.setState({
+                            issue: res.data
+                        })
+                    } else {
+                        Actions.TextInputModal({
+                            textConfirm: this.editIssue,
+                            titleText: I18n('editIssue'),
+                            needEditTitle: true,
+                            text: text,
+                            titleValue: title,
+                            bottomBar: true,
+                            userList: [...this.actionUser.values()]
+                        })
+                    }
+                }, 500);
+            })
     }
 
     editComment(commentId, text, rowID) {
-        let {repositoryName, userName} = this.props;
-        let {issue} = this.state;
-        Actions.LoadingModal({backExit: false});
+        let { repositoryName, userName } = this.props;
+        let { issue } = this.state;
+        Actions.LoadingModal({ backExit: false });
         issueActions.editComment(userName, repositoryName, issue.number, commentId,
-            {body: text}).then((res) => {
-            setTimeout(() => {
-                Actions.pop();
-                if (res && res.result) {
-                    let dataList = this.state.dataSource;
-                    dataList.splice(parseInt(rowID), 1, res.data);
-                    this.setState({
-                        dataSource: dataList
-                    })
-                } else {
-                    Actions.TextInputModal({
-                        textConfirm: (text) => {
-                            this.editComment(commentId, text, rowID)
-                        },
-                        titleText: I18n('editIssue'),
-                        needEditTitle: false,
-                        text: text,
-                        bottomBar: true,
-                        userList: [...this.actionUser.values()]
-                    })
-                }
-            }, 500);
-        })
+            { body: text }).then((res) => {
+                setTimeout(() => {
+                    Actions.pop();
+                    if (res && res.result) {
+                        let dataList = this.state.dataSource;
+                        dataList.splice(parseInt(rowID), 1, res.data);
+                        this.setState({
+                            dataSource: dataList
+                        })
+                    } else {
+                        Actions.TextInputModal({
+                            textConfirm: (text) => {
+                                this.editComment(commentId, text, rowID)
+                            },
+                            titleText: I18n('editIssue'),
+                            needEditTitle: false,
+                            text: text,
+                            bottomBar: true,
+                            userList: [...this.actionUser.values()]
+                        })
+                    }
+                }, 500);
+            })
     }
 
     deleteComment(commentId, rowID) {
-        let {repositoryName, userName} = this.props;
-        let {number} = this.state.issue;
-        Actions.LoadingModal({backExit: false});
+        let { repositoryName, userName } = this.props;
+        let { number } = this.state.issue;
+        Actions.LoadingModal({ backExit: false });
         issueActions.editComment(userName, repositoryName, number, commentId, null, 'delete').then((res) => {
             setTimeout(() => {
                 Actions.pop();
@@ -185,27 +185,27 @@ class IssueDetailPage extends Component {
     }
 
     closeIssue() {
-        let {repositoryName, userName} = this.props;
-        let {issue} = this.state;
-        Actions.LoadingModal({backExit: false});
+        let { repositoryName, userName } = this.props;
+        let { issue } = this.state;
+        Actions.LoadingModal({ backExit: false });
         issueActions.editIssue(userName, repositoryName, issue.number,
-            {state: (issue.state === "closed") ? 'open' : 'closed'}).then((res) => {
-            setTimeout(() => {
-                Actions.pop();
-                if (res && res.result) {
-                    this.setState({
-                        issue: res.data
-                    })
-                }
-            }, 500);
-        })
+            { state: (issue.state === "closed") ? 'open' : 'closed' }).then((res) => {
+                setTimeout(() => {
+                    Actions.pop();
+                    if (res && res.result) {
+                        this.setState({
+                            issue: res.data
+                        })
+                    }
+                }, 500);
+            })
     }
 
 
     lockedIssue() {
-        let {repositoryName, userName} = this.props;
-        let {issue} = this.state;
-        Actions.LoadingModal({backExit: false});
+        let { repositoryName, userName } = this.props;
+        let { issue } = this.state;
+        Actions.LoadingModal({ backExit: false });
         issueActions.lockIssue(userName, repositoryName, issue.number, issue.locked).then((res) => {
             setTimeout(() => {
                 Actions.pop();
@@ -222,7 +222,7 @@ class IssueDetailPage extends Component {
      * 刷新
      * */
     _refresh() {
-        let {issue} = this.state;
+        let { issue } = this.state;
         issueActions.getIssueComment(1, this.props.userName, this.props.repositoryName, issue.number)
             .then((res) => {
                 if (res && res.result) {
@@ -230,7 +230,7 @@ class IssueDetailPage extends Component {
                     this.setState({
                         dataSource: dataList
                     });
-                    Actions.refresh({titleData: res.data});
+                    Actions.refresh({ titleData: res.data });
                 }
 
                 return res.next();
@@ -272,7 +272,7 @@ class IssueDetailPage extends Component {
                     this.setState({
                         issue: res.data,
                     });
-                    Actions.refresh({titleData: res.data});
+                    Actions.refresh({ titleData: res.data });
                 }
             })
     }
@@ -281,7 +281,7 @@ class IssueDetailPage extends Component {
      * 加载更多
      * */
     _loadMore() {
-        let {issue} = this.state;
+        let { issue } = this.state;
         issueActions.getIssueComment(this.page, this.props.userName, this.props.repositoryName, issue.number).then((res) => {
             let size = 0;
             if (res && res.result) {
@@ -307,7 +307,7 @@ class IssueDetailPage extends Component {
 
 
     _getBottomItem() {
-        let {issue} = this.state;
+        let { issue } = this.state;
         return [{
             itemName: I18n("issueComment"),
             itemClick: () => {
@@ -397,7 +397,7 @@ class IssueDetailPage extends Component {
     }
 
     _renderHeader() {
-        let {issue} = this.state;
+        let { issue } = this.state;
         return <IssueHead
             actionTime={issue.created_at}
             actionUser={issue.user.login}
@@ -409,20 +409,20 @@ class IssueDetailPage extends Component {
             commentCount={issue.comments + ""}
             state={issue.state}
             issueDes={(issue.body) ? ((I18n('issueInfo') + ": \n" + issue.body)) : ''}
-            issueTag={"#" + issue.number}/>;
+            issueTag={"#" + issue.number} />;
     }
 
     render() {
-        let {issue} = this.state;
+        let { issue } = this.state;
         let bottomBar = (issue) ?
-            <CommonBottomBar dataList={this._getBottomItem()}/> :
-            <View/>;
+            <CommonBottomBar dataList={this._getBottomItem()} /> :
+            <View />;
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
-                <View style={{height: 2, opacity: 0.3}}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
+                <View style={{ height: 2, opacity: 0.3 }} />
                 <PullListView
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ref="pullList"
                     enableRefresh={false}
                     renderRow={(rowData, index) =>

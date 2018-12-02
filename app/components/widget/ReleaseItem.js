@@ -29,7 +29,7 @@ class ReleaseItem extends Component {
     }
 
     render() {
-        let {actionTime, actionTitle, actionUserPic, actionTargetHtml, actionTarget} = this.props;
+        let { actionTime, actionTitle, actionUserPic, actionTargetHtml, actionTarget } = this.props;
 
         let body = (actionTargetHtml) ? <HTMLView
             style={[{
@@ -43,10 +43,10 @@ class ReleaseItem extends Component {
                 style: styles.subSmallText,
                 numberOfLines: 100,
             }}
-            stylesheet={{pre: styles.inCode, code: styles.pCode}}
+            stylesheet={{ pre: styles.inCode, code: styles.pCode }}
             textComponent={() => {
                 return (
-                    <Text/>
+                    <Text />
                 )
             }}
         /> : <Text style={[styles.subSmallText,]}>{actionTargetHtml}</Text>;
@@ -59,7 +59,7 @@ class ReleaseItem extends Component {
                     padding: Constant.normalMarginEdge,
                     borderRadius: 4,
                 }, styles.shadowCard]}
-                onLongPress={()=>{
+                onLongPress={() => {
                     this.props.onLongPressItem && this.props.onLongPressItem();
                 }}
                 onPress={() => {
@@ -74,8 +74,8 @@ class ReleaseItem extends Component {
                             {actionTitle}
                         </Text>
                         <TimeText style={[styles.subSmallText,
-                            {marginTop: -20}]}
-                                  time={actionTime}/>
+                        { marginTop: -20 }]}
+                            time={actionTime} />
                     </View>
                 </View>
                 {body}

@@ -1,5 +1,5 @@
-import {ISSUSE} from '../type';
-import {createReducer} from '../'
+import { ISSUSE } from '../type';
+import { createReducer } from '../'
 
 const initialState = {
 

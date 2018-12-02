@@ -2,23 +2,23 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, AppState, StatusBar, InteractionManager
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import styles from "../style"
 import I18n from '../style/i18n'
 import loginActions from '../store/actions/login'
 import userActions from '../store/actions/user'
 import eventActions from '../store/actions/event'
-import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux'
-import {getActionAndDes, ActionUtils} from '../utils/eventUtils'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { getActionAndDes, ActionUtils } from '../utils/eventUtils'
 import EventItem from './widget/EventItem'
 import PullListView from './widget/PullLoadMoreListView'
 import * as Config from '../config'
-import {getNewsVersion} from './AboutPage'
+import { getNewsVersion } from './AboutPage'
 
 
 /**
@@ -86,7 +86,7 @@ class DynamicPage extends Component {
                 onPressItem={() => {
                     ActionUtils(rowData)
                 }}
-                actionTarget={res.actionStr}/>
+                actionTarget={res.actionStr} />
         )
     }
 
@@ -94,7 +94,7 @@ class DynamicPage extends Component {
      * 刷新
      * */
     _refresh() {
-        let {eventAction} = this.props;
+        let { eventAction } = this.props;
         eventAction.getEventReceived(0, (res) => {
             this.page = 2;
             setTimeout(() => {
@@ -109,7 +109,7 @@ class DynamicPage extends Component {
      * 加载更多
      * */
     _loadMore() {
-        let {eventAction} = this.props;
+        let { eventAction } = this.props;
         eventAction.getEventReceived(this.page, (res) => {
             this.page++;
             setTimeout(() => {
@@ -122,13 +122,13 @@ class DynamicPage extends Component {
 
 
     render() {
-        let {eventState, userState} = this.props;
+        let { eventState, userState } = this.props;
         let dataSource = (eventState.received_events_data_list);
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <PullListView
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ref="pullList"
                     renderRow={(rowData, index) =>
                         this._renderRow(rowData)

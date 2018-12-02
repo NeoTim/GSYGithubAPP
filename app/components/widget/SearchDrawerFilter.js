@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, Text, View, ViewPropTypes,} from 'react-native';
-import {Router, Actions, Scene} from 'react-native-router-flux';
-import styles, {statusHeight, drawerWidth} from "../../style"
+import { StyleSheet, Text, View, ViewPropTypes, } from 'react-native';
+import { Router, Actions, Scene } from 'react-native-router-flux';
+import styles, { statusHeight, drawerWidth } from "../../style"
 import * as Constant from '../../style/constant'
-import {SortType, SearchFilterType, SearchLanguageType} from '../../utils/filterUtils'
+import { SortType, SearchFilterType, SearchLanguageType } from '../../utils/filterUtils'
 import SelectList from './SearchFilterSelectList'
 
 class SearchDrawerFilter extends React.Component {
@@ -23,13 +23,13 @@ class SearchDrawerFilter extends React.Component {
             <View style={[styles.flex, {
                 backgroundColor: 'transparent',
             }]}>
-                <View style={{backgroundColor: "#F0000000", height: statusHeight, width: drawerWidth}}>
+                <View style={{ backgroundColor: "#F0000000", height: statusHeight, width: drawerWidth }}>
                     <View
-                        style={{backgroundColor: Constant.primaryDarkColor, height: statusHeight, width: drawerWidth}}/>
+                        style={{ backgroundColor: Constant.primaryDarkColor, height: statusHeight, width: drawerWidth }} />
                 </View>
                 <SelectList
-                    listStyle={{flex: 1, backgroundColor: Constant.white, marginTop: Constant.normalMarginEdge * 2}}
-                    selectIndex={{'filerType': 0, 'filterSort': 0, "filterLanguage": 0}}
+                    listStyle={{ flex: 1, backgroundColor: Constant.white, marginTop: Constant.normalMarginEdge * 2 }}
+                    selectIndex={{ 'filerType': 0, 'filterSort': 0, "filterLanguage": 0 }}
                     selectMap={{
                         'filerType': SearchFilterType,
                         'filterSort': SortType,
@@ -38,13 +38,13 @@ class SearchDrawerFilter extends React.Component {
                     onSelect={(selection, data) => {
                         switch (selection) {
                             case "filerType":
-                                Actions.pop({refresh: {selectTypeData: data}});
+                                Actions.pop({ refresh: { selectTypeData: data } });
                                 break;
                             case "filterLanguage":
-                                Actions.pop({refresh: {selectLanguageData: data}});
+                                Actions.pop({ refresh: { selectLanguageData: data } });
                                 break;
                             case "filterSort":
-                                Actions.pop({refresh: {selectSortData: data}});
+                                Actions.pop({ refresh: { selectSortData: data } });
                                 break;
                         }
 

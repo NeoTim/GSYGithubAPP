@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 import * as Constant from '../../style/constant'
-import {Actions} from 'react-native-router-flux'
+import { Actions } from 'react-native-router-flux'
 import styles from '../../style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconC from 'react-native-vector-icons/Octicons'
@@ -48,7 +48,7 @@ class RepositoryPulseItem extends Component {
             size: 22,
         };
 
-        let {opened, closed, infoText, statusText} = this.props;
+        let { opened, closed, infoText, statusText } = this.props;
 
         return (
             <View style={[{
@@ -64,12 +64,12 @@ class RepositoryPulseItem extends Component {
                 }]}>
                     <View
                         style={[styles.flexDirectionRow, styles.centered,
-                            {borderColor: Constant.lineColor, borderRightWidth: StyleSheet.hairlineWidth}
+                        { borderColor: Constant.lineColor, borderRightWidth: StyleSheet.hairlineWidth }
                         ]}>
                         <IconC name="issue-closed" {...bottomIconStyle} color={"red"}>
                         </IconC>
                         <Text
-                            style={[styles.smallText, styles.shadowText, {marginLeft: 5}]}>{I18n("weekClosed") + closed}</Text>
+                            style={[styles.smallText, styles.shadowText, { marginLeft: 5 }]}>{I18n("weekClosed") + closed}</Text>
                     </View>
                     <View
                         style={[styles.flexDirectionRow, styles.centered]}
@@ -77,11 +77,11 @@ class RepositoryPulseItem extends Component {
                         <IconC name="issue-opened" {...bottomIconStyle} color={"green"}>
                         </IconC>
                         <Text
-                            style={[styles.smallText, styles.shadowText, {marginLeft: 5}]}>{I18n("weekOpened") + opened}</Text>
+                            style={[styles.smallText, styles.shadowText, { marginLeft: 5 }]}>{I18n("weekOpened") + opened}</Text>
                     </View>
                 </View>
                 <Text
-                    style={[styles.normalText, styles.shadowText, {marginTop: Constant.normalMarginEdge}]}>{I18n("thisWeek")}</Text>
+                    style={[styles.normalText, styles.shadowText, { marginTop: Constant.normalMarginEdge }]}>{I18n("thisWeek")}</Text>
                 <HTMLView
                     style={[{
                         backgroundColor: Constant.transparentColor,
@@ -98,7 +98,7 @@ class RepositoryPulseItem extends Component {
                     selectable={true}
                     textComponent={() => {
                         return (
-                            <Text/>
+                            <Text />
                         )
                     }}
                 />

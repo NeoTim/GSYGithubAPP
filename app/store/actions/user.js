@@ -2,16 +2,16 @@
  * Created by guoshuyu on 2017/11/9.
  */
 
-import {USER} from '../type'
+import { USER } from '../type'
 import UserDao from '../../dao/userDao'
 import * as Constant from '../../style/constant'
 import store from '../'
-import {AsyncStorage} from 'react-native'
+import { AsyncStorage } from 'react-native'
 import RepositoryDao from "../../dao/repositoryDao";
 import Api from "../../net";
 import Address from "../../net/address";
 
-const {dispatch, getState} = store;
+const { dispatch, getState } = store;
 
 /**
  * 初始化用户信息

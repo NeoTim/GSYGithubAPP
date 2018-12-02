@@ -1,6 +1,6 @@
 import store from '../store'
 
-const {dispatch, getState} = store;
+const { dispatch, getState } = store;
 
 
 export const isCommentOwner = (repositoryName, commentName) => {

@@ -2,11 +2,11 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, Linking, StatusBar, InteractionManager, TouchableOpacity, Keyboard
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import styles from "../style/index"
 import * as Constant from "../style/constant"
 import userActions from '../store/actions/user'
@@ -20,8 +20,8 @@ import PullListView from './widget/PullLoadMoreListView'
 import RepositoryItem from './widget/RepositoryItem'
 import * as Config from '../config/index'
 import PropTypes from 'prop-types';
-import {getFullName} from '../utils/htmlUtils'
-import {generateHtml} from "../utils/htmlUtils";
+import { getFullName } from '../utils/htmlUtils'
+import { generateHtml } from "../utils/htmlUtils";
 
 
 /**
@@ -88,13 +88,13 @@ class ListPage extends Component {
                     location={rowData.location}
                     actionUser={rowData.login}
                     actionUserPic={rowData.avatar_url}
-                    des={rowData.bio}/>);
+                    des={rowData.bio} />);
             case 'org':
                 return (<UserItem
                     location={""}
                     actionUser={rowData.login}
                     actionUserPic={rowData.avatar_url}
-                    des={rowData.description}/>);
+                    des={rowData.description} />);
             case 'issue':
                 let fullName = getFullName(rowData.repository_url) + "--";
                 return (
@@ -112,7 +112,7 @@ class ListPage extends Component {
                                 repositoryName: this.props.repositoryName,
                                 userName: this.props.userName
                             })
-                        }}/>
+                        }} />
                 );
             case 'release':
                 console.log(rowData)
@@ -168,7 +168,7 @@ class ListPage extends Component {
                                     repositoryName: rowData.repository.name,
                                     userName: rowData.repository.owner.login,
                                     needRightBtn: true,
-                                    iconType:1,
+                                    iconType: 1,
                                     rightBtn: 'home',
                                     rightBtnPress: () => {
                                         Actions.RepositoryDetail({
@@ -179,7 +179,7 @@ class ListPage extends Component {
                                     }
                                 });
                             }
-                        }}/>
+                        }} />
                 );
         }
     }
@@ -300,7 +300,7 @@ class ListPage extends Component {
                 });
                 break;
             case 'user_be_stared':
-                this._refreshRes({result: true, data: this.props.localData});
+                this._refreshRes({ result: true, data: this.props.localData });
                 break;
             case 'user_orgs':
                 userActions.getUserOrgs(0, this.props.currentUser)
@@ -387,7 +387,7 @@ class ListPage extends Component {
                 });
                 break;
             case 'user_be_stared':
-                this._loadMoreRes({result: false});
+                this._loadMoreRes({ result: false });
                 break;
             case 'user_orgs':
                 userActions.getUserOrgs(this.page, this.props.currentUser).then((res) => {
@@ -441,9 +441,9 @@ class ListPage extends Component {
     render() {
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <PullListView
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ref="pullList"
                     enableRefresh={false}
                     renderRow={(rowData, index) =>

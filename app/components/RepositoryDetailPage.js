@@ -2,12 +2,12 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component, PureComponent} from 'react';
+import React, { Component, PureComponent } from 'react';
 import {
     View, InteractionManager, StatusBar, Dimensions, StyleSheet, BackHandler
 } from 'react-native';
-import {Actions, Tabs} from 'react-native-router-flux';
-import styles, {screenHeight} from "../style"
+import { Actions, Tabs } from 'react-native-router-flux';
+import styles, { screenHeight } from "../style"
 import * as Constant from "../style/constant"
 import I18n from '../style/i18n'
 import repositoryActions from '../store/actions/repository'
@@ -18,8 +18,8 @@ import RepositoryDetailActivity from './RepositoryDetailActivityPage'
 import RepositoryDetailFile from './RepositoryDetailFilePage'
 import Toast from './common/ToastProxy'
 import PopmenuItem from './widget/BottomPopmenuItem'
-import {launchUrl} from "../utils/htmlUtils";
-import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view-fix-guo';
+import { launchUrl } from "../utils/htmlUtils";
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view-fix-guo';
 
 /**
  * 仓库详情
@@ -51,7 +51,7 @@ class RepositoryDetailPage extends Component {
                         this.setState({
                             dataDetail: res.data
                         });
-                        Actions.refresh({titleData: res.data});
+                        Actions.refresh({ titleData: res.data });
                         repositoryActions.addRepositoryLocalRead(this.props.ownerName, this.props.repositoryName, res.data);
 
                     }
@@ -62,7 +62,7 @@ class RepositoryDetailPage extends Component {
                         this.setState({
                             dataDetail: res.data
                         });
-                        Actions.refresh({titleData: res.data});
+                        Actions.refresh({ titleData: res.data });
                         repositoryActions.addRepositoryLocalRead(this.props.ownerName, this.props.repositoryName, res.data);
                     }
                 });
@@ -157,8 +157,8 @@ class RepositoryDetailPage extends Component {
 
 
     _forked() {
-        let {ownerName, repositoryName} = this.props;
-        Actions.LoadingModal({backExit: false});
+        let { ownerName, repositoryName } = this.props;
+        Actions.LoadingModal({ backExit: false });
         repositoryActions.createRepositoryForks(ownerName, repositoryName).then((res) => {
             Toast((res && res.result) ? I18n('forkSuccess') : I18n('forkFail'));
             setTimeout(() => {
@@ -180,14 +180,14 @@ class RepositoryDetailPage extends Component {
 
 
     _getBottomItem() {
-        let {stared, watched, dataDetail} = this.state;
-        let {ownerName, repositoryName} = this.props;
+        let { stared, watched, dataDetail } = this.state;
+        let { ownerName, repositoryName } = this.props;
         return [{
             itemName: stared ? I18n("reposUnStar") : I18n("reposStar"),
             icon: "star",
             iconColor: stared ? Constant.primaryColor : Constant.miWhite,
             itemClick: () => {
-                Actions.LoadingModal({backExit: false});
+                Actions.LoadingModal({ backExit: false });
                 repositoryActions.doRepositoryStar(ownerName, repositoryName, !stared).then((res) => {
                     setTimeout(() => {
                         Actions.pop();
@@ -200,7 +200,7 @@ class RepositoryDetailPage extends Component {
             icon: "eye",
             iconColor: watched ? Constant.primaryColor : Constant.miWhite,
             itemClick: () => {
-                Actions.LoadingModal({backExit: false});
+                Actions.LoadingModal({ backExit: false });
                 repositoryActions.doRepositoryWatch(ownerName, repositoryName, !watched).then((res) => {
                     setTimeout(() => {
                         Actions.pop();
@@ -234,17 +234,17 @@ class RepositoryDetailPage extends Component {
         let bottom = this.state.showBottom ?
             <View style={[styles.flexDirectionRowNotFlex, styles.centerH, styles.shadowCard]}>
                 <CommonBottomBar dataList={this._getBottomItem()}
-                                 rootStyles={{
-                                     flex: 1,
-                                     shadowOffset: {
-                                         width: 0,
-                                         height: 0
-                                     },
-                                     shadowOpacity: 0,
-                                     shadowRadius: 0,
-                                     elevation: 0,
-                                 }}/>
-                <View style={{backgroundColor: Constant.primaryLightColor, width: 1, height: 20}}/>
+                    rootStyles={{
+                        flex: 1,
+                        shadowOffset: {
+                            width: 0,
+                            height: 0
+                        },
+                        shadowOpacity: 0,
+                        shadowRadius: 0,
+                        elevation: 0,
+                    }} />
+                <View style={{ backgroundColor: Constant.primaryLightColor, width: 1, height: 20 }} />
                 <PopmenuItem
                     defaultIndex={0}
                     adjustFrame={(styless) => {
@@ -262,14 +262,14 @@ class RepositoryDetailPage extends Component {
                     }}
                     itemHeight={itemHeight}
                     options={this.state.dataDetailBranches}
-                    dropdownStyle={{height: popHeight}}
+                    dropdownStyle={{ height: popHeight }}
                     defaultValue={"master"}
                 />
             </View> :
-            <View/>;
+            <View />;
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <ScrollableTabView
                     onChangeTab={(params) => {
                         this.index = params.i;
@@ -279,15 +279,15 @@ class RepositoryDetailPage extends Component {
                         height: 3
                     }}
                     renderTabBar={(props) => {
-                        return <DefaultTabBar {...props} style={{paddingTop: 5}}/>;
+                        return <DefaultTabBar {...props} style={{ paddingTop: 5 }} />;
                     }}
                     tabBarBackgroundColor={Constant.primaryColor}
                     tabBarActiveTextColor={Constant.white}
                     tabBarInactiveTextColor={Constant.subTextColor}
-                    tabBarTextStyle={{fontSize: 16}}>
+                    tabBarTextStyle={{ fontSize: 16 }}>
                     <WebComponent
                         tabLabel={I18n('reposReadme')}
-                        source={{html: this.state.dataDetailReadme}}
+                        source={{ html: this.state.dataDetailReadme }}
                         userName={this.props.ownerName}
                         reposName={this.props.repositoryName}
                         gsygithubLink={(url) => {

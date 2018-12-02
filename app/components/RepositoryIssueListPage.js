@@ -2,24 +2,24 @@
  * Created by guoshuyu on 2017/11/10.
  */
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View, InteractionManager, StatusBar, TextInput, TouchableOpacity, Keyboard, StyleSheet, Platform
 } from 'react-native';
 import PropTypes from 'prop-types';
-import {Actions} from 'react-native-router-flux';
-import styles, {screenWidth, screenHeight} from "../style"
+import { Actions } from 'react-native-router-flux';
+import styles, { screenWidth, screenHeight } from "../style"
 import * as Constant from "../style/constant"
 import repositoryActions from "../store/actions/repository"
 import I18n from '../style/i18n'
 import issueActions from '../store/actions/issue'
 import PullListView from './widget/PullLoadMoreListView'
 import IssueItem from './widget/IssueItem'
-import {getFullName} from '../utils/htmlUtils'
+import { getFullName } from '../utils/htmlUtils'
 import Icon from 'react-native-vector-icons/Ionicons'
 import * as Config from '../config'
 import CommonBottomBar from "./common/CommonBottomBar";
-import {CommonMoreRightBtnPress} from '../utils/actionUtils'
+import { CommonMoreRightBtnPress } from '../utils/actionUtils'
 
 /**
  * 仓库issue列表
@@ -79,19 +79,19 @@ class RepositoryIssueListPage extends Component {
                     }
                     return res.next();
                 }).then((res) => {
-                let size = 0;
-                if (res && res.result) {
-                    this.page = 2;
-                    let dataList = res.data;
-                    this.setState({
-                        dataSource: dataList
-                    });
-                    size = res.data.length;
-                }
-                if (this.refs.pullList) {
-                    this.refs.pullList.refreshComplete((size >= Config.PAGE_SIZE), true);
-                }
-            });
+                    let size = 0;
+                    if (res && res.result) {
+                        this.page = 2;
+                        let dataList = res.data;
+                        this.setState({
+                            dataSource: dataList
+                        });
+                        size = res.data.length;
+                    }
+                    if (this.refs.pullList) {
+                        this.refs.pullList.refreshComplete((size >= Config.PAGE_SIZE), true);
+                    }
+                });
             return
         }
         repositoryActions.searchRepositoryIssue(this.searchText, this.props.userName, this.props.repositoryName, 1, this.filter).then((res) => {
@@ -124,7 +124,7 @@ class RepositoryIssueListPage extends Component {
                 issueTag={"#" + rowData.number}
                 onPressItem={() => {
                     Actions.IssueDetail({
-                        iconType:2,
+                        iconType: 2,
                         rightBtn: 'ios-more',
                         needRightBtn: true,
                         issue: rowData, title: fullName,
@@ -134,7 +134,7 @@ class RepositoryIssueListPage extends Component {
                             return CommonMoreRightBtnPress(params)
                         }
                     })
-                }}/>
+                }} />
         )
     }
 
@@ -183,7 +183,7 @@ class RepositoryIssueListPage extends Component {
     }
 
     _getBottomItem() {
-        let {select} = this.state;
+        let { select } = this.state;
         return [{
             itemName: I18n("issueAllText"),
             itemTextColor: select === 0 ? Constant.white : Constant.subTextColor,
@@ -231,21 +231,21 @@ class RepositoryIssueListPage extends Component {
     }
 
     _createIssue(text, title) {
-        let {repositoryName, userName} = this.props;
-        Actions.LoadingModal({backExit: false});
+        let { repositoryName, userName } = this.props;
+        Actions.LoadingModal({ backExit: false });
         issueActions.createIssue(userName, repositoryName,
-            {title: title, body: text}).then((res) => {
-            setTimeout(() => {
-                Actions.pop();
-                if (res && res.data) {
-                    let data = this.state.dataSource;
-                    data.splice(0, 0, res.data);
-                    this.setState({
-                        dataSource: data,
-                    })
-                }
-            }, 500);
-        })
+            { title: title, body: text }).then((res) => {
+                setTimeout(() => {
+                    Actions.pop();
+                    if (res && res.data) {
+                        let data = this.state.dataSource;
+                        data.splice(0, 0, res.data);
+                        this.setState({
+                            dataSource: data,
+                        })
+                    }
+                }, 500);
+            })
     }
 
     render() {
@@ -257,10 +257,10 @@ class RepositoryIssueListPage extends Component {
                 width: 2,
                 height: 2
             },
-        }] : [{backgroundColor: Constant.transparentColor}];
+        }] : [{ backgroundColor: Constant.transparentColor }];
         return (
             <View style={styles.mainBox}>
-                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'}/>
+                <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <View style={[styles.flexDirectionRowNotFlex, styles.shadowCard, {
                     backgroundColor: '#FFF',
                     borderBottomRightRadius: 4,
@@ -287,7 +287,7 @@ class RepositoryIssueListPage extends Component {
                             marginHorizontal: Constant.normalMarginEdge / 2,
                             borderRadius: 3,
                             backgroundColor: Constant.subLightTextColor,
-                        }, styles.flex]}/>
+                        }, styles.flex]} />
                 </View>
                 <View style={[styles.centerH, styles.flexDirectionRowNotFlex]}>
                     <CommonBottomBar
@@ -298,10 +298,10 @@ class RepositoryIssueListPage extends Component {
                             marginTop: Constant.normalMarginEdge,
                             borderRadius: 4,
                         }}
-                        dataList={this._getBottomItem()}/>
+                        dataList={this._getBottomItem()} />
                 </View>
                 <PullListView
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ref="pullList"
                     enableRefresh={false}
                     renderRow={(rowData, index) =>
@@ -333,9 +333,9 @@ class RepositoryIssueListPage extends Component {
                     <View
                         style={[styles.centered, ...btnStyle]}>
                         <Icon name={'md-add-circle'}
-                              style={{backgroundColor: Constant.transparentColor}}
-                              backgroundColor={Constant.transparentColor}
-                              size={50} color={Constant.primaryColor}/>
+                            style={{ backgroundColor: Constant.transparentColor }}
+                            backgroundColor={Constant.transparentColor}
+                            size={50} color={Constant.primaryColor} />
                     </View>
                 </TouchableOpacity>
             </View>

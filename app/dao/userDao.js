@@ -1,4 +1,4 @@
-import {AsyncStorage} from 'react-native'
+import { AsyncStorage } from 'react-native'
 import Api from '../net'
 import Address from '../net/address'
 import * as Constant from '../style/constant'
@@ -40,7 +40,7 @@ const getUserInfoDao = async (userName) => {
             if (countRes.result) {
                 starred = countRes.data;
             }
-            let totalInfo = Object.assign({}, res.data, {starred: starred});
+            let totalInfo = Object.assign({}, res.data, { starred: starred });
             realm.write(() => {
                 let allData = realm.objects('UserInfo').filtered(`userName="${res.data.login}"`);
                 if (allData && allData.length > 0) {
