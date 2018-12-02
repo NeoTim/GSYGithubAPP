@@ -2,7 +2,7 @@
 
 ## GSYGithubAPP
 
-### 1.特别说明
+### 特别说明
 这是一个功能完善的 RN 实例项目，从 https://github.com/CarGuo/GSYGithubAPP fork 而来，所有权全部归项目创建者所有。
 
 项目创建者编写的原始 README 文档在这里：[原始README文档](./README.bak.md)。
@@ -16,7 +16,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/CarGuo/GSYGithubAPP.svg)](https://github.com/damoqiongqiu/GSYGithubAPP/issues)
 [![GitHub license](https://img.shields.io/github/license/CarGuo/GSYGithubAPP.svg)](https://github.com/damoqiongqiu/GSYGithubAPP/blob/master/LICENSE)
 
-### 2.使用方法
+### 使用方法
 
 - 配置好react native开发环境，可参阅 [【搭建环境】](http://reactnative.cn/docs/0.51/getting-started.html) | [【React Native开发（一、入门）】](http://www.jianshu.com/p/97692b1c451d)
 - clone代码，根目录下执行`npm install`安装node_modules(太慢建议科学上网或使用淘宝镜像)
@@ -42,7 +42,7 @@
 
 **特别注意：如果在启动项目时出现了node相关的错误，请使用 npm chache clean 清掉所有本地缓存，然后 重新执行 npm install。如果npm速度慢，尝试把registry设置成淘宝的源。**
 
-### 3.运行效果
+### 运行效果
 
 ![](./docs/1.gif)
 
@@ -53,7 +53,7 @@
 <img src="./docs/3.jpg" width="426px"/>
 
 
-### 4.技术栈
+### 技术栈
 
 * [react-native(0.57.5)](http://reactnative.cn/docs/0.51/getting-started.html)
 * [react-native-router-flux 路由框架](https://github.com/aksonov/react-native-router-flux)
@@ -68,13 +68,13 @@
 * [url-parse url解析](https://github.com/unshiftio/url-parse)
 * [lottie](https://github.com/airbnb/lottie-react-native)
 
-### 5.常见问题
+### 常见问题
 
 * xcode的运行，第一次下载 react native 和 realm 相关包比较耗时。[iOS RN 0.45以上版本所需的第三方编译库(boost等)解决](http://reactnative.cn/post/4301)
 
 * win下在npm出现问题时，再次npm时可以删除.lock文件先（如果是mac就简单很多了）。
 
-### 6.LICENSE
+### LICENSE
 Apache License 2.0
 
 本人修改、增加的任何功能完全free，其它请遵守项目原始创建者的版本声明：https://github.com/CarGuo/GSYGithubAPP
