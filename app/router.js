@@ -50,8 +50,7 @@ const getRouter = () => {
             getSceneStyle={() => {
                 return styles.routerStyle
             }}
-            backAndroidHandler={
-                BackUtils()}>
+            backAndroidHandler={BackUtils()}>
             <Lightbox>
                 <Scene key="main">
                     <Scene key="WelcomePage" component={WelcomePage} hideNavBar hideTabBar hide />
