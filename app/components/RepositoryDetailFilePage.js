@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
-import styles from "../style"
-import * as Constant from "../style/constant"
+import styles from "../assets/style"
+import * as Constant from "../assets/style/constant"
 import reposActions from '../store/actions/repository'
 import PullListView from './widget/PullLoadMoreListView'
 import CommonRowItem from './common/CommonRowItem'

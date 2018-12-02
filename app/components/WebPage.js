@@ -7,12 +7,12 @@ import {
     Text,
     TouchableOpacity
 } from 'react-native';
-import I18n from '../style/i18n'
+import I18n from '../i18n'
 import Icon from 'react-native-vector-icons/Ionicons'
-import * as Constant from '../style/constant'
-import { screenWidth } from '../style'
+import * as Constant from '../assets/style/constant'
+import { screenWidth } from '../assets/style'
 import { Actions } from "react-native-router-flux";
-import styles from "../style"
+import styles from "../assets/style"
 
 /**
  * Web浏览页面

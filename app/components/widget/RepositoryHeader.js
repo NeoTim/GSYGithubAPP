@@ -15,15 +15,15 @@ import {
     Platform
 } from 'react-native';
 
-import * as Constant from '../../style/constant'
+import * as Constant from '../../assets/style/constant'
 import { Actions } from 'react-native-router-flux'
-import styles from '../../style'
+import styles from '../../assets/style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import IconC from 'react-native-vector-icons/Octicons'
 import UserImage from './UserImage'
 import IconTextItem from './IconTextItem'
 import HTMLView from '../common/CommonHtmlView';
-import I18n from '../../style/i18n'
+import I18n from '../../i18n'
 import TagGroup from "./TagGroup";
 
 /**

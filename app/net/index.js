@@ -4,8 +4,8 @@
 
 
 import { NetInfo, Platform, AsyncStorage } from 'react-native';
-import I18n from '../style/i18n'
-import * as Constant from '../style/constant'
+import I18n from '../i18n'
+import * as Constant from '../assets/style/constant'
 import * as Code from './netwrokCode'
 import handlerError from './netwrokCode'
 import { NativeModules, DeviceEventEmitter } from 'react-native';

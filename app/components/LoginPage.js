@@ -14,10 +14,10 @@ import {
     Linking,
     Easing
 } from 'react-native';
-import styles, { screenHeight, screenWidth } from "../style"
-import * as Constant from "../style/constant"
+import styles, { screenHeight, screenWidth } from "../assets/style"
+import * as Constant from "../assets/style/constant"
 import PropTypes from 'prop-types';
-import I18n from '../style/i18n'
+import I18n from '../i18n'
 import loginActions from '../store/actions/login'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -181,7 +181,7 @@ class LoginPage extends Component {
                         <LottieView
                             ref="lottieView"
                             style={{ width: screenWidth, height: screenHeight / 2 }}
-                            source={require('../style/lottie/animation-login.json')}
+                            source={require('../assets/style/lottie/animation-login.json')}
                             progress={this.state.progress}
                         />
                     </View>
@@ -196,7 +196,7 @@ class LoginPage extends Component {
                     onClosed={this.onClose}
                     onOpened={this.onOpen}>
                     <View style={[styles.centered, { marginTop: Constant.normalMarginEdge }]}>
-                        <Image source={require("../img/logo.png")}
+                        <Image source={require("../assets/img/logo.png")}
                             resizeMode={"contain"}
                             style={{ width: 80, height: 80 }} />
                     </View>

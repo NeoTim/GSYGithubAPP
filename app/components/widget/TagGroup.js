@@ -7,8 +7,8 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from "../../style/index"
-import * as Constant from "../../style/constant"
+import styles from "../../assets/style/index"
+import * as Constant from "../../assets/style/constant"
 import { Actions } from "react-native-router-flux";
 
 /**

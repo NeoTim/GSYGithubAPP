@@ -6,9 +6,9 @@ import {
     TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
-import * as Constant from '../../style/constant'
-import styles from '../../style'
-import I18n from '../../style/i18n'
+import * as Constant from '../../assets/style/constant'
+import styles from '../../assets/style'
+import I18n from '../../i18n'
 
 class SearchFilterSelectList extends Component {
     state;

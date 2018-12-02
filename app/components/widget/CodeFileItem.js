@@ -14,8 +14,8 @@ import {
     StyleSheet
 } from 'react-native';
 
-import * as Constant from '../../style/constant'
-import styles from '../../style'
+import * as Constant from '../../assets/style/constant'
+import styles from '../../assets/style'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 

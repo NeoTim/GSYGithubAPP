@@ -7,13 +7,13 @@ import {
     View, Image, StatusBar, Platform, Animated, Easing
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import styles, { screenHeight, screenWidth } from "../style"
-import I18n from '../style/i18n'
+import styles, { screenHeight, screenWidth } from "../assets/style"
+import I18n from '../i18n'
 import loginActions from '../store/actions/login'
 import userActions from '../store/actions/user'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as Constant from "../style/constant"
+import * as Constant from "../assets/style/constant"
 import SplashScreen from './widget/native/SplashNative'
 import LottieView from 'lottie-react-native';
 
@@ -68,7 +68,7 @@ class WelcomePage extends Component {
             <View style={[styles.mainBox, { backgroundColor: Constant.white }]}>
                 <StatusBar hidden={true} />
                 <View style={[styles.centered, { flex: 1 }]}>
-                    <Image source={require("../img/welcome.png")}
+                    <Image source={require("../assets/img/welcome.png")}
                         resizeMode={"contain"}
                         style={{ width: screenWidth, height: screenHeight }} />
                     <View style={[styles.absoluteFull, styles.centered, { justifyContent: "flex-end" }]}>
@@ -79,7 +79,7 @@ class WelcomePage extends Component {
                                     width: 150,
                                     height: 150,
                                 }}
-                                source={require('../style/lottie/animation-w800-h800.json')}
+                                source={require('../assets/style/lottie/animation-w800-h800.json')}
                                 progress={this.state.progress}
                             />
                         </View>

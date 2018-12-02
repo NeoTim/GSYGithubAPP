@@ -7,9 +7,9 @@ import {
     View, StyleSheet, StatusBar, TextInput, TouchableOpacity, Keyboard
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import styles from "../style"
-import * as Constant from "../style/constant"
-import I18n from '../style/i18n'
+import styles from "../assets/style"
+import * as Constant from "../assets/style/constant"
+import I18n from '../i18n'
 import repositoryActions from '../store/actions/repository'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'

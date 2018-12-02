@@ -6,8 +6,8 @@ import React, { Component } from 'react';
 import {
     View, Text, StatusBar, Image, InteractionManager
 } from 'react-native';
-import styles from "../../style"
-import * as Constant from '../../style/constant'
+import styles from "../../assets/style"
+import * as Constant from '../../assets/style/constant'
 import eventActions from '../../store/actions/event'
 import userActions from '../../store/actions/user'
 import repositoryActions from '../../store/actions/repository'
@@ -16,7 +16,7 @@ import PullListView from './PullLoadMoreListView'
 import EventItem from './EventItem'
 import { getActionAndDes, ActionUtils } from '../../utils/eventUtils'
 import * as Config from '../../config'
-import I18n from '../../style/i18n'
+import I18n from '../../i18n'
 import resolveTime from '../../utils/timeUtil'
 import UserItem from '../widget/UserItem'
 

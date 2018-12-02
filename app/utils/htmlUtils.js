@@ -1,6 +1,6 @@
 import marked from 'marked'
 import { highlightAuto, configure } from 'highlight.js'
-import * as Constant from '../style/constant'
+import * as Constant from '../assets/style/constant'
 import { Platform } from 'react-native'
 import { Actions } from 'react-native-router-flux'
 import URL from 'url-parse';

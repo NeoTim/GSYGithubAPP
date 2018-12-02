@@ -7,11 +7,11 @@ import {
     View, Linking, StatusBar, InteractionManager, TouchableOpacity, Keyboard
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import styles from "../style/index"
-import * as Constant from "../style/constant"
+import styles from "../assets/style/index"
+import * as Constant from "../assets/style/constant"
 import userActions from '../store/actions/user'
 import repositoryActions from '../store/actions/repository'
-import I18n from '../style/i18n'
+import I18n from '../i18n'
 import UserItem from './widget/UserItem'
 import IssueItem from './widget/IssueItem'
 import EventItem from './widget/EventItem'

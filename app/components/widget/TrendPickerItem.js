@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
     View, Text, TouchableHighlight, StyleSheet
 } from 'react-native';
-import styles, { screenWidth } from "../../style"
-import * as Constant from "../../style/constant"
-import I18n from '../../style/i18n'
+import styles, { screenWidth } from "../../assets/style"
+import * as Constant from "../../assets/style/constant"
+import I18n from '../../i18n'
 import ModalDropdown from 'react-native-modal-dropdown';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons'

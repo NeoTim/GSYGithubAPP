@@ -7,9 +7,9 @@ import {
     View, Text, StatusBar
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import styles from "../style"
-import I18n from '../style/i18n'
-import * as Constant from '../style/constant'
+import styles from "../assets/style"
+import I18n from '../i18n'
+import * as Constant from '../assets/style/constant'
 import { getLanguageCurrent, LanguageSelect } from '../utils/actionUtils'
 import loginActions from '../store/actions/login'
 import { connect } from 'react-redux'

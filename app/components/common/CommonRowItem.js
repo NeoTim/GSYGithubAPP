@@ -14,8 +14,8 @@ import {
     StyleSheet
 } from 'react-native';
 
-import * as Constant from '../../style/constant'
-import styles from '../../style/index'
+import * as Constant from '../../assets/style/constant'
+import styles from '../../assets/style/index'
 import Icon from 'react-native-vector-icons/EvilIcons'
 import IconC from 'react-native-vector-icons/Octicons'
 

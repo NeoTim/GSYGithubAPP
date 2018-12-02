@@ -3,12 +3,12 @@ import {
     View, Text, TouchableOpacity, StyleSheet
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from "../../style/index"
-import * as Constant from "../../style/constant"
+import styles from "../../assets/style/index"
+import * as Constant from "../../assets/style/constant"
 import IconC from 'react-native-vector-icons/Ionicons'
 import UserImage from "./UserImage";
 import { Actions } from 'react-native-router-flux';
-import I18n from '../../style/i18n'
+import I18n from '../../i18n'
 
 /**
  * 组织bar

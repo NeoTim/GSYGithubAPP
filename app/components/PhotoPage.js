@@ -7,10 +7,10 @@ import {
     View, ActivityIndicator, StatusBar
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { screenWidth, screenHeight } from "../style"
+import { screenWidth, screenHeight } from "../assets/style"
 import ImageViewer from 'react-native-image-zoom-viewer'
-import styles from "../style/index";
-import * as Constant from "../style/constant";
+import styles from "../assets/style/index";
+import * as Constant from "../assets/style/constant";
 
 /**
  * 大图查看
@@ -50,7 +50,7 @@ class PhotoPage extends Component {
             <View style={[styles.mainBox, { backgroundColor: Constant.primaryColor }]}>
                 <StatusBar hidden={false} backgroundColor={'transparent'} translucent barStyle={'light-content'} />
                 <ImageViewer imageUrls={this.images}
-                    failImageSource={require("../img/default_img.png")}
+                    failImageSource={require("../assets/img/default_img.png")}
                     style={{ width: screenWidth, height: screenHeight }}
                     onClick={() => {
                         if (this.exit) {

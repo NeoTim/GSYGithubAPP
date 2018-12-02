@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import {
     View, Text, FlatList, ActivityIndicator, TouchableOpacity, Image
 } from 'react-native';
-import styles, { screenHeight } from "../../style"
-import * as Constant from "../../style/constant"
-import I18n from '../../style/i18n'
+import styles, { screenHeight } from "../../assets/style"
+import * as Constant from "../../assets/style/constant"
+import I18n from '../../i18n'
 import * as Config from '../../config'
 
 /**
@@ -111,7 +111,7 @@ class PullLoadMoreListView extends Component {
                         this._refresh();
                         this.showRefreshState();
                     }}>
-                    <Image source={require("../../img/logo.png")}
+                    <Image source={require("../../assets/img/logo.png")}
                         resizeMode={"contain"}
                         style={{ width: 80, height: 80 }} />
                     <Text style={[styles.normalText]}>

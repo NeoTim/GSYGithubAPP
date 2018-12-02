@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 import Api from '../net'
 import Address from '../net/address'
-import * as Constant from '../style/constant'
+import * as Constant from '../assets/style/constant'
 import realm from './db'
 
 

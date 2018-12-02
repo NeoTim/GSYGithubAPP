@@ -1,8 +1,8 @@
-import I18n from '../style/i18n'
+import I18n from '../i18n'
 import { StyleSheet } from 'react-native'
 import { Actions } from 'react-native-router-flux'
-import styles, { navBarHeight, screenWidth } from "../style"
-import * as Constant from '../style/constant'
+import styles, { navBarHeight, screenWidth } from "../assets/style"
+import * as Constant from '../assets/style/constant'
 import {
     Platform, StatusBar
 } from 'react-native';

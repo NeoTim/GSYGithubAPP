@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, ViewPropTypes, } from 'react-native';
 import { Router, Actions, Scene } from 'react-native-router-flux';
-import styles, { statusHeight, drawerWidth } from "../../style"
-import * as Constant from '../../style/constant'
+import styles, { statusHeight, drawerWidth } from "../../assets/style"
+import * as Constant from '../../assets/style/constant'
 import { SortType, SearchFilterType, SearchLanguageType } from '../../utils/filterUtils'
 import SelectList from './SearchFilterSelectList'
 

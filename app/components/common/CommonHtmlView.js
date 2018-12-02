@@ -3,11 +3,11 @@ import { Clipboard, Linking, Image, TouchableWithoutFeedback, Platform, View, Im
 import HTMLView from 'react-native-htmlview';
 import Toast from './ToastProxy'
 import { Actions } from "react-native-router-flux";
-import I18n from '../../style/i18n'
+import I18n from '../../i18n'
 import { launchUrl } from '../../utils/htmlUtils'
-import styles, { screenWidth } from "../../style/index"
+import styles, { screenWidth } from "../../assets/style/index"
 import Icon from 'react-native-vector-icons/Ionicons'
-import * as Constant from "../../style/constant";
+import * as Constant from "../../assets/style/constant";
 
 /**
  * 通用横Html解析显示item控件

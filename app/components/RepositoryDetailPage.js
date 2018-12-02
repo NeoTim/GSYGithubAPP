@@ -7,9 +7,9 @@ import {
     View, InteractionManager, StatusBar, Dimensions, StyleSheet, BackHandler
 } from 'react-native';
 import { Actions, Tabs } from 'react-native-router-flux';
-import styles, { screenHeight } from "../style"
-import * as Constant from "../style/constant"
-import I18n from '../style/i18n'
+import styles, { screenHeight } from "../assets/style"
+import * as Constant from "../assets/style/constant"
+import I18n from '../i18n'
 import repositoryActions from '../store/actions/repository'
 import WebComponent from './widget/CustomWebComponent'
 import CommonBottomBar from './common/CommonBottomBar'

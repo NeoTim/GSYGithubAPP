@@ -3,8 +3,8 @@ import {
     View, Text, TouchableOpacity, ScrollView
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from "../../style/index"
-import * as Constant from "../../style/constant"
+import styles from "../../assets/style/index"
+import * as Constant from "../../assets/style/constant"
 import IconC from 'react-native-vector-icons/Octicons'
 import IconC2 from 'react-native-vector-icons/MaterialCommunityIcons'
 

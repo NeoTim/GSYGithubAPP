@@ -1,6 +1,6 @@
 import { hostWeb } from '../../net/address'
 import * as Code from '../../net/netwrokCode'
-import I18n from '../../style/i18n'
+import I18n from '../../i18n'
 
 const mergedPullRequestsStart = '<a href="#merged-pull-requests"';
 const proposedPullRequestsStart = '<a href="#proposed-pull-requests"';

@@ -7,10 +7,10 @@ import {
     View, Platform, StatusBar, ScrollView, Linking
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import styles from "../style"
-import I18n from '../style/i18n'
+import styles from "../assets/style"
+import I18n from '../i18n'
 import CommonRowItem from "./common/CommonRowItem";
-import * as Constant from "../style/constant";
+import * as Constant from "../assets/style/constant";
 import VersionNumber from 'react-native-version-number';
 import issueActions from "../store/actions/issue";
 import repositoryActions from "../store/actions/repository";

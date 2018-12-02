@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {
     View, Text, TouchableOpacity
 } from 'react-native';
-import styles from "../../style/index"
+import styles from "../../assets/style/index"
 import PropTypes from 'prop-types';
-import * as Constant from '../../style/constant'
+import * as Constant from '../../assets/style/constant'
 
 /**
  * 垂直两行文本按键item

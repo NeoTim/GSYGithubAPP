@@ -3,7 +3,7 @@ import {
     BackHandler
 } from 'react-native';
 
-import I18n from '../style/i18n'
+import I18n from '../i18n'
 import Toast from '../components/common/ToastProxy'
 import SplashScreen from '../components/widget/native/SplashNative'
 

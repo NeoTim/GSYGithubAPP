@@ -12,9 +12,9 @@ import {
     TouchableHighlight
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles, { screenWidth, screenHeight } from "../../style/index"
-import * as Constant from "../../style/constant"
-import I18n from '../../style/i18n'
+import styles, { screenWidth, screenHeight } from "../../assets/style/index"
+import * as Constant from "../../assets/style/constant"
+import I18n from '../../i18n'
 import { uploadQiNiu } from '../../net/qiniu'
 import Modal from 'react-native-modalbox';
 import Spinner from 'react-native-spinkit';

@@ -5,8 +5,8 @@ import {
     View, Text, Image, TouchableOpacity
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from '../../style'
-import * as Constant from '../../style/constant'
+import styles from '../../assets/style'
+import * as Constant from '../../assets/style/constant'
 import { Actions } from 'react-native-router-flux';
 import UserImage from './UserImage'
 

@@ -7,8 +7,8 @@ import {
     View, AppState, StatusBar, InteractionManager
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import styles from "../style"
-import I18n from '../style/i18n'
+import styles from "../assets/style"
+import I18n from '../i18n'
 import loginActions from '../store/actions/login'
 import userActions from '../store/actions/user'
 import eventActions from '../store/actions/event'

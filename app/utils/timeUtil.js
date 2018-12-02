@@ -3,7 +3,7 @@
  */
 
 import moment from 'moment';
-import I18n from '../style/i18n'
+import I18n from '../i18n'
 import momentLocale from 'moment/locale/zh-cn';
 
 moment.updateLocale('zh-cn', momentLocale);

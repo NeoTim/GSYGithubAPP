@@ -1,6 +1,6 @@
 import { Actions } from 'react-native-router-flux'
 import { StyleSheet } from 'react-native'
-import * as Constant from '../style/constant'
+import * as Constant from '../assets/style/constant'
 import { launchUrl } from "./htmlUtils";
 
 export const getActionAndDes = (event) => {

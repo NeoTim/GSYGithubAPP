@@ -7,7 +7,7 @@ import {
     View, Text, StatusBar
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import styles from "../style"
+import styles from "../assets/style"
 import loginActions from '../store/actions/login'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'

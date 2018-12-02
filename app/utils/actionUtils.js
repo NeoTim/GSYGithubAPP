@@ -1,10 +1,10 @@
-import * as Constant from "../style/constant"
+import * as Constant from "../assets/style/constant"
 import { StyleSheet, Linking, Clipboard, Platform, Share, AsyncStorage } from "react-native";
 import { Actions } from 'react-native-router-flux';
-import I18n from '../style/i18n'
+import I18n from '../i18n'
 import Toast from '../components/common/ToastProxy'
 import { FSModule } from '../net'
-import { changeLocale } from '../style/i18n'
+import { changeLocale } from '../i18n'
 
 
 export const RepositoryDetailRightBtnPress = (props) => {

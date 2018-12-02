@@ -9,8 +9,8 @@ import {
     ScrollView
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles, { screenWidth, screenHeight } from "../../style/index"
-import * as Constant from "../../style/constant"
+import styles, { screenWidth, screenHeight } from "../../assets/style/index"
+import * as Constant from "../../assets/style/constant"
 import Modal from 'react-native-modalbox';
 import { Actions } from "react-native-router-flux";
 

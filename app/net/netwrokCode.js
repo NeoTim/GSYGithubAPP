@@ -1,5 +1,5 @@
 import { Actions } from "react-native-router-flux";
-import I18n from '../style/i18n'
+import I18n from '../i18n'
 import Toast from '../components/common/ToastProxy'
 
 //网络错误

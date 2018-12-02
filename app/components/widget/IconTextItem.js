@@ -3,8 +3,8 @@ import {
     View, Text
 } from 'react-native';
 import PropTypes from 'prop-types';
-import styles from "../../style"
-import * as Constant from '../../style/constant'
+import styles from "../../assets/style"
+import * as Constant from '../../assets/style/constant'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 class IconTextItem extends Component {

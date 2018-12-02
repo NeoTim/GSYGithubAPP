@@ -6,7 +6,7 @@
  */
 import TrendingUtil from './TrendingUtil';
 import * as Code from '../../net/netwrokCode'
-import I18n from '../../style/i18n'
+import I18n from '../../i18n'
 
 
 

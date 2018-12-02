@@ -3,9 +3,9 @@ import {
     View, Text, StatusBar, Platform, InteractionManager
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import styles, { screenWidth, navBarHeight } from "../style"
-import * as Constant from "../style/constant"
-import I18n from '../style/i18n'
+import styles, { screenWidth, navBarHeight } from "../assets/style"
+import * as Constant from "../assets/style/constant"
+import I18n from '../i18n'
 import loginActions from '../store/actions/login'
 import userActions from '../store/actions/user'
 import reposAction from '../store/actions/repository'

@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { Router, Actions, Scene } from 'react-native-router-flux';
-import styles from "../../style"
-import I18n from '../../style/i18n'
-import * as Constant from '../../style/constant'
+import styles from "../../assets/style"
+import I18n from '../../i18n'
+import * as Constant from '../../assets/style/constant'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 /**

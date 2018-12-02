@@ -7,9 +7,9 @@ import {
     View, InteractionManager, StatusBar, Dimensions, StyleSheet
 } from 'react-native';
 import { Actions, Tabs } from 'react-native-router-flux';
-import styles from "../style"
-import * as Constant from "../style/constant"
-import I18n from '../style/i18n'
+import styles from "../assets/style"
+import * as Constant from "../assets/style/constant"
+import I18n from '../i18n'
 import userActions from '../store/actions/user'
 import ListPage from "./ListPage";
 import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view-fix-guo';

@@ -35,18 +35,15 @@ import CustomBackButton from './components/widget/CustomBackButton'
 import CustomDrawerButton from './components/widget/CustomDrawerButton'
 import SearchButton from './components/widget/CustomSearchButton'
 import CommonIconButton from './components/common/CommonIconButton'
-import styles from './style'
-import I18n, { changeLocale } from './style/i18n'
-import * as Constant from './style/constant'
+import styles from './assets/style'
+import I18n, { changeLocale } from './i18n'
+import * as Constant from './assets/style/constant'
 import BackUtils from './utils/backUtils'
 import { CommonMoreRightBtnPress, RepositoryDetailRightBtnPress } from './utils/actionUtils'
 
 import WelcomePage from "./components/WelcomePage"
-import { screenWidth, drawerWidth } from "./style/index";
+import { screenWidth, drawerWidth } from "./assets/style/index";
 
-/**
- * 全局路由
- */
 const getRouter = () => {
     return (
         <Router
@@ -201,6 +198,5 @@ const getRouter = () => {
         </Router>
     )
 };
-
 
 export default getRouter;

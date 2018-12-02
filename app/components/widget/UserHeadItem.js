@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import {
     View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, WebView, ActivityIndicator
 } from 'react-native';
-import styles, { screenWidth } from "../../style"
+import styles, { screenWidth } from "../../assets/style"
 import PropTypes from 'prop-types';
-import * as Constant from '../../style/constant'
+import * as Constant from '../../assets/style/constant'
 import IconTextItem from './IconTextItem'
 import IconTextAutoLinkItem from './IconTextAutoLinkItem'
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconF from 'react-native-vector-icons/FontAwesome'
 import { Actions } from "react-native-router-flux";
-import I18n from '../../style/i18n'
+import I18n from '../../i18n'
 import NameValueItem from '../common/CommonNameValueItem'
 import OrgItemBar from '../widget/OrgItemBar'
 import { RepositoryFilter } from '../../utils/filterUtils'
@@ -87,7 +87,7 @@ class UserHeadItem extends Component {
                         this.refs.activity.reload();
                     }
                 }}>
-                <Image source={require("../../img/logo.png")}
+                <Image source={require("../../assets/img/logo.png")}
                     resizeMode={"contain"}
                     style={{ width: 30, height: 30 }} />
                 <Text style={[styles.smallText]}>

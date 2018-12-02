@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { Actions } from 'react-native-router-flux';
-import styles from "../style"
-import * as Constant from "../style/constant"
-import I18n from '../style/i18n'
+import styles from "../assets/style"
+import * as Constant from "../assets/style/constant"
+import I18n from '../i18n'
 import issueActions from '../store/actions/issue'
 import PullListView from './widget/PullLoadMoreListView'
 import IssueItem from './widget/IssueItem'
