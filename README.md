@@ -23,12 +23,17 @@
 - 重点：你需要自己在app/config目录下 创建一个ignoreConfig.js文件，然后输入你申请的Github client_id 和 client_secret。
 
     export const CLIENT_ID = "xxxx";
+
     export const CLIENT_SECRET = "xxxx";
 
     //如果需要上传七牛
+    
     export const ACCESS_KEY = "xxxx";
+
     export const SECRET_KEY = "xxx";
+
     export const QN_HOST = "xxxx";
+
     export const SCOPE = "xxxx";
 
     [注册 Github APP 传送门](https://github.com/settings/applications/new)，当然，前提是你现有一个github账号(～￣▽￣)～ 。
