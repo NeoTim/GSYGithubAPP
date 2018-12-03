@@ -7,6 +7,13 @@
     "test": "jest",
     "ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'"
   },
+  "jest": {
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js",
+      "\\.(ts|tsx)$": "ts-jest"
+    }
+  },
   "dependencies": {
     "base-64": "^0.1.0",
     "buffer": "^5.0.8",
@@ -42,13 +49,11 @@
     "url-parse": "^1.2.0"
   },
   "devDependencies": {
-    "babel-jest": "21.2.0",
-    "babel-preset-react-native": "4.0.0",
-    "jest": "21.2.1",
+    "babel-jest": "^21.2.0",
+    "babel-preset-react-native": "^4.0.0",
+    "jest": "^21.2.1",
     "metro-react-native-babel-preset": "^0.45.6",
-    "react-test-renderer": "^16.6.1"
-  },
-  "jest": {
-    "preset": "react-native"
+    "react-test-renderer": "^16.6.3",
+    "ts-jest": "^23.10.5"
   }
 }
