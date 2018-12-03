@@ -1,25 +1,13 @@
 /**
  * Created by guoshuyu on 2017/2/10.
  */
-
-import React, {
-    Component,
-} from 'react';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 import PropTypes from 'prop-types';
-import {
-    Text,
-    Image,
-    View,
-    StyleSheet,
-    TouchableOpacity,
-    Dimensions,
-} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather'
 
 import * as Constant from '../../assets/style/constant'
 import styles from '../../assets/style'
-import I18n from '../../i18n'
-import Icon from 'react-native-vector-icons/Feather'
-
 
 const config = {
     ["tabRecommended"]: 'activity',
@@ -38,17 +26,13 @@ const propTypes = {
  * 底部Tab
  */
 class TabIcon extends Component {
-
     constructor(props) {
         super(props)
     }
 
     render() {
-
         let iconPath = config[this.props.tabIconName];
-
         let color = this.props.focused ? Constant.tabSelectedColor : Constant.tabUnSelectColor;
-
         return (
             <View style={styles.centered}>
                 <Icon name={iconPath} size={Constant.tabIconSize} color={color} />
